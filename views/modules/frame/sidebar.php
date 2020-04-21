@@ -21,18 +21,61 @@
     <nav class="mt-2">
 
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-          <a href="usuarios" class="nav-link">
-            <i class="nav-icon fa fa-users"></i>
 
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
             <p>
-              Usuarios
+              Administracion
+              <i class="right fas fa-angle-left"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="usuarios" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>Usuarios</p>
+              </a>
+            </li>
+          </ul>
         </li>
-      </ul>
 
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-list"></i>
+            <p>
+              Tareas
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="nueva-tarea" class="nav-link">
+                <i class="nav-icon fa fa-plus"></i>
+                <p>Nueva Tarea</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="mis-tareas" class="nav-link">
+                <i class="nav-icon far fa-circle"></i>
+                <p>Tareas Pendientes</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="todas-mis-tareas" class="nav-link">
+                <i class="nav-icon far fa-circle"></i>
+                <p>Todas mis Tareas</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="mis-tareas-creadas" class="nav-link">
+                <i class="nav-icon far fa-circle"></i>
+                <p>Mis Tareas Creadas</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a href="logout" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -43,7 +86,6 @@
           </a>
         </li>
       </ul>
-
 
     </nav>
     <!-- /.sidebar-menu -->

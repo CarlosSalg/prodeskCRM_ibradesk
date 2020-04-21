@@ -102,6 +102,10 @@
 
 					if(
 						$route == 'usuarios' || 
+						$route == 'nueva-tarea' || 
+						$route == 'mis-tareas' || 
+						$route == 'todas-mis-tareas' || 
+						$route == 'mis-tareas-creadas' || 
 						$route == 'home' || 
 						$route == 'login' || 
 						$route == 'logout'
@@ -109,6 +113,10 @@
 					{
 
 						include "views/modules/".$route.".php";
+
+					}else{
+
+						include "views/modules/404.php";
 
 					}
 
@@ -135,6 +143,7 @@
 	<!-- Scripts App -->
 	<script src="app/app.js"></script>
 	<script src="app/usuarios.js"></script>
+	<script src="app/tareas.js"></script>
 
 </body>
 
