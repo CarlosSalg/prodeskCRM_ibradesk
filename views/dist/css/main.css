@@ -1,0 +1,71 @@
+.logo{
+
+	width: 160px;
+	height: 50px;
+}
+
+.img-usuario{
+
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+
+}
+
+.f-12{
+	
+	font-size: 12px;
+
+}
+
+.f-13{
+	
+	font-size: 13px;
+
+}
+
+.f-14{
+	
+	font-size: 14px;
+
+}
+
+.f-18{
+	
+	font-size: 18px;
+
+}
+
+.obligatorio{
+
+	color: #DB7834 !important;
+
+}
+
+.form-sm input{
+	
+	font-size: 12px;
+
+}
+
+.form-sm select{
+	
+	font-size: 12px;
+
+}
+
+.form-sm p{
+
+	color: #0C5B85;
+
+}
+
+.text-area{
+	
+	resize: none;
+}
+
+
