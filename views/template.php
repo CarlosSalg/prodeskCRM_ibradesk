@@ -102,6 +102,8 @@
 
 					if(
 						$route == 'usuarios' || 
+						$route == 'vacantes' || 
+						$route == 'clientes' || 
 						$route == 'nueva-tarea' || 
 						$route == 'mis-tareas' || 
 						$route == 'todas-mis-tareas' || 
@@ -144,6 +146,7 @@
 	<script src="app/app.js"></script>
 	<script src="app/usuarios.js"></script>
 	<script src="app/tareas.js"></script>
+	<script src="app/clientes.js"></script>
 
 </body>
 

@@ -24,7 +24,7 @@
 
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
+            <i class="nav-icon fas fa-cogs"></i>
             <p>
               Administracion
               <i class="right fas fa-angle-left"></i>
@@ -37,12 +37,36 @@
                 <p>Usuarios</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="clientes" class="nav-link">
+                <i class="nav-icon fa fa-list"></i>
+                <p>Clientes</p>
+              </a>
+            </li>
           </ul>
         </li>
 
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-list"></i>
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Reclutamiento
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="vacantes" class="nav-link">
+                <i class="nav-icon far fa-circle"></i>
+                <p>Vacantes</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
             <p>
               Tareas
               <i class="right fas fa-angle-left"></i>
@@ -76,6 +100,8 @@
           </ul>
         </li>
 
+        
+
         <li class="nav-item">
           <a href="logout" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>
@@ -85,6 +111,8 @@
             </p>
           </a>
         </li>
+
+
       </ul>
 
     </nav>
