@@ -1,3 +1,14 @@
+<?php 
+$tareasPendientes = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
+if(count($tareasPendientes)>0){
+  $cantidadTareas = '<span class="badge badge-warning right">'.count($tareasPendientes).'</span>';
+  $avisoTareas = '  <span class="badge badge-danger right">T</span>';
+}else{
+  $cantidadTareas = '';
+  $avisoTareas = '';
+}
+?>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="home" class="brand-link">
@@ -70,6 +81,7 @@
             <p>
               Tareas
               <i class="right fas fa-angle-left"></i>
+              <?=$avisoTareas?>
             </p>
           </a>
           <ul class="nav nav-treeview">
@@ -83,6 +95,8 @@
               <a href="mis-tareas" class="nav-link">
                 <i class="nav-icon far fa-circle"></i>
                 <p>Tareas Pendientes</p>
+                <?=$cantidadTareas?>
+                
               </a>
             </li>
             <li class="nav-item">

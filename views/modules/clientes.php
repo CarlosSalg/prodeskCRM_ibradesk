@@ -37,11 +37,12 @@
                         <tr>
                             <th>Id</th>
                             <th>Razon Social</th>
-                            <th>Comercial</th>
+                            <th>Nombre Comercial</th>
                             <th>Estatus</th>
                             <th>Nombre</th>
                             <th>Correo</th>
                             <th>Telefono</th>
+                            <th>Alta</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -63,6 +64,7 @@
                                         <td>'.$cliente["cli_contacto_compras_nombres"].' '.$cliente["cli_contacto_compras_apellidos"].'</td>
                                         <td>'.$cliente["cli_contacto_compras_correo"].'</td>
                                         <td>'.$cliente["cli_contacto_compras_telefono"].'</td>
+                                        <td>'.$cliente["cli_fecha_alta"].'</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button class="btn-sm btn btn-warning btnEditarCliente" idCliente="'.$cliente["cli_id"].'">
@@ -174,6 +176,97 @@
                 <?php
                     $crearCliente = new ControladorClientes();
                     $crearCliente -> ctrCrearCliente();
+                ?>
+                    
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Modal Editar Cliente-->
+<div class="modal fade" id="editarCliente" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form method="post" enctype="multipart/form-data">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Cliente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>Generales</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="razonSocial">Razon Social</label>
+                                <input type="text"  class="form-control form-control-sm" name="razonSocial" id="razonSocial" placeholder="Razon Social" required="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="nombreComercial">Nombre Comercial</label>
+                                <input type="text"  class="form-control form-control-sm" name="nombreComercial" id="nombreComercial" placeholder="Nombre Comercial" required="">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="statusCliente">Estatus</label>
+                                <select name="statusCliente" id="statusCliente" class="form-control form-control-sm" required="">
+                                    <option value="">Seleccione el estatus</option>
+                                    <option value="prospecto_activo">prospecto_activo</option>
+                                    <option value="prospecto_inactivo">prospecto_inactivo</option>
+                                    <option value="cliente_activo">cliente_activo</option>
+                                    <option value="cliente_inactivo">cliente_inactivo</option>
+                                </select>					
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>Contacto</p>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="contactoComprasNombre">Nombre</label>
+                                        <input type="text"  class="form-control form-control-sm" name="contactoComprasNombre" id="contactoComprasNombre" required="" placeholder="Nombre">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="contactoComprasApellidos">Apellidos</label>
+                                        <input type="text"  class="form-control form-control-sm" name="contactoComprasApellidos" id="contactoComprasApellidos" required="" placeholder="Apellidos">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="contactoComprasCorreo">Correo</label>
+                                        <input type="email"  class="form-control form-control-sm" name="contactoComprasCorreo" id="contactoComprasCorreo" required="" placeholder="Correo">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="contactoComprasTelefono">Telefono</label>
+                                        <input type="text"  class="form-control form-control-sm" name="contactoComprasTelefono" id="contactoComprasTelefono" required="" placeholder="Telefono">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+
+                <?php
+                    
                 ?>
                     
             </form>

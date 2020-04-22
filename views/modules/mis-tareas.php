@@ -1,3 +1,17 @@
+<?php 
+
+    $arrayTotalTareas = ControladorTareas::ctrMostrarTodasMisTareas();
+    $arrayTareasAbiertas = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
+    $totalTareas = count($arrayTotalTareas);
+    $totalTareasAbiertas = count($arrayTareasAbiertas);
+	$avance = ($totalTareasAbiertas/$totalTareas)*100;
+	$avanceReal = 100 - $avance;
+	$avanceViews = round($avanceReal, 0, PHP_ROUND_HALF_UP);
+    $claseAvance = "width: ".$avanceViews."%";
+
+?>
+
+
 <div class="content-wrapper">
 
 	<section class="content-header">
@@ -17,153 +31,158 @@
 	</section>
 
 	<!--Mis tareas abiertas-->
-	<section class="content">
-		<div class="card">
+    <section class="content">
 
-			<div class="card-header">
-		        <h3 class="card-title">Tareas pendientes</h3>
-		        <div class="card-tools">
-		          <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-		            <i class="fas fa-minus"></i></button>
-		          <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-		            <i class="fas fa-times"></i></button>
-		        </div>
-		    </div>
-			<div class="card-body">
-		
-				<?php 
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+        
+                <div class="card">
 
-					$tareas = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
-					$clase = 'default';
+                    <div class="card-header">
+                        <h3 class="card-title">Tareas pendientes</h3>
+                    </div>
 
-					if(count($tareas)>0){
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="info-box bg-info">
+                                    <span class="info-box-icon"><i class="fa fa-edit"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Total Tareas Pendientes</span>
+                                        <span class="info-box-number"><?=$totalTareasAbiertas?></span>
 
-						echo '
+                                        <div class="progress">
+                                            <div class="progress-bar" style="<?=$claseAvance?>"></div>
+                                        </div>
+                                        <span class="progress-description">
+											<?=$avanceViews?>% Tareas completadas
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-							<table class="table tabla table-striped table-hover f-12 my-4 table-responsive">
-								<thead class="text-center">
-									<tr>
-										<th style="width: 5%;">Id</th>
-										<th style="width: 15%;">Asignado a:</th>
-										<th style="width: 15%;">Creada por:</th>
-										<th style="width: 15%;">Nombre</th>
-										<th style="width: 10%;">Fecha Inicio</th>
-										<th style="width: 10%;">Fecha Fin</th>
-										<th style="width: 25%;">Descripcion</th>
-										<th style="width: 20%;">Adjuntos</th>
-										<th style="width: 10%;">Estatus</th>
-										<th style="width: 10%;" class="text-center">Aciones</th>
-										
-									</tr>
-								</thead>
+                </div>
+            </div>
+        </div>
 
-								<tbody class="text-center">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+            <!-- <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0"> -->
 
-						';
+                <?php 
+                    $tareas = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
+                    $clase = 'default';
 
+                    if(count($tareas)>0){
 
-						foreach ($tareas as $key => $tarea) {
+                        foreach ($tareas as $key => $tarea) {
 
-							if($tarea["tar_estatus"] == 'Asignada'){
+                            if($tarea["tar_estatus"] == 'Asignada'){
 
-								$clase = 'badge badge-warning';
+                                $clase = 'badge badge-warning';
 
-							}
+                            }
 
-							if($tarea["tar_estatus"] == 'En curso'){
+                            if($tarea["tar_estatus"] == 'En curso'){
 
-								$clase = 'badge badge-info';
+                                $clase = 'badge badge-info';
 
-							}
+                            }
 
-							if($tarea["tar_estatus"] == 'Pendiente'){
+                            if($tarea["tar_estatus"] == 'Pendiente'){
 
-								$clase = 'badge badge-secondary';
+                                $clase = 'badge badge-secondary';
 
-							}
+                            }
 
+                            echo '
 
-							echo '
-								<tr>
-									<td>'.$tarea["tar_id"].'</td>';
+                                <div class="card collapsed-card">
+									<div class="card-header">
+										<h3 class="card-title"><a class="text-muted f-14">Tarea #'.$tarea["tar_id"].'</a>  '.$tarea["tar_nombre"].' <span class="'.$clase.'">'.$tarea["tar_estatus"].'</span></h3>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6 text-muted f-12">
+                                                Fecha Inicio: '.$tarea["tar_fecha_inicio"].'
+                                            </div>
+                                            <div class="col-md-6 text-muted f-12 text-right">
+                                                Fecha Termino:'.$tarea["tar_fecha_fin"].'
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-12 f-13">
+                                                <b>Creada por: '.$tarea["usu_nombre"].'</b>
+                                                <br>
+                                                <br>  
+                                                Descripcion: '.$tarea["tar_descripcion"].'
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12 f-12">
+                                                <a href="'.$tarea["tar_archivo"].'" target="_blank" >'.$tarea["tar_archivo_nombre"].'</a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="card-footer">
+                    
+                                        <div class="text-right">
+                    
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary btn-sm btnAgregarSeguimiento" estatusTarea="'.$tarea["tar_estatus"].'" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modaAgregarSeguimiento">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                                <button class="btn btn-info btn-sm btnObservarHistorial" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modalVerHistorial">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                            </div>
+                    
+                                        </div>
+                    
+                                    </div>
+                                </div>
+                            
+                            ';
 
-							echo '<td>';
+                        }
 
-							$usuarios = json_decode($tarea["tar_usuarios"]);
+                    }else{
 
-							foreach ($usuarios as $key => $usuario) {
+                        echo '
+                            <div class="container-fluid py-2 px-5 mt-4">
+                                <div class="jumbotron">
+                                    
+                                    <div class="row">	
+                                        <div class="col-md-6">
+                                            <p class="lead">Relajate no hay tareas pendientes</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <p>Puedes crear una nueva tarea haciendo <a href="nueva-tarea">click aqui</a></p>
+                                </div>
+                            </div>
+                        ';
 
-								$usuarioFinal = ControladorUsuarios::ctrBuscarUsuario($usuario);
-								echo "-".$usuarioFinal['usu_nombre']."<br>";
+                    }
 
-							}
-							echo '</td>';
-							echo '
-									<td>'.$tarea["usu_nombre"].'</td>
-									<td>'.$tarea["tar_nombre"].'</td>
-									<td>'.$tarea["tar_fecha_inicio"].'</td>
-									<td>'.$tarea["tar_fecha_fin"].'</td>
-									<td>'.$tarea["tar_descripcion"].'</td>
-							';
+                ?>
 
-							if($tarea["tar_archivo"]!= ""){
+            </div>
 
-								echo '<td><a href="'.$tarea["tar_archivo"].'" target="_blank" >'.$tarea["tar_archivo_nombre"].'</td>';
-
-							}else{
-
-								echo '<td class="text-muted">Sin Adjuntos</td>';
-
-							}
-
-							echo	'
-
-									<td class="f-14"><span class="'.$clase.'">'.$tarea["tar_estatus"].'</span></td>
-									<td>
-
-										<div class="btn-group">
-
-											<button class="btn btn-primary btn-sm btnAgregarSeguimiento" estatusTarea="'.$tarea["tar_estatus"].'" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modaAgregarSeguimiento">
-												<i class="fa fa-plus"></i>
-											</button>
-											<button class="btn btn-info btn-sm btnObservarHistorial" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modalVerHistorial">
-												<i class="fa fa-eye"></i>
-											</button>
-
-										</div>
-
-									</td>
-								</tr>
-							';
-						}
-					}else{
-
-						echo '
-							<div class="container-fluid py-2 px-5 mt-4">
-								<div class="jumbotron">
-									
-									<div class="row">	
-										<div class="col-md-6">
-											<p class="lead">Relajate no hay tareas pendientes</p>
-										</div>
-									</div>
-									<hr>
-									<p>Puedes crear una nueva tarea haciendo <a href="nueva-tarea">click aqui</a></p>
-								</div>
-							</div>
-						';
-					}
-				?>			
-
-					</tbody>
-				</table>
+        </div>
+    </section>
 	
-			</div>			
-		</div>
-	</section>
 </div>
-
-
 
 <!--Modal modaAgregarSeguimiento-->
 <div class="modal fade" id="modaAgregarSeguimiento" tabindex="-1" role="dialog" aria-hidden="true">
