@@ -1,4 +1,5 @@
 <div class="content-wrapper">
+    <!-- Titutlo -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -14,89 +15,226 @@
             </div>
         </div>
     </section>
-
+    <!-- Widget -->
     <section class="content">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Vacantes</h3>
-                <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fas fa-times"></i></button>
-                </div>
-            </div>
-            <div class="card-body">
-
-                <button type="button" data-toggle="modal" data-target="#nuevoUsuario" class="btn btn-primary mb-3 btn-sm">
-                    <i class="fa fa-plus"></i> Nueva Vacante
-                </button>
-
-                <table class="table table-striped table-hover f-13 tabla dt-responsive">
-                <thead class="text-center">
-                    <tr>
-                    <th style="width: 5%;">Id</th>
-                    <th style="width: 20%;">Nombre</th>
-                    <th style="width: 15%;">Usuario</th>
-                    <th>Roll</th>
-                    <th>Ultimo Acceso</th>
-                    <th>Estatus</th>
-                    <th style="width: 10%;">Acciones</th>
-                    </tr>
-                </thead>
-
-                <tbody class="text-center">
-                    
-                    <?php 
-
-                    $usuarios = ControladorUsuarios::ctrMostrarUsuarios();
-
-                    foreach ($usuarios as $key => $usuario) {
-
-                        echo '
-
-                        <tr>
-                            <td>'.$usuario["usu_id"].'</td>
-                            <td>'.$usuario["usu_nombre"].'</td>
-                            <td>'.$usuario["usu_usuario"].'</td>
-                            <td>'.$usuario["usu_roll"].'</td>
-                            <td>'.$usuario["usu_ultimo_login"].'</td>
-                            <td>';
-
-                            if($usuario["usu_estatus"] == 1 ){
-
-                            echo '<button class="btn btn-success btn-sm btnEstatus f-12" estatusUsuario="0" idUsuario="'.$usuario["usu_id"].'">Activado</button>';
-
-                            }else{
-
-                            echo '<button class="btn btn-warning btn-sm btnEstatus f-12" estatusUsuario="1" idUsuario="'.$usuario["usu_id"].'">Desactivado</button>';
-
-                            }
-
-                        echo '  
-
-                            </td>
-                            <td>
-                            <div class="btn-group">
-                                <button class="btn-sm btn btn-warning btn-sm btnEditar" idUsuario="'.$usuario["usu_id"].'" type="button" data-toggle="modal" data-target="#modalEditarUsuario">
-                                <i class="fa fa-edit"></i>
-                                </button>
-                                <button class="btn-sm btn btn-danger btn-sm btnEliminar" idUsuario="'.$usuario["usu_id"].'">
-                                <i class="fa fa-trash-alt"></i>
-                                </button>
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Vacantes Abiertas</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3 col-6">
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h3>5</h3>
+                                        <p>Vacantes Abiertas</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
+                                        Crear una nueva <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
                             </div>
-                            </td>
-                        </tr>
-
-                        ';
-                    }
-
-                    ?>      
-
-                </tbody>
-                </table>
-
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!-- Vacantes -->
+    <section class="content">
+        <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+
+            <?php
+
+                $vacantes = ControladorVacantes::ctrMostrarVacantesConCliente();   
+                
+                foreach($vacantes as $key => $vacante){
+
+                    $clase = "default";
+
+                    if($vacante['vac_estatus'] == "abierta"){
+                        
+                        $clase = 'badge badge-warning';
+                        
+                    }
+
+
+                    echo '
+
+                        <div class="card">
+
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h3 class="card-title"><a type="button" data-card-widget="collapse" class="text-muted">Vacante Numero: '.$vacante["vac_id"].'</a>  '.$vacante["vac_titulo"].' <span class="'.$clase.'">'.$vacante["vac_estatus"].'</span></h3>
+                                    </div>
+                                    <div class="col-md-3 text-right text-muted f-13">
+                                        <a href="'.$vacante["vac_link_occ"].'" target="_blank" >Ver en OCC</a>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 text-muted f-13">
+                                        Fecha Creacion: '.$vacante["vac_fecha_creacion"].'
+                                    </div>
+                                    <div class="col-md-4 text-muted f-13">
+                                        Zona Trabajo: '.$vacante["vac_zona_trabajo"].'
+                                    </div>
+                                    <div class="col-md-4 text-muted f-13">
+                                        Sueldo Ofertado: '.$vacante["vac_sueldo_ofertado"].'
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12 f-13">
+                                        Descripcion de la vacante: 
+                                        <br> 
+                                        '.$vacante["vac_descripcion"].'
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4 text-muted f-13">
+                                        Emplresa: '.$vacante["cli_nombre_comercial"].'
+                                    </div>
+                                    <div class="col-md-4 text-muted f-13">
+                                        Contacto: '.$vacante["cli_contacto_compras_nombres"].' '.$vacante["cli_contacto_compras_apellidos"].'
+                                    </div>
+                                    <div class="col-md-4 text-muted f-13">
+                                        Telefono: '.$vacante["cli_contacto_compras_telefono"].'
+                                    </div>
+                                </div>
+                            </div> 
+            
+                            <div class="card-footer">
+            
+                                <div class="text-right">
+            
+                                    <button class="btn btn-outline-info btn-sm btnVerEstadisticas" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalVerEstadisticas">
+                                        Ver Estadisticas
+                                    </button>
+            
+                                    <button class="btn btn-outline-info btn-sm btnProgramarEntrevista" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalProgramarEntrevista">
+                                        Programar Entrevista
+                                    </button>
+                                            
+                                    <button class="btn btn-info btn-sm btnNuevoFiltro" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalNuevoFiltro">
+                                        Nuevo Filtro
+                                    </button>
+                    
+                                </div>
+            
+                            </div>
+            
+                        </div>
+                    
+                    
+                    ';
+
+                }
+                        
+            ?>
+
+        </div>
+    </section>
+
+</div>
+
+
+<!--Modal modalNuevaVacante-->
+<div class="modal fade" id="modalNuevaVacante" tabindex="-1" role="document" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+            <form method="post" enctype="multipart/form-data">
+                <!--Titulo Modal-->
+                <div class="modal-header">
+                    <h5>Nueva Vacante</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <!--Cuerpo Modal-->
+                <div class="modal-body f-13">
+
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa fa-book"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Titulo de la Vacante" name="tituloVacante" required>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa fa-list"></i>
+                                </span>
+                                <textarea style="resize:none;" rows="5" class="form-control" placeholder="Descripcion de la Vacante" name="descripcionVacante" required></textarea>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-map-marker"></i>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Zona de Trabajo" name="zonaVacante" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </span>
+                                        <input type="number" class="form-control" placeholder="Sueldo Ofertado" name="sueldoVacante" required>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                        <select name="clienteVacante" class="form-control">
+                                            <option value="">Seleccionar Cliente</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-link"></i>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Link OCC" name="linkVacante">
+                                    </div>
+                                
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                            
+                </div>
+                
+                <!--Pie de Modal-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+	    </div>
+	</div>
 </div>

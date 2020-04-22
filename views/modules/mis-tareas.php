@@ -68,114 +68,119 @@
         </div>
 
         <div class="row">
-            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
-            <!-- <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0"> -->
+         
+			<div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
 
-                <?php 
-                    $tareas = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
-                    $clase = 'default';
+				<div class="row">
 
-                    if(count($tareas)>0){
+					<?php 
+						$tareas = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
+						$clase = 'default';
 
-                        foreach ($tareas as $key => $tarea) {
+						if(count($tareas)>0){
 
-                            if($tarea["tar_estatus"] == 'Asignada'){
+							foreach ($tareas as $key => $tarea) {
 
-                                $clase = 'badge badge-warning';
+								if($tarea["tar_estatus"] == 'Asignada'){
 
-                            }
+									$clase = 'badge badge-warning';
 
-                            if($tarea["tar_estatus"] == 'En curso'){
+								}
 
-                                $clase = 'badge badge-info';
+								if($tarea["tar_estatus"] == 'En curso'){
 
-                            }
+									$clase = 'badge badge-info';
 
-                            if($tarea["tar_estatus"] == 'Pendiente'){
+								}
 
-                                $clase = 'badge badge-secondary';
+								if($tarea["tar_estatus"] == 'Pendiente'){
 
-                            }
+									$clase = 'badge badge-secondary';
 
-                            echo '
+								}
 
-                                <div class="card collapsed-card">
-									<div class="card-header">
-										<h3 class="card-title"><a class="text-muted f-14">Tarea #'.$tarea["tar_id"].'</a>  '.$tarea["tar_nombre"].' <span class="'.$clase.'">'.$tarea["tar_estatus"].'</span></h3>
-                                        <div class="card-tools">
-                                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-6 text-muted f-12">
-                                                Fecha Inicio: '.$tarea["tar_fecha_inicio"].'
-                                            </div>
-                                            <div class="col-md-6 text-muted f-12 text-right">
-                                                Fecha Termino:'.$tarea["tar_fecha_fin"].'
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-md-12 f-13">
-                                                <b>Creada por: '.$tarea["usu_nombre"].'</b>
-                                                <br>
-                                                <br>  
-                                                Descripcion: '.$tarea["tar_descripcion"].'
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-12 f-12">
-                                                <a href="'.$tarea["tar_archivo"].'" target="_blank" >'.$tarea["tar_archivo_nombre"].'</a>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="card-footer">
-                    
-                                        <div class="text-right">
-                    
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary btn-sm btnAgregarSeguimiento" estatusTarea="'.$tarea["tar_estatus"].'" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modaAgregarSeguimiento">
-                                                    <i class="fa fa-plus"></i>
-                                                </button>
-                                                <button class="btn btn-info btn-sm btnObservarHistorial" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modalVerHistorial">
-                                                    <i class="fa fa-eye"></i>
-                                                </button>
-                                            </div>
-                    
-                                        </div>
-                    
-                                    </div>
-                                </div>
-                            
-                            ';
+								echo '
+									<div class="col-md-6">
+										<div class="card collapsed-card">
+											<div class="card-header">
+												<h3 class="card-title"><a type="button" data-card-widget="collapse" class="text-muted">Tarea #'.$tarea["tar_id"].'</a>  '.$tarea["tar_nombre"].' <span class="'.$clase.'">'.$tarea["tar_estatus"].'</span></h3>
+												<div class="card-tools">
+													<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Extraer / Contraer">
+														<i class="fas fa-plus"></i>
+													</button>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="row">
+													<div class="col-md-6 text-muted f-12">
+														Fecha Inicio: '.$tarea["tar_fecha_inicio"].'
+													</div>
+													<div class="col-md-6 text-muted f-12 text-right">
+														Fecha Termino:'.$tarea["tar_fecha_fin"].'
+													</div>
+												</div>
+												<hr>
+												<div class="row">
+													<div class="col-md-12 f-13">
+														<b>Creada por: '.$tarea["usu_nombre"].'</b>
+														<br>
+														<br>  
+														Descripcion: '.$tarea["tar_descripcion"].'
+													</div>
+												</div>
+												<br>
+												<div class="row">
+													<div class="col-md-12 f-12">
+														<a href="'.$tarea["tar_archivo"].'" target="_blank" >'.$tarea["tar_archivo_nombre"].'</a>
+													</div>
+												</div>
+												
+											</div>
+											<div class="card-footer">
+							
+												<div class="text-right">
+							
+													<div class="btn-group">
+														<button class="btn btn-primary btn-sm btnAgregarSeguimiento" estatusTarea="'.$tarea["tar_estatus"].'" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modaAgregarSeguimiento">
+															<i class="fa fa-plus"></i>
+														</button>
+														<button class="btn btn-info btn-sm btnObservarHistorial" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modalVerHistorial">
+															<i class="fa fa-eye"></i>
+														</button>
+													</div>
+							
+												</div>
+							
+											</div>
+										</div>
+									</div>
 
-                        }
+								';
 
-                    }else{
+							}
 
-                        echo '
-                            <div class="container-fluid py-2 px-5 mt-4">
-                                <div class="jumbotron">
-                                    
-                                    <div class="row">	
-                                        <div class="col-md-6">
-                                            <p class="lead">Relajate no hay tareas pendientes</p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <p>Puedes crear una nueva tarea haciendo <a href="nueva-tarea">click aqui</a></p>
-                                </div>
-                            </div>
-                        ';
+						}else{
 
-                    }
+							echo '
+								<div class="container-fluid py-2 px-5 mt-4">
+									<div class="jumbotron">
+										
+										<div class="row">	
+											<div class="col-md-6">
+												<p class="lead">Relajate no hay tareas pendientes</p>
+											</div>
+										</div>
+										<hr>
+										<p>Puedes crear una nueva tarea haciendo <a href="nueva-tarea">click aqui</a></p>
+									</div>
+								</div>
+							';
 
-                ?>
+						}
+
+					?>
+
+				</div>
 
             </div>
 
