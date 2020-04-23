@@ -132,6 +132,10 @@
 
 				include "views/modules/registro-candidatos.php";
 
+			}else if(isset($_GET['route']) && $_GET['route'] == 'postulacion-exitosa'){
+
+				include "views/modules/postulacion-exitosa.php";
+
 			}
 			
 			else{

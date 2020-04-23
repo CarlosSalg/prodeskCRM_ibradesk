@@ -83,17 +83,21 @@ class ControladorVacantes{
                 'curriculum' => $ruta
             );
 
-            $respuesta = ModeloVacantes::mdlCrearPostulante($tabla, $datos);
+            $liga = 'http://localhost:8080/prodesk/index.php?route=postulacion-exitosa&candidato='.$_POST['nombre'].'&email'.$_POST['email'];
+
+            Alertas::AlertaReenvio($liga);
+
+            // $respuesta = ModeloVacantes::mdlCrearPostulante($tabla, $datos);
 			
-			if($respuesta != false){
+			// if($respuesta != false){
 
-				Alertas::Alerta('success', 'Tarea agregada correctamente', 'nueva-tarea');
+			// 	Alertas::Alerta('success', 'Tarea agregada correctamente', 'nueva-tarea');
 
-			}else{
+			// }else{
 				
-				Alertas::Alerta('error', 'Error, contactar administrador', 'nueva-tarea');
+			// 	Alertas::Alerta('error', 'Error, contactar administrador', 'nueva-tarea');
 
-			}
+			// }
 
         }
 

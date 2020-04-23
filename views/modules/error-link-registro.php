@@ -7,13 +7,13 @@
             <div class="card-body">
                 <div class="jumbotron">
                     <div class="row">	
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <h1>Upss!</h1>
                             <p class="lead">Parece que el Link ingresado es incorrecto o se encuentra caducado</p>
                             <p class="text-info">Por favor contacta a quien te prorpociono el Link y solicita uno nuevo</p>
                         </div>
-                        <div class="col-md-6 text-center">
-                            <a href="home"><img src="views/img/template/logo-lineal-negro.png" alt="logo" class="logo"></a>
+                        <div class="col-md-4 text-center">
+                            <img src="views/img/template/logo-lineal-negro.png" alt="logo" class="logo">
                         </div>
                     </div>
                 </div>
