@@ -83,7 +83,7 @@ class ControladorVacantes{
                 'curriculum' => $ruta
             );
 
-            $liga = 'http://localhost:8080/prodesk/index.php?route=postulacion-exitosa&candidato='.$_POST['nombre'].'&email'.$_POST['email'];
+            $liga = 'index.php?route=postulacion-exitosa&nombre='.$_POST['nombre'].'&email='.$_POST['email'];
 
             Alertas::AlertaReenvio($liga);
 
