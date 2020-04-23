@@ -227,8 +227,8 @@
               <label for="nuevaFoto" class="f-13">Seleccionar Imagen</label>
               <input type="file" class="form-control-file form-control-sm nuevaFoto" name="editarFoto" accept="image/*">
               <small  class="form-text text-muted">
-            Selecciona una imagen no mayor a 3 MB
-          </small>
+                Selecciona una imagen no mayor a 3 MB
+              </small>
             </div>
             <div class="mt-2">
               <img src="views/img/usuarios/default/anonymous.png" alt="usuario" class="img-usuario previsualizar">

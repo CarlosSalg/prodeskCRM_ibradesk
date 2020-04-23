@@ -71,10 +71,6 @@
 	<script src="views/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="views/dist/js/adminlte.js"></script>
-	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-	<script src="views/dist/js/pages/dashboard.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="views/dist/js/demo.js"></script>
 	<!-- DataTables -->
 	<script src="views/plugins/datatables/jquery.dataTables.min.js"></script>
 	<script src="views/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -132,7 +128,13 @@
 				include "views/modules/frame/footer.php";
 
 
-			}else{
+			}else if(isset($_GET['route']) && $_GET['route'] == 'registro-candidatos'){
+
+				include "views/modules/registro-candidatos.php";
+
+			}
+			
+			else{
 
 				include "views/modules/login.php";
 
@@ -147,6 +149,7 @@
 	<script src="app/usuarios.js"></script>
 	<script src="app/tareas.js"></script>
 	<script src="app/clientes.js"></script>
+	<script src="app/vacantes.js"></script>
 
 </body>
 
