@@ -26,10 +26,10 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-3 col-6">
+                            <div class="col-md-3">
                                 <div class="small-box bg-info">
                                     <div class="inner">
-                                        <h3>5</h3>
+                                        <h3>ficticio</h3>
                                         <p>Vacantes Abiertas</p>
                                     </div>
                                     <div class="icon">
@@ -126,23 +126,25 @@
                             <div class="card-footer">
             
                                 <div class="text-right">
+                                <div class="btn-group">
             
                                     <button class="btn btn-outline-info btn-sm btnLinkRegistro" tokenVacante="'.$vacante["vac_token_link"].'" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalLinkRegistro">
-                                        Obtener Link Registro
+                                        <i class="fa fa-link"></i> Registro
                                     </button>
 
                                     <button class="btn btn-outline-info btn-sm btnVerPostulados" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalVerPostulados">
-                                        Ver Postulados
+                                        <i class="fa fa-eye"></i> Postulados
                                     </button>
             
                                     <button class="btn btn-outline-info btn-sm btnProgramarEntrevista" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalProgramarEntrevista">
-                                        Programar Entrevista
+                                        <i class="fa fa-plus"></i> Entrevista
                                     </button>
                                             
                                     <button class="btn btn-info btn-sm btnNuevoFiltro" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalNuevoFiltro">
-                                        Nuevo Filtro
+                                        <i class="fa fa-plus"></i> Filtro
                                     </button>
-                    
+                                
+                                </div>
                                 </div>
             
                             </div>

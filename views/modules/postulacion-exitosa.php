@@ -25,7 +25,7 @@
                             <h1>¡Hola!</h1>
                             <p class="lead">Recibimos tus datos exitosamente ¡<b class="text-info"><?=$candidato?></b>!</p>
                         </div>
-                        <div class="col-md-4 text-center">
+                        <div class="col-md-4 text-center d-none d-sm-none d-md-block">
                             <img src="views/img/template/logo-lineal-negro.png" alt="logo" class="logo">
                         </div>
                     </div>
