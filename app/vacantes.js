@@ -6,9 +6,8 @@ $(document).ready(function(){
     $('.btnLinkRegistro').on('click',function(){
         $('#linkCopiado').hide();
         let id = $(this).attr('idVacante');
-        let titulo = $(this).attr('nombreVacante');
-        let token = Math.random();
-        let idVacante = 'http://localhost:8080/prodesk/index.php?route=registro-candidatos&vacante='+id+'&title='+titulo;
+        let token = $(this).attr('tokenVacante');
+        let idVacante = 'http://localhost:8080/prodesk/index.php?route=registro-candidatos&vacante='+id+'&token='+token;
         $('#linkVacante').val(idVacante);
     });
 

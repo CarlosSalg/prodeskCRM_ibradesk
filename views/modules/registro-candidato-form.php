@@ -55,6 +55,7 @@
                                         </div>
                                     </div>
 
+
                                     <div class="form-group row">
                                         <label for="gradoEstudios" class="col-sm-5 col-form-label">Ultimo Grado de Estudios</label>
                                         <div class="col-sm-7">
@@ -87,6 +88,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="espectativaEconomica" class="col-sm-5 col-form-label">Espectativa Economica</label>
+                                        <div class="col-sm-7">
+                                            <input type="number" placeholder="ej. 12000" class="form-control form-control-sm" id="espectativaEconomica" name="espectativaEconomica" required>
+                                        </div>
+                                    </div>
+                                    
                                     <div class="input-group row">
                                         <label for="cv" class="col-sm-5 col-form-label">Cargue su CV</label>
                                         <div class="col-sm-7">

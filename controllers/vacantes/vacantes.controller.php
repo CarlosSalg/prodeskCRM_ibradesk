@@ -7,6 +7,7 @@ class ControladorVacantes{
 
         if(isset($_POST['tituloVacante'])){
 
+            $tokenLink = rand(11111111, 99999999);
             $tituloVacante = $_POST['tituloVacante'];
             $descripcionVacante = $_POST['descripcionVacante'];
             $zonaVacante = $_POST['zonaVacante'];
@@ -22,7 +23,8 @@ class ControladorVacantes{
 				'sueldoVacante' => $sueldoVacante, 
                 'clienteVacante' => $clienteVacante, 
                 'estatusVacante' => "abierta", 
-				'linkVacante' => $linkVacante, 
+                'linkVacante' => $linkVacante, 
+                'tokenLink' => $tokenLink, 
 				'creadoPor' => $_SESSION['id'], 
             );
 
@@ -72,6 +74,7 @@ class ControladorVacantes{
 
             $tabla = 'candidatos';
             $datos = array(
+                'vacanteAplicada' => $_POST['idVacante'],
                 'nombre' => strtolower($_POST['nombre']),
                 'apellidos' => strtolower($_POST['apellidos']),
                 'email' => strtolower($_POST['email']),
@@ -80,24 +83,24 @@ class ControladorVacantes{
                 'gradoEstudios' => $_POST['gradoEstudios'],
                 'tipoGradoEstudios' => $_POST['tipoGradoEstudios'],
                 'tituloGradoEstudios' => $_POST['tituloGradoEstudios'],
+                'espectativaEconomica' => $_POST['espectativaEconomica'],
                 'curriculum' => $ruta
             );
 
-            $liga = 'index.php?route=postulacion-exitosa&nombre='.$_POST['nombre'].'&email='.$_POST['email'];
-
-            Alertas::AlertaReenvio($liga);
-
-            // $respuesta = ModeloVacantes::mdlCrearPostulante($tabla, $datos);
+            $respuesta = ModeloVacantes::mdlCrearCandidato($tabla, $datos);
 			
-			// if($respuesta != false){
+			if($respuesta == "ok"){
 
-			// 	Alertas::Alerta('success', 'Tarea agregada correctamente', 'nueva-tarea');
+                $idRegistro = ModeloVacantes::mdlObtenerUltimoIdCandidato('candidatos');
+                $liga = 'index.php?route=postulacion-exitosa&nombre='.$_POST['nombre'].'&email='.$_POST['email'].'&idRegistro='.$idRegistro['id'];
+                Alertas::EnviarMailRegistro($datos, $idRegistro);
+                Alertas::AlertaReenvio($liga);
 
-			// }else{
+			}else{
 				
-			// 	Alertas::Alerta('error', 'Error, contactar administrador', 'nueva-tarea');
+				echo '<br><div class="alert alert-danger">Hubo un error en el registro, intente mas tarde</div>';
 
-			// }
+			}
 
         }
 

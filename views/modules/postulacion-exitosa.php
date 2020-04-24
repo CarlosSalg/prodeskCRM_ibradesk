@@ -1,12 +1,15 @@
 <?php
-    if(isset($_GET['nombre']) && isset($_GET['email'])){
+    if(isset($_GET['nombre']) && isset($_GET['email']) && isset($_GET['idRegistro'])){
 
         $candidato = $_GET['nombre'];
         $email = $_GET['email'];
+        $idRegistro = $_GET['idRegistro'];
+
     }else{
 
         $candidato = "";
         $email = "";
+        $idRegistro =  "";
     }  
 ?>
 <div class="col-md-8 offset-md-2 mt-2">
@@ -19,8 +22,8 @@
                 <div class="jumbotron">
                     <div class="row">	
                         <div class="col-md-8">
-                            <h1>Hola!</h1>
-                            <p class="lead">Recibimos tus datos exitosamente <b class="text-info"><?=$candidato?></b>, te estaremos contactando a la brevedad</p>
+                            <h1>¡Hola!</h1>
+                            <p class="lead">Recibimos tus datos exitosamente ¡<b class="text-info"><?=$candidato?></b>!</p>
                         </div>
                         <div class="col-md-4 text-center">
                             <img src="views/img/template/logo-lineal-negro.png" alt="logo" class="logo">
@@ -28,7 +31,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="lead">Hemos enviado un correo a la cuenta de: <b class="text-info"><?=$email?></b>, con el Id del registro</p>
+                            <p class="lead">Este es tu ID de Registro</p><h2 class="text-info"><?=$idRegistro?></h2> <p class="lead">Por favor proprocionalo a la persona que te dio este Link, tambien lo hemos enviado por correo a la cuenta de: <b class="text-info"><?=$email?></b></p>
                         </div>
                     </div>
                 </div>

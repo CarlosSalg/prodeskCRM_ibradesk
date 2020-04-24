@@ -2,28 +2,16 @@
 
 class Alertas{
 
-	static public function ctrNotificarRegistro(){
+	static public function EnviarMailRegistro($datos, $idRegistro){
 
-		$usuarioFInal = $_POST["correo"];
-		$usuarioFInal .= $_POST["nuevoDominio"];
-
-		$nombreFInal = $_POST["nombre"];
-		$nombreFInal .= " ";
-		$nombreFInal .= $_POST["apellidoPaterno"];
-		$nombreFInal .= " ";
-		$nombreFInal .= $_POST["apellidoMaterno"];
-
-		$email_to = "fzarate@nstrantor.com.mx, rmar@nstrantor.com.mx";
-		$email_from = "soporte@nstrantor.com.mx";
-
-		$email_subject = "Nuevo registro para ingreso";
+		$email_to = $datos['email'];
+		$email_from = "reclutamiento@ge.ibradesk.com";
+		$email_subject = "Registro en Portal Web";
 		
-		$email_message = "Detalles de la solicitud:\n\n";
-		$email_message .= "Nombre: " .$nombreFInal. "\n";
-		$email_message .= "Usuario: " .$usuarioFInal. "\n\n";
-		$email_message .= "Por favor revise que los datos esten correctos\n";
-		$email_message .= "Ingrese con su usuario de Admministrador para activar el usuario\n";
-		$email_message .= "http://www.nstrantor.com.mx/admin-ns/inicio";
+		$email_message = "Gracias por registrarte en el portal Web\n\n\n";
+		$email_message .= ucwords($datos['nombre']).", hemos recibido tus datos corretamente\n";
+		$email_message .= "Este es tu ID de Registro: ".$idRegistro."\n\n\n";
+		$email_message .= "Por favor no responda a este mensaje\n";
 
 		$headers = 'From: '.$email_from."\r\n".'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
 

@@ -127,7 +127,7 @@
             
                                 <div class="text-right">
             
-                                    <button class="btn btn-outline-info btn-sm btnLinkRegistro" nombreVacante="'.$vacante["vac_titulo"].'" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalLinkRegistro">
+                                    <button class="btn btn-outline-info btn-sm btnLinkRegistro" tokenVacante="'.$vacante["vac_token_link"].'" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalLinkRegistro">
                                         Obtener Link Registro
                                     </button>
 
