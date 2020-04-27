@@ -98,9 +98,9 @@
                                     <div class="input-group row">
                                         <label for="cv" class="col-sm-5 col-form-label">Cargue su CV</label>
                                         <div class="col-sm-7">
-                                            <input type="file" class="form-control-file form-control-sm" name="cv" id="cv" accept=".pdf, .doc, .docx" required>
+                                            <input type="file" class="form-control-file form-control-sm" name="cv" id="cv" accept=".pdf" required>
                                             <small  class="form-text text-muted">
-                                                Solo en Formato PDF o Word, maximo 5 MB
+                                                Solo en Formato PDF, maximo 5 MB
                                             </small>
                                         </div>    
                                     </div>

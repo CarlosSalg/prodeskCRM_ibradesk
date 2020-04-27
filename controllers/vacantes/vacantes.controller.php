@@ -50,6 +50,23 @@ class ControladorVacantes{
         return $respuesta;
         
     }
+
+    public static function ctrBuscarVacanteConCliente($id){
+
+        $dato = $id;
+		$respuesta = ModeloVacantes::mdlBuscarVacanteConCliente($dato);
+        return $respuesta;
+        
+    }
+
+    public static function ctrBuscarCandidato($id){
+
+        $dato = $id;
+        $tabla = 'candidatos';
+		$respuesta = ModeloVacantes::mdlBuscarCandidato($dato, $tabla);
+        return $respuesta;
+        
+    }
     
     public static function ctrCrearPostulante(){
 

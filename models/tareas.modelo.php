@@ -89,6 +89,19 @@ class ModeloTareas{
 		$stmt -> close();
         $stmt =null;
 	}
+	public static function mdlObtenerUltimoId($tabla){
+
+		$stmt = Conexion::Conectar()->prepare("
+			SELECT MAX(TAR_ID) AS id FROM $tabla
+			");
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+
+	}
 
 	public static function mdlMostarTodasMisTareasAbiertas($tabla, $id){
 

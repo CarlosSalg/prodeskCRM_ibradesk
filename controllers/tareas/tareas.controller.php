@@ -46,10 +46,12 @@ class ControladorTareas{
 			);
 
 			$respuesta = ModeloTareas::mdlCrearTarea($tabla, $datos);
+			$ultimoId = ModeloTareas::mdlObtenerUltimoId($tabla);
+			$id = $ultimoId["id"];
 			
 			if($respuesta != false){
 
-				Alertas::Alerta('success', 'Tarea agregada correctamente', 'nueva-tarea');
+				Alertas::Alerta('success', "Tarea agregada con ID $id", 'nueva-tarea');
 
 			}else{
 				

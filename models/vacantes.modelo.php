@@ -124,7 +124,67 @@ class ModeloVacantes{
 
 		$stmt -> close();
         $stmt =null;
-	}
+    }
+    
+    public static function mdlMostarPostulados($tabla, $id){
+
+        $stmt = Conexion::Conectar()->prepare("
+                
+                SELECT * FROM candidatos 
+                WHERE can_vac_id = :id
+                ORDER BY can_id DESC
+            
+            ");
+
+        $stmt -> bindParam(":id",$id, PDO::PARAM_INT);
+
+		$stmt -> execute();
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlBuscarVacanteConCliente($dato){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+                SELECT * FROM vacantes 
+                JOIN clientes 
+                ON vacantes.vac_cli_id = clientes.cli_id
+                WHERE vacantes.vac_id = :id
+            
+            ");
+        
+        $stmt -> bindParam(":id",$dato, PDO::PARAM_INT);
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlBuscarCandidato($dato, $tabla){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+                SELECT * FROM $tabla 
+                WHERE can_id = :id
+            
+            ");
+        
+        $stmt -> bindParam(":id",$dato, PDO::PARAM_INT);
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
 
 }
 

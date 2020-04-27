@@ -45,7 +45,7 @@ if(count($responseHistorial)>0){
 						<div class="col-md-6">
 							<b>Enviada por:</b> <a class="text-muted">'.$value["usu_nombre"].'</a>
 						</div>
-						<div class="col-md-6 text-right">
+						<div class="col-md-6">
 							<b>Fecha/Hora:</b> <a class="text-muted">'.$value["tar_seg_fecha"].'</a>
 						</div>
 					</div>

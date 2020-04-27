@@ -104,6 +104,9 @@
 						$route == 'mis-tareas' || 
 						$route == 'todas-mis-tareas' || 
 						$route == 'mis-tareas-creadas' || 
+						$route == 'registro-candidatos' || 
+						$route == 'postulacion-exitosa' || 
+						$route == 'accionar-candidato' || 
 						$route == 'home' || 
 						$route == 'login' || 
 						$route == 'logout'

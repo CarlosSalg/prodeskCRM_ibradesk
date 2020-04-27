@@ -1,4 +1,3 @@
-
 <div class="content-wrapper">
     <!-- Titutlo -->
     <section class="content-header">
@@ -66,22 +65,22 @@
 
                     echo '
 
-                        <div class="card">
+                        <div class="card bg-light">
 
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <h3 class="card-title"><a type="button" data-card-widget="collapse" class="text-muted">Vacante Numero: '.$vacante["vac_id"].'</a>  '.$vacante["vac_titulo"].' <span class="'.$clase.'">'.$vacante["vac_estatus"].'</span></h3>
+                                        <h4 class="card-title"><a type="button" data-card-widget="collapse" class="text-muted">Vacante: '.$vacante["vac_id"].'</a>  '.$vacante["vac_titulo"].' <span class="'.$clase.'">'.$vacante["vac_estatus"].'</span></h4>
                                     </div>
                                     <div class="col-md-3 text-right text-muted f-13">
                     ';
 
                                     if($vacante["vac_link_occ"] != ""){
 
-                                        echo '<a href="'.$vacante["vac_link_occ"].'" target="_blank" >Ver en OCC</a>';
+                                        $linkVacante = '<a href="'.$vacante["vac_link_occ"].'" target="_blank" >Ver en OCC</a>';
                                     }else{
 
-                                        echo '<a class="text-muted">Sin Link</a>';
+                                        $linkVacante = '<a class="text-muted">Sin Link</a>';
                                     }
 
                     echo '
@@ -107,17 +106,23 @@
                                         Descripcion de la vacante: 
                                         <br> 
                                         '.$vacante["vac_descripcion"].'
+                                        <br>
+                                        <br>
+                                        '.$linkVacante.'
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-md-4 text-muted f-13">
-                                        Emplresa: '.$vacante["cli_nombre_comercial"].'
+                                    <div class="col-md-3 text-muted f-13">
+                                        Empresa: '.$vacante["cli_nombre_comercial"].'
                                     </div>
-                                    <div class="col-md-4 text-muted f-13">
+                                    <div class="col-md-3 text-muted f-13">
                                         Contacto: '.$vacante["cli_contacto_compras_nombres"].' '.$vacante["cli_contacto_compras_apellidos"].'
                                     </div>
-                                    <div class="col-md-4 text-muted f-13">
+                                    <div class="col-md-3 text-muted f-13">
+                                        Correo: '.$vacante["cli_contacto_compras_correo"].'
+                                    </div>
+                                    <div class="col-md-3 text-muted f-13">
                                         Telefono: '.$vacante["cli_contacto_compras_telefono"].'
                                     </div>
                                 </div>
@@ -132,12 +137,8 @@
                                         <i class="fa fa-link"></i> Registro
                                     </button>
 
-                                    <button class="btn btn-outline-info btn-sm btnVerPostulados" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalVerPostulados">
+                                    <button class="btn btn-outline-info btn-sm btnVerPostulados" idVacante="'.$vacante["vac_id"].'" espectativaEco="'.$vacante["vac_sueldo_ofertado"].'" type="button" data-toggle="modal" data-target="#modalPostulantes">
                                         <i class="fa fa-eye"></i> Postulados
-                                    </button>
-            
-                                    <button class="btn btn-outline-info btn-sm btnProgramarEntrevista" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalProgramarEntrevista">
-                                        <i class="fa fa-plus"></i> Entrevista
                                     </button>
                                             
                                     <button class="btn btn-info btn-sm btnNuevoFiltro" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalNuevoFiltro">
@@ -268,7 +269,7 @@
 	</div>
 </div>
 
-<!--Modal modalNuevaVacante-->
+<!--Modal modalLinkRegistro-->
 <div class="modal fade" id="modalLinkRegistro" tabindex="-1" role="document" aria-hidden="true">
 	<div class="modal-dialog modal-md" role="document">
 	    <div class="modal-content">
@@ -302,8 +303,40 @@
             <!--Pie de Modal-->
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-secondary">Salir</button>
+                <a href="" target="_blank" class="btn btn-secondary" id="btnGoLink">Ir al Link</a>
                 <button type="button" class="btn btn-primary btnCopiar"><i class="fas fa-copy"></i> Copiar Link</button>
             </div>
 	    </div>
 	</div>
 </div>
+
+<!--Modal modalPostulantes-->
+<div class="modal fade" id="modalPostulantes" tabindex="-1" role="document" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+
+            <!--Titulo Modal-->
+            <div class="modal-header">
+                <h5>Candidatos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <!--Cuerpo Modal-->
+            <div class="modal-body f-13">          
+                <div class="row d-flex align-items-stretch" id="contenedorCandidatos">
+
+
+                </div>
+            </div>
+            
+            <!--Pie de Modal-->
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary btnCopiar">Salir</button>
+            </div>
+	    </div>
+	</div>
+</div>
+
+

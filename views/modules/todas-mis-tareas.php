@@ -160,7 +160,7 @@
 					<div class="col-md-6">
 						<h4 class="text-muted" id="tituloTarea"></h4> <!--tituloTarea-->		
 					</div>
-					<div class="col-md-6 text-right">
+					<div class="col-md-6 ">
 						<b>Estatus:</b><a id="modalEstatusTarea" class="f-14"></a> <!--modalEstatusTarea-->	
 					</div>
 				</div>
@@ -171,7 +171,7 @@
 					<div class="col-md-6">
 						<p class=""><b>Fecha Inicio:</b> <a class="text-muted" id="modalFechaInicio"></a></p> <!--modalFechaInicio-->
 					</div>
-					<div class="col-md-6 text-right">
+					<div class="col-md-6 ">
 						<p class=""><b>Fecha Limite</b> <a class="text-muted" id="modalFechaFinal"></a></p> <!--modalFechaFinal-->
 					</div>
 				</div>
@@ -182,7 +182,7 @@
 					<div class="col-md-6">
 						<p class=""><b>Nombre de la tarea:</b> <a class="text-muted" id="nombreTarea"></a></p> <!--nombreTarea-->
 					</div>
-					<div class="col-md-6 text-right">
+					<div class="col-md-6 ">
 						<p class=""><b>Adjuntos:</b> <a class="text-muted" id="modalArchivoAdjunto"></a></p> <!--modalArchivoAdjunto-->
 					</div>
 
@@ -202,7 +202,7 @@
 					<div class="col-md-6">
 						<p class=""><b>Asignado a:</b> <a class="text-muted" id="modalUsuarioAsignado"></a></p> <!--modalUsuarioAsignado-->
 					</div>
-					<div class="col-md-6 text-right">
+					<div class="col-md-6 ">
 						<p class=""><b>Creado por:</b> <a class="text-muted" id="modalCreadoPor"></a></p> <!--modalCreadoPor-->
 					</div>
 				</div>
