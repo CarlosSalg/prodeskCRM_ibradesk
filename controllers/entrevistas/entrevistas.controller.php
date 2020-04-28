@@ -56,15 +56,14 @@ class ControladorEntrevistas{
 
                 Alertas::NotificarEntrevistadorViaMail($datos, $entrevistador, $candidato, $vacante);
                 
-
             }
 
-            // // Notificar al Candidato
-            // if($notificarCandidato == 'si'){
+            // Notificar al Candidato
+            if($notificarCandidato == 'si'){
 
-            //     Alertas::NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante);
+                Alertas::NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante);
 
-            // }
+            }
 
             
 
