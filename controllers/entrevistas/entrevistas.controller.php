@@ -54,16 +54,19 @@ class ControladorEntrevistas{
             // Notificar al Entrevistador
             if($notificarEntrevistador == 'si'){
 
-                $notificacionEntrevistador = Alertas::NotificarEntrevistadorViaMail($datos, $entrevistador, $candidato, $vacante);
+                Alertas::NotificarEntrevistadorViaMail($datos, $entrevistador, $candidato, $vacante);
+                
 
             }
 
-            // Notificar al Candidato
-            if($notificarCandidato == 'si'){
+            // // Notificar al Candidato
+            // if($notificarCandidato == 'si'){
 
-                $notificacionCandidato = Alertas::NotificarCandidatoViaMail($datos);
+            //     Alertas::NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante);
 
-            }
+            // }
+
+            
 
         }
 

@@ -48,6 +48,55 @@ class Alertas{
 
 	}
 	
+	static public function NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante){
+
+		$email_to = $candidato['can_email'];
+		$email_from = "reclutamiento@ge.ibradesk.com";
+		$email_subject = "Nueva Entrevista Programada";
+
+		$cabeceras = 'MIME-Version: 1.0' . "\r\n";
+		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+		$cabeceras .= 'From: Prodesk CRM'. "\r\n";
+		$cabeceras .= 'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
+
+		$email_message_html = '
+
+			<table style="max-width: 600px; padding: 10px; margin:0 auto; border-collapse: collapse;">
+				<tr>
+					<td style="background-color: #ecf0f1">
+						<div style="color: #34495e; margin: 4% 10% 2%; text-align: justify;font-family: sans-serif">
+							<h2 style="color: #e67e22; margin: 0 0 7px">Hola '.ucwords($candidato['can_nombre']).'</h2>
+							<p style="margin: 2px; font-size: 15px">
+								Se programo una nueva entrevista para la vacante de '.$vacante['vac_titulo'].'
+							</p>
+							<p style="margin: 2px; font-size: 15px">
+								Fecha y Hora programada
+							</p>
+							<br>
+							<br>
+							<div style="width: 100%; text-align: center">
+								<a style="text-decoration: none; border-radius: 5px; padding: 11px 23px; color: white; background-color: #3498db">'.$datos['fechaEntrevista'].' '.$datos['horaEntrevista'].'</a>	
+							</div>
+							<br>
+							<br>
+			
+							<p style="margin: 2px; font-size: 15px">
+								Por favor no responda a este mensaje
+							</p>
+							<p style="color: #b3b3b3; font-size: 12px; text-align: center;margin: 30px 0 0">Prodesk CRM 2020</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+	
+		';
+
+		mail($email_to, $email_subject, $email_message_html, $cabeceras);
+
+		return "Entrevistador Notificado";
+
+	}
+
 	static public function NotificarEntrevistadorViaMail($datos, $entrevistador, $candidato, $vacante){
 
 		$email_to = $entrevistador['usu_usuario'];
@@ -64,7 +113,7 @@ class Alertas{
 				<tr>
 					<td style="background-color: #ecf0f1">
 						<div style="color: #34495e; margin: 4% 10% 2%; text-align: justify;font-family: sans-serif">
-							<h2 style="color: #e67e22; margin: 0 0 7px">Hola '.ucwords($entrevistador['usu_usuario']).'</h2>
+							<h2 style="color: #e67e22; margin: 0 0 7px">Hola '.ucwords($entrevistador['usu_nombre']).'</h2>
 							<p style="margin: 2px; font-size: 15px">
 								Se programo una nueva entrevista para la vacante de '.$vacante['vac_titulo'].'
 							</p>
@@ -131,7 +180,7 @@ class Alertas{
 
 		mail($email_to, $email_subject, $email_message_html, $cabeceras);
 
-		return "Entrevistador Notificado";
+		return $cabeceras;
 
     }
 
