@@ -1,10 +1,15 @@
+<?php
+    $idUsuario = $_GET['idCandidato'];
+    $nombreCandidato = ControladorVacantes::ctrBuscarCandidato($idUsuario);
+?>
+
 <div class="content-wrapper">
   
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Accionar Candidato</h1>
+                    <h1 class="text-capitalize">Accionar <?=$nombreCandidato['can_nombre']?> <?=$nombreCandidato['can_apellidos']?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -124,11 +129,11 @@
 
                             if($candidato["can_espectativa_economica"] > $espectativa){
 
-                                $espectativaEconomica = '<br><b>Espectativa Economica:</b> '.$candidato["can_espectativa_economica"].' <a class="text-danger">Superior a lo ofertado</a>';
+                                $espectativaEconomica = '<br><b>Espectativa Economica:</b> $'.$candidato["can_espectativa_economica"].' <a class="text-danger">Superior a lo ofertado</a>';
 
                             }else{
 
-                                $espectativaEconomica = '<br><b>Espectativa Economica:</b> '.$candidato["can_espectativa_economica"].'';
+                                $espectativaEconomica = '<br><b>Espectativa Economica:</b> $'.$candidato["can_espectativa_economica"].'';
 
                             }
 
@@ -152,11 +157,35 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-footer">
-                                            <div class="text-right">
+                                        <div class="card-footer text-right">
+                                            <div class="text-right btn-group">
                                                 <a href="'.$candidato["can_cv"].'" target="_blank" class="btn btn-sm bg-teal">
                                                     <i class="fas fa-eye"></i> Ver CV
                                                 </a>
+                            ';
+
+                            if($candidato['can_estatus'] == 1){
+
+                                echo '
+                                                <button class="btn btn-sm bg-danger btnDescartarCandidato" idCandidato="'.$candidato["can_id"].'">
+                                                    <i class="fas fa-times"></i> Descartar
+                                                </button>
+                                                <button class="btn btn-sm bg-primary" type="button" data-toggle="modal" data-target="#modalCrearEntrevista">
+                                                    <i class="fas fa-calendar"></i> Programar Entrevista
+                                                </button>
+                                ';
+                            }else{
+
+                                echo '
+                                                <button class="btn btn-sm bg-info btnActivarCandidato" idCandidato="'.$candidato["can_id"].'">
+                                                    <i class="fas fa-check"></i> Activar
+                                                </button>
+                                ';
+
+                            }
+
+                            echo '
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -173,4 +202,98 @@
     </section>
 
     
+</div>
+
+<!--Modal modalCrearEntrevista-->
+<div class="modal fade" id="modalCrearEntrevista" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    	<form method="post" enctype="multipart/form-data">
+      		<div class="modal-header">
+        		<h5 class="modal-title">Programar Entrevista</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          		<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body">
+				<label for="candidato">Candidato</label>
+	        	<div class="input-group">	        		
+			         <span class="input-group-text">
+                        <i class="fa fa-users"></i>
+			         </span>
+			        <select name="candidato" id="candidato" class="form-control text-capitalize" required="">
+                        <option value="<?=$candidato["can_id"]?>"><?=$candidato["can_nombre"].' '.$candidato["can_apellidos"]?></option>
+                    </select>
+		      	</div>
+				<br>
+				<label for="entrevistador">Entrevistador</label>
+	        	<div class="input-group">	        		
+			         <span class="input-group-text">
+                        <i class="fa fa-user"></i>
+			         </span>
+			        <select name="entrevistador" class="form-control text-capitalize" required="">
+                        <option value="">Seleccione Entrevistador</option>
+                        <?php
+                            $usuarios = ControladorUsuarios::ctrMostrarUsuarios();
+                            foreach($usuarios as $key => $usuario){
+
+                                echo '<option value="'.$usuario['usu_id'].'">'.$usuario['usu_nombre'].'</option>';
+
+                            }
+                        ?>
+                    </select>
+		      	</div>
+		      	<br>
+                <label for="fechaEntrevista">Fecha y Hora</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">	        		
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                            <input type="date" class="form-control" name="fechaEntrevista" id="fechaEntrevista" required="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">	        		
+                            <span class="input-group-text">
+                                <i class="fa fa-clock"></i>
+                            </span>
+                            <input type="time" class="form-control" name="horaEntrevista" required="">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <p class="text-muted">Notificaciones via E-mail</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-check">	        		
+                            <input type="checkbox" class="form-check-input" name="notificarEntrevistador" id="notificarEntrevistador" checked="">
+                            <label class="form-check-label" for="notificarEntrevistador">Entrevistador</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check">	        		
+                            <input type="checkbox" class="form-check-input" name="notificarCandidato" id="notificarCandidato">
+                            <label class="form-check-label" for="notificarCandidato">Candidato</label>
+                        </div>
+                    </div>
+
+                </div>
+		    </div>
+		    <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		        <button type="submit" class="btn btn-primary">Guardar</button>
+		    </div>
+
+            <?php
+                
+                $entrevista = new ControladorEntrevistas();
+                $entrevista -> ctrCrearEntrevista();
+
+            ?>
+
+	    </form>
+    </div>
+  </div>
 </div>

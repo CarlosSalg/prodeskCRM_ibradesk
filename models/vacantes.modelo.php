@@ -132,6 +132,7 @@ class ModeloVacantes{
                 
                 SELECT * FROM candidatos 
                 WHERE can_vac_id = :id
+                AND can_estatus = 1
                 ORDER BY can_id DESC
             
             ");
@@ -186,6 +187,49 @@ class ModeloVacantes{
 
     }
 
+    public static function mdlDescartarCandidato($tabla, $id){
+
+        $stmt = Conexion::Conectar()->prepare("
+
+            UPDATE $tabla SET can_estatus = 0 
+            WHERE can_id = :id
+
+        ");
+
+        $stmt -> bindParam(":id",$id, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+            return true;
+        }else{
+            return false;
+        }
+		
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlReactivarCandidato($tabla, $id){
+
+        $stmt = Conexion::Conectar()->prepare("
+
+            UPDATE $tabla SET can_estatus = 1 
+            WHERE can_id = :id
+
+        ");
+
+        $stmt -> bindParam(":id",$id, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+            return true;
+        }else{
+            return false;
+        }
+		
+		$stmt -> close();
+        $stmt =null;
+
+    }
 }
 
 

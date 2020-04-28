@@ -7,6 +7,7 @@
 	require_once "controllers/tareas/tareas.controller.php";
 	require_once "controllers/clientes/clientes.controller.php";
 	require_once "controllers/vacantes/vacantes.controller.php";
+	require_once "controllers/entrevistas/entrevistas.controller.php";
 
 	// Require de Dependencias Model
 	require_once "models/usuarios.modelo.php";

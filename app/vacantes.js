@@ -77,6 +77,7 @@ $(document).ready(function(){
                                             <br><b>Id de registro:</b> ${candidato.can_id}
                                             <div class="mt-3">
                                                 <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-list"></i></span>  curriculum: <a href="${candidato.can_cv}" target="_blank" class="">Clic aqui</a></li>
                                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> e-mail: ${candidato.can_email}</li>
                                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>  telefono: + ${candidato.can_telefono}</li>
                                                 </ul>
@@ -86,9 +87,6 @@ $(document).ready(function(){
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-right">
-                                        <a href="${candidato.can_cv}" target="_blank" class="btn btn-sm bg-teal">
-                                            <i class="fas fa-eye"></i> Ver CV
-                                        </a>
                                         <a href="index.php?route=accionar-candidato&idVacante=${id}&idCandidato=${candidato.can_id}&espectativa=${espectativa}" target="_blank" class="btn btn-sm btn-primary">
                                             <i class="fas fa-user"></i> Accionar
                                         </a>

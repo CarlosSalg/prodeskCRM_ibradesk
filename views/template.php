@@ -157,6 +157,7 @@
 	<script src="app/tareas.js"></script>
 	<script src="app/clientes.js"></script>
 	<script src="app/vacantes.js"></script>
+	<script src="app/candidatos.js"></script>
 
 </body>
 
