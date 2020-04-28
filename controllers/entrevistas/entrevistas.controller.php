@@ -65,6 +65,21 @@ class ControladorEntrevistas{
 
             }
 
+            echo "
+                <script>
+                    swal({
+                        position: 'center',
+                        type: 'success',
+                        title: 'Entrevista programada correctamente',
+                    }).then(function(result){
+                            if(result.value){
+
+                                location.reload();
+                            }
+                        });
+                </script>
+            ";
+
             
 
         }
