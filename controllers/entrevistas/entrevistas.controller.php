@@ -68,8 +68,8 @@ class ControladorEntrevistas{
 
             }
 
-            $host = $_SERVER['host'];
-            $link = $_SERVER['url'];
+            $host = $_SERVER['HTTP_HOST'];
+            $link = $_SERVER['REQUEST_URI'];
 
             $url = $host . ' ' . $link;
 
