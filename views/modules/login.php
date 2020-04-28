@@ -17,7 +17,7 @@
 
                 <div class="card">
                     <div class="card-body login-card-body">
-                        <p class="login-box-msg">Ingrese sus credenciales por favor</p>
+                        <p class="login-box-msg">Hola, Ingrese sus credenciales por favor</p>
 
                         <form method="post">
 
