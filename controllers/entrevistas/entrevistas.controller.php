@@ -52,16 +52,19 @@ class ControladorEntrevistas{
             // Crear Registro en la Base de Datos
 
             // Notificar al Entrevistador
+            $notificacion = '';
+
             if($notificarEntrevistador == 'si'){
 
-                Alertas::NotificarEntrevistadorViaMail($datos, $entrevistador, $candidato, $vacante);
+                $notificacion .= Alertas::NotificarEntrevistadorViaMail($datos, $entrevistador, $candidato, $vacante);
+                $notificacion .= ' ';
                 
             }
 
             // Notificar al Candidato
             if($notificarCandidato == 'si'){
 
-                Alertas::NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante);
+                $notificacion .= Alertas::NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante);
 
             }
 
@@ -75,7 +78,7 @@ class ControladorEntrevistas{
                     swal({
                         position: 'center',
                         type: 'success',
-                        title: 'Entrevista programada correctamente',
+                        title: 'Entrevista programada correctamente ".$notificacion."',
                     }).then(function(result){
                             if(result.value){
 

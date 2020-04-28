@@ -52,11 +52,11 @@ class Alertas{
 
 		$email_to = $candidato['can_email'];
 		$email_from = "reclutamiento@ge.ibradesk.com";
-		$email_subject = "Nueva Entrevista Programada";
+		$email_subject = "Entrevista Programada";
 
 		$cabeceras = 'MIME-Version: 1.0' . "\r\n";
 		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		$cabeceras .= 'From: Prodesk CRM'. "\r\n";
+		$cabeceras .= 'From: Reclutamiento'. "\r\n";
 		$cabeceras .= 'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
 
 		$email_message_html = '
@@ -93,7 +93,7 @@ class Alertas{
 
 		mail($email_to, $email_subject, $email_message_html, $cabeceras);
 
-		return "Entrevistador Notificado";
+		return "Candidato Notificado";
 
 	}
 
@@ -101,11 +101,12 @@ class Alertas{
 
 		$email_to = $entrevistador['usu_usuario'];
 		$email_from = "reclutamiento@ge.ibradesk.com";
-		$email_subject = "Nueva Entrevista Programada";
+		$email_subject = "Entrevista Programada";
 
 		$cabeceras = 'MIME-Version: 1.0' . "\r\n";
 		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		$cabeceras .= 'From: Prodesk CRM'. "\r\n";
+		$cabeceras .= 'From: Reclutamiento'. "\r\n";
+		$cabeceras .= 'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
 
 		$email_message_html = '
 
@@ -180,7 +181,7 @@ class Alertas{
 
 		mail($email_to, $email_subject, $email_message_html, $cabeceras);
 
-		return $cabeceras;
+		return "Entrevistador Notificado";
 
     }
 
