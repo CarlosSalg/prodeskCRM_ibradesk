@@ -79,7 +79,9 @@ class Alertas{
 							</div>
 							<br>
 							<br>
-			
+							<p style="margin: 2px; font-size: 15px">
+								Mucha Suerte!
+							</p>
 							<p style="margin: 2px; font-size: 15px">
 								Por favor no responda a este mensaje
 							</p>
@@ -154,7 +156,7 @@ class Alertas{
 								Espectativa Economica: $'.$candidato['can_espectativa_economica'].'
 							</a>
 							<br>
-							<a href="'.$candidato['can_cv'].'" style="margin: 2px; font-size: 15px">
+							<a href="'.$_SERVER['host'].''.$candidato['can_cv'].'" style="margin: 2px; font-size: 15px">
 								Ver Curriculum Vitae
 							</a>
 							<p style="margin: 2px; font-size: 15px">
