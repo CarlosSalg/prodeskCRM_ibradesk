@@ -61,7 +61,7 @@ class ControladorEntrevistas{
             // Notificar al Candidato
             if($notificarCandidato == 'si'){
 
-                $notificacion = Alertas::NotificarCandidatoViaMail($datos);
+                $notificacionCandidato = Alertas::NotificarCandidatoViaMail($datos);
 
             }
 
