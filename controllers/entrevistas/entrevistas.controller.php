@@ -65,6 +65,11 @@ class ControladorEntrevistas{
 
             }
 
+            $host = $_SERVER['host'];
+            $link = $_SERVER['url'];
+
+            $url = $host . ' ' . $link;
+
             echo "
                 <script>
                     swal({
@@ -74,7 +79,7 @@ class ControladorEntrevistas{
                     }).then(function(result){
                             if(result.value){
 
-                                location.reload();
+                                window.location = '".$url."'
                             }
                         });
                 </script>
