@@ -8,6 +8,7 @@ $usuarios = $_POST['idUsuariosAsginados'];
 $usuariosArray = json_decode($usuarios);
 
 if(count($usuariosArray)>1){
+	
 
 	foreach ($usuariosArray as $key => $usuario) {
 		$tabla = 'usuarios';
