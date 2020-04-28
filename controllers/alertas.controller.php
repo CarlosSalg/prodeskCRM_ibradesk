@@ -5,7 +5,7 @@ class Alertas{
 	static public function EnviarMailRegistro($datos, $idRegistro){
 
 		$email_to = $datos['email'];
-		$email_from = "reclutamiento@ge.ibradesk.com";
+		$email_from = "noreply@ibradesk.com";
 		$email_subject = "Registro en Portal Web";
 
 		$cabeceras = 'MIME-Version: 1.0' . "\r\n";
@@ -51,12 +51,12 @@ class Alertas{
 	static public function NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante){
 
 		$email_to = $candidato['can_email'];
-		$email_from = "reclutamiento@ge.ibradesk.com";
+		$email_from = "noreply@ibradesk.com";
 		$email_subject = "Entrevista Programada";
 
 		$cabeceras = 'MIME-Version: 1.0' . "\r\n";
 		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		$cabeceras .= 'From: Reclutamiento'. "\r\n";
+		$cabeceras .= 'From: Prodesk'. "\r\n";
 		$cabeceras .= 'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
 
 		$email_message_html = '
@@ -100,12 +100,12 @@ class Alertas{
 	static public function NotificarEntrevistadorViaMail($datos, $entrevistador, $candidato, $vacante){
 
 		$email_to = $entrevistador['usu_usuario'];
-		$email_from = "reclutamiento@ge.ibradesk.com";
+		$email_from = "noreply@ibradesk.com";
 		$email_subject = "Entrevista Programada";
 
 		$cabeceras = 'MIME-Version: 1.0' . "\r\n";
 		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		$cabeceras .= 'From: Reclutamiento'. "\r\n";
+		$cabeceras .= 'From: Prodesk'. "\r\n";
 		$cabeceras .= 'Reply-To: '.$email_from."\r\n" .'X-Mailer: PHP/' . phpversion();
 
 		$email_message_html = '
@@ -127,7 +127,7 @@ class Alertas{
 							</a>
 							<br>
 							<a style="margin: 2px; font-size: 15px">
-								Correo Electronico: '.$candidato['can_email'].'
+								E-mail: '.$candidato['can_email'].'
 							</a>
 							<br>
 							<a style="margin: 2px; font-size: 15px">

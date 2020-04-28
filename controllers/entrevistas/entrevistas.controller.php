@@ -44,10 +44,10 @@ class ControladorEntrevistas{
             // Buscar datos de Candidato
             $idCandidato = $datos['candidato'];
             $candidato = ControladorVacantes::ctrBuscarCandidato($idCandidato);
-
+            var_dump($candidato);
             // Buscar datos de Vacante
             $idVacante = $candidato['can_vac_id'];
-            $vacante = ModeloVacantes::mdlBuscarVacante('vacantes',$idEntrevistador);
+            $vacante = ModeloVacantes::mdlBuscarVacante('vacantes',$idVacante);
 
             // Crear Registro en la Base de Datos
 
