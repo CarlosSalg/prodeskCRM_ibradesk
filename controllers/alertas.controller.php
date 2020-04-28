@@ -156,7 +156,7 @@ class Alertas{
 								Espectativa Economica: $'.$candidato['can_espectativa_economica'].'
 							</a>
 							<br>
-							<a href="'.$_SERVER['HTTP_HOST'].''.$candidato['can_cv'].'" style="margin: 2px; font-size: 15px">
+							<a href="'.$_SERVER['HTTP_HOST'].'/'.$candidato['can_cv'].'" style="margin: 2px; font-size: 15px">
 								Ver Curriculum Vitae
 							</a>
 							<p style="margin: 2px; font-size: 15px">

@@ -67,12 +67,7 @@ class ControladorEntrevistas{
                 $notificacion .= Alertas::NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante);
 
             }
-
-            $host = $_SERVER['HTTP_HOST'];
-            $link = $_SERVER['REQUEST_URI'];
-
-            $url = $host . ' ' . $link;
-
+            
             echo "
                 <script>
                     swal({
@@ -82,7 +77,7 @@ class ControladorEntrevistas{
                     }).then(function(result){
                             if(result.value){
 
-                                window.location = '".$url."'
+                                window.location = '".$_SERVER['REQUEST_URI']."'
                             }
                         });
                 </script>
