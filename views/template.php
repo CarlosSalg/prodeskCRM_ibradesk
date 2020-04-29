@@ -100,6 +100,7 @@
 						$route == 'usuarios' || 
 						$route == 'vacantes' || 
 						$route == 'clientes' || 
+						$route == 'notificaciones' || 
 						$route == 'nueva-tarea' || 
 						$route == 'mis-tareas' || 
 						$route == 'todas-mis-tareas' || 

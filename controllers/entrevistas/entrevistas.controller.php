@@ -44,14 +44,14 @@ class ControladorEntrevistas{
             // Buscar datos de Candidato
             $idCandidato = $datos['candidato'];
             $candidato = ControladorVacantes::ctrBuscarCandidato($idCandidato);
-            var_dump($candidato);
+
             // Buscar datos de Vacante
             $idVacante = $candidato['can_vac_id'];
             $vacante = ModeloVacantes::mdlBuscarVacante('vacantes',$idVacante);
 
             // Crear Registro en la Base de Datos
 
-            // Notificar al Entrevistador
+            // Notificar al Entrevistador via Mail
             $notificacion = '';
 
             if($notificarEntrevistador == 'si'){
@@ -61,13 +61,29 @@ class ControladorEntrevistas{
                 
             }
 
-            // Notificar al Candidato
+            // Notificar al Candidato via Mail
             if($notificarCandidato == 'si'){
 
                 $notificacion .= Alertas::NotificarCandidatoViaMail($datos, $entrevistador, $candidato, $vacante);
 
             }
-            
+
+            date_default_timezone_set('America/Mexico_City');
+            $time = time();
+            $fechaHora = date("Y-m-d H:i:s", $time);
+
+            // Crear Notificacion de Sistema
+            $notificacion = array(
+                'usuarioNotificado' => $idEntrevistador,
+                'tipoNotificacion' => 'entrevista',
+                'textoNotificacion' => 'Nueva Entrevista',
+                'descripcionNotificacion' => json_encode($datos),
+                'fechaHoraNotificacion' => $fechaHora,
+                'estatusNotificacion' => 1,
+            );
+
+            Notificaciones::ctrNotificarNuevaProgramacionEntrevista($notificacion);
+
             echo "
                 <script>
                     swal({
