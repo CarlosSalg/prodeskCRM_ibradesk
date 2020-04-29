@@ -50,4 +50,45 @@ class ControladorClientes{
 
 	}
 
+	public static function ctrEditarCliente(){
+
+		if(isset($_POST['editarRazonSocial'])){
+
+			$idCliente = $_POST['idCliente'];
+			$editarRazonSocial = $_POST['editarRazonSocial'];
+			$editarNombreComercial = $_POST['editarNombreComercial'];
+			$editarStatusCliente = $_POST['editarStatusCliente'];
+			$editarContactoComprasNombre = $_POST['editarContactoComprasNombre'];
+			$editarContactoComprasApellidos = $_POST['editarContactoComprasApellidos'];
+			$editarContactoComprasCorreo = $_POST['editarContactoComprasCorreo'];
+			$editarContactoComprasTelefono = $_POST['editarContactoComprasTelefono'];
+
+			$tabla = 'clientes';
+			$datos = array(
+				'idCliente' => $idCliente, 
+				'editarRazonSocial' => $editarRazonSocial, 
+				'editarNombreComercial' => $editarNombreComercial, 
+				'editarStatusCliente' => $editarStatusCliente, 
+				'editarContactoComprasNombre' => $editarContactoComprasNombre, 
+				'editarContactoComprasApellidos' => $editarContactoComprasApellidos, 
+				'editarContactoComprasCorreo' => $editarContactoComprasCorreo, 
+				'editarContactoComprasTelefono' => $editarContactoComprasTelefono
+			);
+
+			$respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
+
+			if($respuesta){
+
+				Alertas::Alerta('success', 'Cliente editado correctamente', 'clientes');
+
+			}else{
+				
+				Alertas::Alerta('error', 'Contacta al Administrador', 'clientes');
+
+			}
+
+		}
+
+	}
+
 }

@@ -67,11 +67,8 @@
                                         <td>'.$cliente["cli_fecha_alta"].'</td>
                                         <td>
                                             <div class="btn-group">
-                                                <button class="btn-sm btn btn-warning btnEditarCliente" idCliente="'.$cliente["cli_id"].'">
+                                                <button class="btn-sm btn btn-warning btnEditarCliente" idCliente="'.$cliente["cli_id"].'" type="button" data-toggle="modal" data-target="#editarCliente">
                                                     <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button class="btn-sm btn btn-danger btnEliminarCliente" idCliente="'.$cliente["cli_id"].'">
-                                                    <i class="fa fa-trash-alt"></i>
                                                 </button>
                                             </div>
                                         </td>
@@ -124,8 +121,6 @@
                                 <label for="statusCliente">Estatus</label>
                                 <select name="statusCliente" id="statusCliente" class="form-control form-control-sm" required="">
                                     <option value="">Seleccione el estatus</option>
-                                    <option value="prospecto_activo">prospecto_activo</option>
-                                    <option value="prospecto_inactivo">prospecto_inactivo</option>
                                     <option value="cliente_activo">cliente_activo</option>
                                     <option value="cliente_inactivo">cliente_inactivo</option>
                                 </select>					
@@ -201,25 +196,22 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="razonSocial">Razon Social</label>
-                                <input type="text"  class="form-control form-control-sm" name="razonSocial" id="razonSocial" placeholder="Razon Social" required="">
+                                <label for="editarRazonSocial">Razon Social</label>
+                                <input type="hidden" id="idCliente" name="idCliente">
+                                <input type="text"  class="form-control form-control-sm" name="editarRazonSocial" id="editarRazonSocial" required="">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="nombreComercial">Nombre Comercial</label>
-                                <input type="text"  class="form-control form-control-sm" name="nombreComercial" id="nombreComercial" placeholder="Nombre Comercial" required="">
+                                <label for="editarNombreComercial">Nombre Comercial</label>
+                                <input type="text"  class="form-control form-control-sm" name="editarNombreComercial" id="editarNombreComercial" required="">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="statusCliente">Estatus</label>
-                                <select name="statusCliente" id="statusCliente" class="form-control form-control-sm" required="">
-                                    <option value="">Seleccione el estatus</option>
-                                    <option value="prospecto_activo">prospecto_activo</option>
-                                    <option value="prospecto_inactivo">prospecto_inactivo</option>
-                                    <option value="cliente_activo">cliente_activo</option>
-                                    <option value="cliente_inactivo">cliente_inactivo</option>
+                                <label for="editarStatusCliente">Estatus</label>
+                                <select name="editarStatusCliente" id="editarStatusCliente" class="form-control form-control-sm" required="">
+                                    
                                 </select>					
                             </div>
                         </div>
@@ -231,26 +223,26 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="contactoComprasNombre">Nombre</label>
-                                        <input type="text"  class="form-control form-control-sm" name="contactoComprasNombre" id="contactoComprasNombre" required="" placeholder="Nombre">
+                                        <label for="editarContactoComprasNombre">Nombre</label>
+                                        <input type="text"  class="form-control form-control-sm" name="editarContactoComprasNombre" id="editarContactoComprasNombre" required="">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="contactoComprasApellidos">Apellidos</label>
-                                        <input type="text"  class="form-control form-control-sm" name="contactoComprasApellidos" id="contactoComprasApellidos" required="" placeholder="Apellidos">
+                                        <label for="editarContactoComprasApellidos">Apellidos</label>
+                                        <input type="text"  class="form-control form-control-sm" name="editarContactoComprasApellidos" id="editarContactoComprasApellidos" required="" >
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="contactoComprasCorreo">Correo</label>
-                                        <input type="email"  class="form-control form-control-sm" name="contactoComprasCorreo" id="contactoComprasCorreo" required="" placeholder="Correo">
+                                        <label for="editarContactoComprasCorreo">Correo</label>
+                                        <input type="email"  class="form-control form-control-sm" name="editarContactoComprasCorreo" id="editarContactoComprasCorreo" required="" >
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="contactoComprasTelefono">Telefono</label>
-                                        <input type="text"  class="form-control form-control-sm" name="contactoComprasTelefono" id="contactoComprasTelefono" required="" placeholder="Telefono">
+                                        <label for="editarContactoComprasTelefono">Telefono</label>
+                                        <input type="text"  class="form-control form-control-sm" name="editarContactoComprasTelefono" id="editarContactoComprasTelefono" required="">
                                     </div>
                                 </div>
                             </div>
@@ -266,6 +258,9 @@
                 </div>
 
                 <?php
+
+                    $editarCliente = new ControladorClientes();
+                    $editarCliente -> ctrEditarCliente();
                     
                 ?>
                     
