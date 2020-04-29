@@ -68,21 +68,7 @@ class ControladorEntrevistas{
 
             }
 
-            date_default_timezone_set('America/Mexico_City');
-            $time = time();
-            $fechaHora = date("Y-m-d H:i:s", $time);
-
-            // Crear Notificacion de Sistema
-            $notificacion = array(
-                'usuarioNotificado' => $idEntrevistador,
-                'tipoNotificacion' => 'entrevista',
-                'textoNotificacion' => 'Nueva Entrevista',
-                'descripcionNotificacion' => json_encode($datos),
-                'fechaHoraNotificacion' => $fechaHora,
-                'estatusNotificacion' => 1,
-            );
-
-            Notificaciones::ctrNotificarNuevaProgramacionEntrevista($notificacion);
+            Notificaciones::ctrCrearNotificacion($idEntrevistador, 'entrevista', 'Nueva Entrevista', $datos);
 
             echo "
                 <script>

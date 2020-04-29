@@ -87,7 +87,7 @@ $(document).ready(function(){
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-right">
-                                        <a href="index.php?route=accionar-candidato&idVacante=${id}&idCandidato=${candidato.can_id}&espectativa=${espectativa}" target="_blank" class="btn btn-sm btn-primary">
+                                        <a href="index.php?route=accionar-candidato&idVacante=${id}&idCandidato=${candidato.can_id}&espectativa=${espectativa}" class="btn btn-sm btn-primary">
                                             <i class="fas fa-user"></i> Accionar
                                         </a>
                                     </div>

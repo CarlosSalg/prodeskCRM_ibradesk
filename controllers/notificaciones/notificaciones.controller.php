@@ -2,7 +2,21 @@
 
 class Notificaciones{
 
-    public static function ctrNotificarNuevaProgramacionEntrevista($notificacion){
+    public static function ctrCrearNotificacion($idUsuarioNotificado, $tipo, $titulo, $descripcion){
+
+        date_default_timezone_set('America/Mexico_City');
+        $time = time();
+        $fechaHora = date("Y-m-d H:i:s", $time);
+
+        $notificacion = array(
+            'usuarioNotificado' => $idUsuarioNotificado,
+            'usuarioCreador' => $_SESSION['id'],
+            'tipoNotificacion' => $tipo,
+            'textoNotificacion' => $titulo,
+            'descripcionNotificacion' => json_encode($descripcion),
+            'fechaHoraNotificacion' => $fechaHora,
+            'estatusNotificacion' => 1,
+        );
 
         $tabla = 'notificaciones';
         $respuesta = ModeloNotificaciones::mdlCrearNotificacion($tabla, $notificacion);

@@ -5,11 +5,12 @@ class ModeloNotificaciones{
     public static function mdlCrearNotificacion($tabla, $notificacion){
 
         $stmt = Conexion::Conectar()->prepare("
-			INSERT INTO $tabla (not_usu_id, not_tipo, not_texto, not_descripcion, not_fecha, not_estatus)
-			VALUES (:not_usu_id, :not_tipo, :not_texto, :not_descripcion, :not_fecha, :not_estatus)
+			INSERT INTO $tabla (not_usu_id, not_usu_id_creador, not_tipo, not_texto, not_descripcion, not_fecha, not_estatus)
+			VALUES (:not_usu_id, :not_usu_id_creador, :not_tipo, :not_texto, :not_descripcion, :not_fecha, :not_estatus)
 		");
 
-		$stmt -> bindParam(":not_usu_id",$notificacion['usuarioNotificado'], PDO::PARAM_STR);
+        $stmt -> bindParam(":not_usu_id",$notificacion['usuarioNotificado'], PDO::PARAM_STR);
+        $stmt -> bindParam(":not_usu_id_creador",$notificacion['usuarioCreador'], PDO::PARAM_STR);
 		$stmt -> bindParam(":not_tipo",$notificacion['tipoNotificacion'], PDO::PARAM_STR);
         $stmt -> bindParam(":not_texto",$notificacion['textoNotificacion'], PDO::PARAM_STR);
         $stmt -> bindParam(":not_descripcion",$notificacion['descripcionNotificacion'], PDO::PARAM_STR);

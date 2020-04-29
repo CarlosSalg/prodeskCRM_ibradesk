@@ -23,7 +23,7 @@
 
     <section class="content">
         <div class="row">
-            <div class="col-md-8 offset-md-2 col-xs-12 offset-sm-0">
+            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
     
     ';
 
@@ -36,12 +36,13 @@
 
             $descripcion = json_decode($notificacion['not_descripcion'], true);
             $candidato = ControladorVacantes::ctrBuscarCandidato($descripcion['candidato']);
+            $creador = ControladorUsuarios::ctrBuscarUsuario($notificacion['not_usu_id_creador']);
             $vacante = ControladorVacantes::ctrBuscarVacanteConCliente($candidato['can_vac_id']);
             $fechaLarga = Funciones::ConvertirFechaCortaHaciaFechaLarga($descripcion['fechaEntrevista']);
             $fechaNotificacion = Funciones::SepararFechaLarga($notificacion['not_fecha']);
             $fechaCorta = Funciones::ConvertirFechaCortaHaciaFechaCorta($fechaNotificacion[0]);
             
-            $descripcionCorta = "Se te ha programado una nueva entrevista para la vacante de ".$vacante['vac_titulo']." para el dia ".$fechaLarga." a las ".$descripcion['horaEntrevista']. ". Te estara esperando el candidato ".ucwords($candidato['can_nombre']). " ".ucwords($candidato['can_apellidos']). " <br> Dirigete al panel <a href='mis-entrevistas'>Mis Entrevistas</a> para que no salga de tu radar";
+            $descripcionCorta = $creador['usu_nombre']." te ha programado una nueva entrevista para la vacante de ".$vacante['vac_titulo']." para el dia ".$fechaLarga." a las ".$descripcion['horaEntrevista']. ". Te estara esperando el candidato ".ucwords($candidato['can_nombre']). " ".ucwords($candidato['can_apellidos']). " <br> Dirigete al panel <a href='mis-entrevistas'>Mis Entrevistas</a> para que no salga de tu radar";
         
         }
 
