@@ -48,6 +48,12 @@ class ControladorTareas{
 			$respuesta = ModeloTareas::mdlCrearTarea($tabla, $datos);
 			$ultimoId = ModeloTareas::mdlObtenerUltimoId($tabla);
 			$id = $ultimoId["id"];
+
+			foreach($_POST['usuariosAsignados'] as $key => $usuario){
+
+				Notificaciones::ctrCrearNotificacion($usuario, 'tarea', "Tarea Asignada $id", $datos);
+
+			}
 			
 			if($respuesta != false){
 
@@ -66,6 +72,13 @@ class ControladorTareas{
 
 		$tabla = 'tareas';
 		$respuesta = ModeloTareas::mdlMostarTareasLimit3($tabla);
+		return $respuesta;
+	}
+
+	public static function ctrBuscarTarea($id){
+
+		$tabla = 'tareas';
+		$respuesta = ModeloTareas::mdlBuscarTarea($tabla, $id);
 		return $respuesta;
 	}
 

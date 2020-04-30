@@ -131,6 +131,9 @@ $cantidadNotificaciones = count($notificaciones);
             if($notificacion['not_tipo']== 'entrevista'){
               $icono = 'fas fa-calendar';
             }
+            if($notificacion['not_tipo']== 'tarea'){
+              $icono = 'fas fa-edit';
+            }
 
             $fecha = Funciones::SepararFechaLarga($notificacion['not_fecha']);
             $fechaCorta = Funciones::ConvertirFechaCortaHaciaFechaCorta($fecha[0]);

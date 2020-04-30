@@ -1,5 +1,7 @@
 <?php
 
+require_once "conexion.php";
+
 class ModeloNotificaciones{
 
     public static function mdlCrearNotificacion($tabla, $notificacion){
@@ -100,6 +102,33 @@ class ModeloNotificaciones{
         }else{
 
             return false;
+            
+        }
+		
+
+		$stmt -> close();
+        $stmt = null;
+
+    }
+
+    public static function mdlActualizarEstatus($tabla, $id, $nuevoValorEstatus){
+
+        $stmt = Conexion::Conectar()->prepare("
+            UPDATE $tabla
+            SET not_estatus = :not_estatus
+            WHERE not_id = :id
+        ");
+        
+        $stmt -> bindParam(":id",$id, PDO::PARAM_INT);
+        $stmt -> bindParam(":not_estatus",$nuevoValorEstatus, PDO::PARAM_INT);
+        
+        if($stmt -> execute()){
+
+            return "ok";
+
+        }else{
+
+            return "error";
             
         }
 		
