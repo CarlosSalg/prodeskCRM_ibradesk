@@ -14,7 +14,12 @@
 	<title>Prodesk / CRM</title>
 
 	<link rel="icon" href="views/img/template/icono.png">
-
+	
+	<!-- fullCalendar -->
+	<link rel="stylesheet" href="views/plugins/fullcalendar/main.min.css">
+  	<link rel="stylesheet" href="views/plugins/fullcalendar-daygrid/main.min.css">
+  	<link rel="stylesheet" href="views/plugins/fullcalendar-timegrid/main.min.css">
+  	<link rel="stylesheet" href="views/plugins/fullcalendar-bootstrap/main.min.css">
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- DataTables -->
@@ -76,6 +81,13 @@
 	<script src="views/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 	<script src="views/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 	<script src="views/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<!-- fullCalendar 2.2.5 -->
+	<script src="views/plugins/moment/moment.min.js"></script>
+	<script src="views/plugins/fullcalendar/main.min.js"></script>
+	<script src="views/plugins/fullcalendar-daygrid/main.min.js"></script>
+	<script src="views/plugins/fullcalendar-timegrid/main.min.js"></script>
+	<script src="views/plugins/fullcalendar-interaction/main.min.js"></script>
+	<script src="views/plugins/fullcalendar-bootstrap/main.min.js"></script>
   	<!--Sweet Alert-->
   	<script src="views/plugins/sweetalert2/sweetalert2.all.js"></script>	
 
@@ -98,6 +110,7 @@
 
 					if(
 						$route == 'usuarios' || 
+						$route == 'agenda' || 
 						$route == 'vacantes' || 
 						$route == 'clientes' || 
 						$route == 'notificaciones' || 

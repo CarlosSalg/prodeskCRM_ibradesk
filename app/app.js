@@ -9,6 +9,8 @@ $(function () {
 	    "info": true,
 	    "autoWidth": false,
 	    "responsive": true,
-    });
+	});
+	
+	
 });
 
