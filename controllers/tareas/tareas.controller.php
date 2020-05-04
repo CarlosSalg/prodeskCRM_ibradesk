@@ -52,6 +52,7 @@ class ControladorTareas{
 			foreach($_POST['usuariosAsignados'] as $key => $usuario){
 
 				Notificaciones::ctrCrearNotificacion($usuario, 'tarea', "Tarea Asignada $id", $datos);
+				ControladorCalendario::ctrCrearEvento($usuario, $datos, 'tarea', $datos['nombreTarea'], $fechaInicio, null, $fechaFin, null, 0, "index.php?route=ver-tarea&idTarea=$id");
 
 			}
 			
@@ -148,11 +149,11 @@ class ControladorTareas{
 
 			if($actualizarEstatusTarea == true && $crearNotaSeguimiento == true){
 
-				Alertas::Alerta('success', 'Nota agregada correctamente', 'mis-tareas');
+				Alertas::Alerta('success', 'Nota agregada correctamente', $_SERVER["REQUEST_URI"]);
 
 			}else{
 				
-				Alertas::Alerta('error', 'Error, contactar administrador', 'mis-tareas');
+				Alertas::Alerta('error', 'Error, contactar administrador', $_SERVER["REQUEST_URI"]);
 
 			}
 

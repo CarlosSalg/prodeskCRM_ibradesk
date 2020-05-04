@@ -186,6 +186,7 @@ class ModeloTareas{
 		$stmt = Conexion::Conectar()->prepare("
 
 			SELECT * FROM $tabla 
+			JOIN usuarios ON tar_creado_por = usu_id
 			WHERE tar_id = :tar_id
 		");
 

@@ -110,7 +110,8 @@
 
 					if(
 						$route == 'usuarios' || 
-						$route == 'agenda' || 
+						$route == 'ver-tarea' || 
+						$route == 'calendario' || 
 						$route == 'vacantes' || 
 						$route == 'clientes' || 
 						$route == 'notificaciones' || 

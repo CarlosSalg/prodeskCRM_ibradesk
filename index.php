@@ -10,6 +10,7 @@
 	require_once "controllers/vacantes/vacantes.controller.php";
 	require_once "controllers/entrevistas/entrevistas.controller.php";
 	require_once "controllers/notificaciones/notificaciones.controller.php";
+	require_once "controllers/calendario/calendario.controller.php";
 
 	// Require de Dependencias Model
 	require_once "models/usuarios.modelo.php";
@@ -17,6 +18,7 @@
 	require_once "models/clientes.modelo.php";
 	require_once "models/vacantes.modelo.php";
 	require_once "models/notificaciones.modelo.php";
+	require_once "models/calendario.modelo.php";
 
 
 	// Realizando Render del TEMPLATE
