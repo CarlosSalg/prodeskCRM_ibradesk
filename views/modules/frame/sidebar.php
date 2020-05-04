@@ -24,14 +24,14 @@ if(count($tareasPendientes)>0){
         <img src="<?=$_SESSION['foto']?>" class="img-circle elevation-2" alt="User_Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block"><?=$_SESSION['nombre']?></a>
+        <a href="#" class="d-block f-14"><?=$_SESSION['nombre']?></a>
       </div>
     </div>
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
 
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar flex-column f-13" data-widget="treeview" role="menu" data-accordion="false">
 
         
         <li class="nav-item has-treeview">
@@ -86,12 +86,6 @@ if(count($tareasPendientes)>0){
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="nueva-tarea" class="nav-link">
-                <i class="nav-icon fa fa-plus"></i>
-                <p>Nueva Tarea</p>
-              </a>
-            </li>
             <li class="nav-item">
               <a href="mis-tareas" class="nav-link">
                 <i class="nav-icon far fa-circle"></i>

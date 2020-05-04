@@ -18,7 +18,6 @@
 
 ?>
 
-
 <div class="content-wrapper">
 
 	<section class="content-header">
@@ -52,7 +51,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="info-box bg-info">
+
+								<a href="nueva-tarea" class="btn btn-info btn-block">
+									Crear una nueva <i class="fas fa-plus"></i>
+								</a>
+                                <div class="info-box bg-info mt-2">
                                     <span class="info-box-icon"><i class="fa fa-edit"></i></span>
                                     <div class="info-box-content">
                                         <span class="info-box-text">Total Tareas Pendientes</span>
@@ -169,7 +172,7 @@
 						}else{
 
 							echo '
-								<div class="container-fluid py-2 px-5 mt-4">
+								<div class="col-md-12">
 									<div class="jumbotron">
 										
 										<div class="row">	
