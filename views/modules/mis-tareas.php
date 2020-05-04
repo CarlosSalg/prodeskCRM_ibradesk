@@ -4,7 +4,14 @@
     $arrayTareasAbiertas = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
     $totalTareas = count($arrayTotalTareas);
     $totalTareasAbiertas = count($arrayTareasAbiertas);
-	$avance = ($totalTareasAbiertas/$totalTareas)*100;
+	
+	if($totalTareas > 0 && $totalTareasAbiertas > 0){
+
+		$avance = ($totalTareasAbiertas/$totalTareas)*100;
+
+	}
+	$avance = 100;
+	
 	$avanceReal = 100 - $avance;
 	$avanceViews = round($avanceReal, 0, PHP_ROUND_HALF_UP);
     $claseAvance = "width: ".$avanceViews."%";

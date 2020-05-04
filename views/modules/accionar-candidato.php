@@ -159,7 +159,7 @@
                                         </div>
                                         <div class="card-footer text-right">
                                             <div class="text-right btn-group">
-                                                <a href="'.$candidato["can_cv"].'" target="_blank" class="btn btn-sm bg-teal">
+                                                <a href="'.$candidato["can_cv"].'" target="_blank" class="btn btn-sm btn-outline-info">
                                                     <i class="fas fa-eye"></i> Ver CV
                                                 </a>
                             ';
@@ -167,17 +167,17 @@
                             if($candidato['can_estatus'] == 1){
 
                                 echo '
-                                                <button class="btn btn-sm bg-danger btnDescartarCandidato" idCandidato="'.$candidato["can_id"].'">
+                                                <button class="btn btn-sm btn-outline-info btnDescartarCandidato" idCandidato="'.$candidato["can_id"].'">
                                                     <i class="fas fa-times"></i> Descartar
                                                 </button>
-                                                <button class="btn btn-sm bg-primary" type="button" data-toggle="modal" data-target="#modalCrearEntrevista">
+                                                <button class="btn btn-sm btn-info" type="button" data-toggle="modal" data-target="#modalCrearEntrevista">
                                                     <i class="fas fa-calendar"></i> Programar Entrevista
                                                 </button>
                                 ';
                             }else{
 
                                 echo '
-                                                <button class="btn btn-sm bg-info btnActivarCandidato" idCandidato="'.$candidato["can_id"].'">
+                                                <button class="btn btn-sm btn-info btnActivarCandidato" idCandidato="'.$candidato["can_id"].'">
                                                     <i class="fas fa-check"></i> Activar
                                                 </button>
                                 ';

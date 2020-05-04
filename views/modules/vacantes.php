@@ -1,3 +1,11 @@
+<?php
+
+$vacantes = ControladorVacantes::ctrMostrarVacantesConCliente();   
+$totalVacantes = count($vacantes);
+
+?>
+
+
 <div class="content-wrapper">
     <!-- Titutlo -->
     <section class="content-header">
@@ -28,7 +36,7 @@
                             <div class="col-md-3">
                                 <div class="small-box bg-info">
                                     <div class="inner">
-                                        <h3>ficticio</h3>
+                                        <h3><?=$totalVacantes?></h3>
                                         <p>Vacantes Abiertas</p>
                                     </div>
                                     <div class="icon">
@@ -50,8 +58,6 @@
         <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
 
             <?php
-
-                $vacantes = ControladorVacantes::ctrMostrarVacantesConCliente();   
                 
                 foreach($vacantes as $key => $vacante){
 
