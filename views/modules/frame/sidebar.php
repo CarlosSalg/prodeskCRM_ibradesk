@@ -41,46 +41,11 @@
 
 			<ul class="nav nav-pills nav-sidebar flex-column f-13" data-widget="treeview" role="menu" data-accordion="false">
 
-				<li class="nav-item has-treeview">
-					<a href="#" class="nav-link">
-						<i class="nav-icon fas fa-wrench"></i>
-						<p>
-						Administracion
-						<i class="right fas fa-angle-left"></i>
-						</p>
+				<li class="nav-item">
+					<a href="calendario" class="nav-link">
+						<i class="nav-icon far fa-calendar"></i>
+						<p>Calendario</p>
 					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="usuarios" class="nav-link">
-								<i class="nav-icon fa fa-users"></i>
-								<p>Usuarios</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="clientes" class="nav-link">
-								<i class="nav-icon far fa-address-book"></i>
-								<p>Clientes</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="vacantes" class="nav-link">
-								<i class="nav-icon fa fa-book"></i>
-								<p>Vacantes</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="entrevistas" class="nav-link">
-								<i class="nav-icon fa fa-list"></i>
-								<p>Entevistas</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="tareas" class="nav-link">
-								<i class="nav-icon fa fa-list"></i>
-								<p>Tareas</p>
-							</a>
-						</li>
-					</ul>
 				</li>
 
 				<li class="nav-item has-treeview">
@@ -90,9 +55,21 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
+							<a href="mis-entevistas" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Mis Entrevistas</p>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="ver-vacantes" class="nav-link">
 								<i class="nav-icon far fa-circle"></i>
 								<p>Vacantes</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="ver-vacantes" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Cartera</p>
 							</a>
 						</li>
 					</ul>
@@ -125,13 +102,48 @@
 						</li>
 					</ul>
 				</li>
-
-				<li class="nav-item">
-					<a href="calendario" class="nav-link">
-						<i class="nav-icon far fa-calendar"></i>
-						<p>Calendario</p>
+				<li class="nav-item has-treeview">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-wrench"></i>
+						<p>
+						Gestionar
+						<i class="right fas fa-angle-left"></i>
+						</p>
 					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="usuarios" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Usuarios</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="clientes" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Clientes</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="vacantes" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Vacantes</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="entrevistas" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Entevistas</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="tareas" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Tareas</p>
+							</a>
+						</li>
+					</ul>
 				</li>
+
 
 				<li class="nav-item">
 					<a href="logout" class="nav-link">
