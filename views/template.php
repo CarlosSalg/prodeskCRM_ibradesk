@@ -112,7 +112,7 @@
 						$route == 'usuarios' || 
 						$route == 'ver-tarea' || 
 						$route == 'calendario' || 
-						$route == 'vacantes' || 
+						$route == 'ver-vacantes' || 
 						$route == 'clientes' || 
 						$route == 'notificaciones' || 
 						$route == 'nueva-tarea' || 
