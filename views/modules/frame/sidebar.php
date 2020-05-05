@@ -16,10 +16,10 @@
 
 ?>
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar elevation-4 sidebar-dark-info">
 
 	<a href="home" class="brand-link">
-		<img src="views/img/template/icono.png" alt="Logo" class="brand-image elevation-3" style="opacity: .8">
+		<img src="views/img/template/icono.png" alt="Logo" class="brand-image elevation-3" style="opacity: .9">
 		<span class="brand-text font-weight-light">Prodesk / CRM</span>
 	</a>
 
@@ -67,7 +67,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="ver-vacantes" class="nav-link">
+							<a href="ver-cartera" class="nav-link">
 								<i class="nav-icon far fa-circle"></i>
 								<p>Cartera</p>
 							</a>
@@ -98,6 +98,12 @@
 							<a href="mis-tareas-creadas" class="nav-link">
 								<i class="nav-icon far fa-circle"></i>
 								<p>Mis Tareas Creadas</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="nueva-tarea" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Crear Tarea</p>
 							</a>
 						</li>
 					</ul>

@@ -29,6 +29,8 @@
 						$tarea = ControladorTareas::ctrBuscarTarea($_GET['idTarea']);
 						$clase = 'default';
 
+						$fechaInicio = Funciones::ConvertirFechaCortaHaciaFechaLarga($tarea["tar_fecha_inicio"]);
+						$fechaTermino = Funciones::ConvertirFechaCortaHaciaFechaLarga($tarea["tar_fecha_fin"]);
 
                         if($tarea["tar_estatus"] == 'Asignada'){
 
@@ -57,10 +59,10 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6 text-muted f-12">
-                                                Fecha Inicio: '.$tarea["tar_fecha_inicio"].'
+                                                Fecha Inicio: '.$fechaInicio.' '.$tarea["tar_hora_inicio"].'
                                             </div>
                                             <div class="col-md-6 text-muted f-12">
-                                                Fecha Termino:'.$tarea["tar_fecha_fin"].'
+                                                Fecha Termino: '.$fechaTermino.' '.$tarea["tar_hora_fin"].'
                                             </div>
                                         </div>
                                         <hr>

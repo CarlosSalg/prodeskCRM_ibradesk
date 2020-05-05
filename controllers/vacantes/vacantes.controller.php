@@ -32,11 +32,11 @@ class ControladorVacantes{
 
             if($respuesta == "ok"){
 
-				Alertas::Alerta('success', 'Vacante agregada correctamente', 'vacantes');
+				Alertas::Alerta('success', 'Vacante agregada correctamente', 'ver-vacantes');
 
 			}else{
 				
-				Alertas::Alerta('error', 'Error, contactar administrador', 'vacantes');
+				Alertas::Alerta('error', 'Error, contactar administrador', 'ver-vacantes');
 
 			}
 

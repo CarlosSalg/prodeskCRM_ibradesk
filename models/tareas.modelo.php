@@ -7,14 +7,16 @@ class ModeloTareas{
 	public static function mdlCrearTarea($tabla, $datos){
 
 		$stmt = Conexion::Conectar()->prepare("
-			INSERT INTO $tabla (tar_usuarios, tar_nombre, tar_fecha_inicio, tar_fecha_fin, tar_descripcion, tar_archivo, tar_archivo_nombre, tar_creado_por, tar_estatus)
-			VALUES (:tar_usuarios, :tar_nombre, :tar_fecha_inicio, :tar_fecha_fin, :tar_descripcion, :tar_archivo, :tar_archivo_nombre, :tar_creado_por, :tar_estatus)
+			INSERT INTO $tabla (tar_usuarios, tar_nombre, tar_fecha_inicio, tar_hora_inicio, tar_fecha_fin, tar_hora_fin, tar_descripcion, tar_archivo, tar_archivo_nombre, tar_creado_por, tar_estatus)
+			VALUES (:tar_usuarios, :tar_nombre, :tar_fecha_inicio, :tar_hora_inicio, :tar_fecha_fin, :tar_hora_fin, :tar_descripcion, :tar_archivo, :tar_archivo_nombre, :tar_creado_por, :tar_estatus)
 		");
 
 		$stmt -> bindParam(":tar_usuarios",$datos['usuarios'], PDO::PARAM_STR);
 		$stmt -> bindParam(":tar_nombre",$datos['nombreTarea'], PDO::PARAM_STR);
 		$stmt -> bindParam(":tar_fecha_inicio",$datos['fechaInicio'], PDO::PARAM_STR);
+		$stmt -> bindParam(":tar_hora_inicio",$datos['horaInicio'], PDO::PARAM_STR);
 		$stmt -> bindParam(":tar_fecha_fin",$datos['fechaFin'], PDO::PARAM_STR);
+		$stmt -> bindParam(":tar_hora_fin",$datos['horaFin'], PDO::PARAM_STR);
 		$stmt -> bindParam(":tar_descripcion",$datos['descripcionTarea'], PDO::PARAM_STR);
 		$stmt -> bindParam(":tar_archivo",$datos['archivoAdjunto'], PDO::PARAM_STR);
 		$stmt -> bindParam(":tar_archivo_nombre",$datos['archivoNombre'], PDO::PARAM_STR);
@@ -89,6 +91,7 @@ class ModeloTareas{
 		$stmt -> close();
         $stmt =null;
 	}
+
 	public static function mdlObtenerUltimoId($tabla){
 
 		$stmt = Conexion::Conectar()->prepare("

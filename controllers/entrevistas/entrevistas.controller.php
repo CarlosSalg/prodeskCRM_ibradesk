@@ -26,30 +26,40 @@ class ControladorEntrevistas{
 
             }
 
-            // Guardar Form en Array
-            $datos = array(
-                
-                'candidato' => $_POST['candidato'],
-                'entrevistador' => $_POST['entrevistador'],
-                'fechaEntrevista' => $_POST['fechaEntrevista'],
-                'horaEntrevista' => $_POST['horaEntrevista'],
-                'notificarEntrevistador' => $notificarEntrevistador,
-                'notificarCandidato' => $notificarCandidato,
-            );
-
             // Buscar datos de Entrevistador
-            $idEntrevistador = $datos['entrevistador'];
+            $idEntrevistador = $_POST['entrevistador'];
             $entrevistador = ControladorUsuarios::ctrBuscarUsuario($idEntrevistador);
 
             // Buscar datos de Candidato
-            $idCandidato = $datos['candidato'];
+            $idCandidato = $_POST['candidato'];
             $candidato = ControladorVacantes::ctrBuscarCandidato($idCandidato);
 
             // Buscar datos de Vacante
             $idVacante = $candidato['can_vac_id'];
             $vacante = ModeloVacantes::mdlBuscarVacante('vacantes',$idVacante);
 
+            $tabla = 'entrevistas';
+            
+            // Guardar Form en Array
+            $datos = array(
+                
+                'vacante' => $idVacante,
+                'candidato' => $_POST['candidato'],
+                'entrevistador' => $_POST['entrevistador'],
+                'fechaEntrevista' => $_POST['fechaEntrevista'],
+                'horaEntrevista' => $_POST['horaEntrevista'],
+                'horaEntrevistaFin' => $_POST['horaEntrevistaFin']
+            );
+            
             // Crear Registro en la Base de Datos
+            $respuesta = ModeloEntrevistas::mdlCrearEntrevista($tabla, $datos);
+            
+            // Crear Evento en el Calendario
+            $titulo = "Entrevista". $vacante["vac_titulo"];
+            $ultimoIdEntrevista = ModeloEntrevistas::mdlObtenerUltimoId($tabla);
+            $id = $ultimoIdEntrevista['id'];
+
+            ControladorCalendario::ctrCrearEvento($_POST['entrevistador'], $datos, 'entrevista', $titulo, $_POST['fechaEntrevista'], $_POST['horaEntrevista'], $_POST['fechaEntrevista'], $_POST['horaEntrevistaFin'], 0, "index.php?route=ver-entrevista&idVacante=$id");
 
             // Notificar al Entrevistador via Mail
             $notificacion = '';

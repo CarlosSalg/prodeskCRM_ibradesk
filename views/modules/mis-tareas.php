@@ -51,10 +51,6 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-
-								<a href="nueva-tarea" class="btn btn-info btn-block">
-									Crear una nueva <i class="fas fa-plus"></i>
-								</a>
                                 <div class="info-box bg-info mt-2">
                                     <span class="info-box-icon"><i class="fa fa-edit"></i></span>
                                     <div class="info-box-content">
@@ -91,6 +87,9 @@
 
 							foreach ($tareas as $key => $tarea) {
 
+								$fechaInicio = Funciones::ConvertirFechaCortaHaciaFechaLarga($tarea["tar_fecha_inicio"]);
+								$fechaTermino = Funciones::ConvertirFechaCortaHaciaFechaLarga($tarea["tar_fecha_fin"]);
+
 								if($tarea["tar_estatus"] == 'Asignada'){
 
 									$clase = 'badge badge-warning';
@@ -123,10 +122,10 @@
 											<div class="card-body">
 												<div class="row">
 													<div class="col-md-6 text-muted f-12">
-														Fecha Inicio: '.$tarea["tar_fecha_inicio"].'
+														Fecha Inicio: '.$fechaInicio.' '.$tarea["tar_hora_inicio"].'
 													</div>
 													<div class="col-md-6 text-muted f-12">
-														Fecha Termino:'.$tarea["tar_fecha_fin"].'
+														Fecha Termino: '.$fechaTermino.' '.$tarea["tar_hora_fin"].'
 													</div>
 												</div>
 												<hr>
@@ -151,7 +150,7 @@
 												<div class="text-right">
 							
 													<div class="btn-group">
-														<button class="btn btn-primary btn-sm btnAgregarSeguimiento" estatusTarea="'.$tarea["tar_estatus"].'" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modaAgregarSeguimiento">
+														<button class="btn btn-outline-info btn-sm btnAgregarSeguimiento" estatusTarea="'.$tarea["tar_estatus"].'" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modaAgregarSeguimiento">
 															<i class="fa fa-plus"></i>
 														</button>
 														<button class="btn btn-info btn-sm btnObservarHistorial" idTarea="'.$tarea["tar_id"].'" type="button" data-toggle="modal" data-target="#modalVerHistorial">

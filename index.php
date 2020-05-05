@@ -19,6 +19,7 @@
 	require_once "models/vacantes.modelo.php";
 	require_once "models/notificaciones.modelo.php";
 	require_once "models/calendario.modelo.php";
+	require_once "models/entrevistas.modelo.php";
 
 
 	// Realizando Render del TEMPLATE

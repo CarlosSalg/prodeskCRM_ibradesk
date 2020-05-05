@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="home">Home</a></li>
-                        <li class="breadcrumb-item"><a href="vacantes">Vacantes</a></li>
+                        <li class="breadcrumb-item"><a href="ver-vacantes">Vacantes</a></li>
                         <li class="breadcrumb-item active">Accionar Candidato</li>
                     </ol>
                 </div>
@@ -23,11 +23,11 @@
     </section>
 
     <section class="content">
-        <div class="row">
-            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+        <div class="container">
+            <div class="">
                 <div class="row">
 
-                    <div class="col-md-12">
+                    <div class="col-md-7">
                         <?php
 
                             $id = $_GET['idVacante'];
@@ -41,7 +41,7 @@
         
                             echo '
         
-                                <div class="card bg-light collapsed-card">
+                                <div class="card bg-light">
         
                                     <div class="card-header">
                                         <div class="row">
@@ -109,7 +109,7 @@
                                 
                         ?>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-5">
                         <?php
 
                             $idUsuario = $_GET['idCandidato'];
@@ -205,8 +205,8 @@
 </div>
 
 <!--Modal modalCrearEntrevista-->
-<div class="modal fade" id="modalCrearEntrevista" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade f-14" id="modalCrearEntrevista" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
     	<form method="post" enctype="multipart/form-data">
       		<div class="modal-header">
@@ -216,55 +216,74 @@
         		</button>
       		</div>
       		<div class="modal-body">
-				<label for="candidato">Candidato</label>
-	        	<div class="input-group">	        		
-			         <span class="input-group-text">
-                        <i class="fa fa-users"></i>
-			         </span>
-			        <select name="candidato" id="candidato" class="form-control text-capitalize" required="">
-                        <option value="<?=$candidato["can_id"]?>"><?=$candidato["can_nombre"].' '.$candidato["can_apellidos"]?></option>
-                    </select>
-		      	</div>
-				<br>
-				<label for="entrevistador">Entrevistador</label>
-	        	<div class="input-group">	        		
-			         <span class="input-group-text">
-                        <i class="fa fa-user"></i>
-			         </span>
-			        <select name="entrevistador" class="form-control text-capitalize" required="">
-                        <option value="">Seleccione Entrevistador</option>
-                        <?php
-                            $usuarios = ControladorUsuarios::ctrMostrarUsuarios();
-                            foreach($usuarios as $key => $usuario){
-
-                                echo '<option value="'.$usuario['usu_id'].'">'.$usuario['usu_nombre'].'</option>';
-
-                            }
-                        ?>
-                    </select>
-		      	</div>
-		      	<br>
-                <label for="fechaEntrevista">Fecha y Hora</label>
-                <div class="row">
+				
+				<div class="row">
                     <div class="col-md-6">
+                        <label for="candidato">Candidato</label>
                         <div class="input-group">	        		
                             <span class="input-group-text">
-                                <i class="fa fa-calendar"></i>
+                                <i class="fa fa-users"></i>
                             </span>
-                            <input type="date" class="form-control" name="fechaEntrevista" id="fechaEntrevista" required="">
+                            <select name="candidato" id="candidato" class="form-control form-control-sm text-capitalize" required="">
+                                <option value="<?=$candidato["can_id"]?>"><?=$candidato["can_nombre"].' '.$candidato["can_apellidos"]?></option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <label for="entrevistador">Entrevistador</label>
                         <div class="input-group">	        		
                             <span class="input-group-text">
-                                <i class="fa fa-clock"></i>
+                                <i class="fa fa-user"></i>
                             </span>
-                            <input type="time" class="form-control" name="horaEntrevista" required="">
+                            <select name="entrevistador" class="form-control form-control-sm text-capitalize" required="">
+                                <option value="">Seleccione Entrevistador</option>
+                                <?php
+                                    $usuarios = ControladorUsuarios::ctrMostrarUsuarios();
+                                    foreach($usuarios as $key => $usuario){
+
+                                        echo '<option value="'.$usuario['usu_id'].'">'.$usuario['usu_nombre'].'</option>';
+
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
                 </div>
-                <br>
-                <p class="text-muted">Notificaciones via E-mail</p>
+
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="fechaEntrevista">Fecha Inicio</label>
+                                <div class="input-group">	        		
+                                    <span class="input-group-text">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    <input type="date" class="form-control form-control-sm" name="fechaEntrevista" id="fechaEntrevista" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="horaEntrevista">Hora Inicio</label>
+                                <div class="input-group">	        		
+                                    <span class="input-group-text">
+                                        <i class="fa fa-clock"></i>
+                                    </span>
+                                    <input type="time" class="form-control form-control-sm" name="horaEntrevista"  id="horaEntrevista" required="">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="horaEntrevistaFin">Hora Fin</label>
+                                <div class="input-group">	        		
+                                    <span class="input-group-text">
+                                        <i class="fa fa-clock"></i>
+                                    </span>
+                                    <input type="time" class="form-control form-control-sm" name="horaEntrevistaFin"  id="horaEntrevistaFin" required="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted mt-4">Notificaciones via E-mail</p>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-check">	        		

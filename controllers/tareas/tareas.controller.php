@@ -27,7 +27,9 @@ class ControladorTareas{
 			$usuarios = json_encode($_POST['usuariosAsignados']);
 			$nombreTarea = $_POST['nombreTarea'];
 			$fechaInicio = $_POST['fechaInicio'];
+			$horaInicio = $_POST['horaInicio'];
 			$fechaFin = $_POST['fechaFin'];
+			$horaFin = $_POST['horaFin'];
 			$descripcionTarea = $_POST['descripcionTarea'];
 			$archivoAdjunto = $ruta;
 			$estatusTarea = 'Asignada';
@@ -37,7 +39,9 @@ class ControladorTareas{
 				'usuarios' => $usuarios, 
 				'nombreTarea' => $nombreTarea, 
 				'fechaInicio' => $fechaInicio, 
+				'horaInicio' => $horaInicio, 
 				'fechaFin' => $fechaFin, 
+				'horaFin' => $horaFin, 
 				'descripcionTarea' => $descripcionTarea, 
 				'archivoAdjunto' => $archivoAdjunto, 
 				'archivoNombre' => $nombre, 
@@ -52,7 +56,7 @@ class ControladorTareas{
 			foreach($_POST['usuariosAsignados'] as $key => $usuario){
 
 				Notificaciones::ctrCrearNotificacion($usuario, 'tarea', "Tarea Asignada $id", $datos);
-				ControladorCalendario::ctrCrearEvento($usuario, $datos, 'tarea', $datos['nombreTarea'], $fechaInicio, null, $fechaFin, null, 0, "index.php?route=ver-tarea&idTarea=$id");
+				ControladorCalendario::ctrCrearEvento($usuario, $datos, 'tarea', $nombreTarea, $fechaInicio, $horaInicio, $fechaFin, $horaFin, 0, "index.php?route=ver-tarea&idTarea=$id");
 
 			}
 			

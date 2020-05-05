@@ -16,8 +16,15 @@ class ControladorCalendario{
 
         if($tipo == 'tarea'){
 
-            $bgColor = '#f39c12';
-            $borderColor = '#f39c12';
+            $bgColor = '#f56954';
+            $borderColor = '#f56954';
+
+        }
+
+        if($tipo == 'entrevista'){
+
+            $bgColor = '#3c8dbc';
+            $borderColor = '#3c8dbc';
 
         }
 

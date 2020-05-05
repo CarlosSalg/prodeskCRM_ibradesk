@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<footer class="main-footer f-13">
 
 	<strong>Copyright &copy; 2020 <a href="https://www.ibradesk.com">ibraDesk</a>.</strong>
 	All rights reserved.
