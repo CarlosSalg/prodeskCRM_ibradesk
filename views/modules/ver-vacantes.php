@@ -5,7 +5,6 @@ $totalVacantes = count($vacantes);
 
 ?>
 
-
 <div class="content-wrapper">
     <!-- Titutlo -->
     <section class="content-header">
@@ -29,7 +28,7 @@ $totalVacantes = count($vacantes);
             <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Vacantes Abiertas</h3>
+                        <h3 class="card-title">Vacantes</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -71,7 +70,7 @@ $totalVacantes = count($vacantes);
 
                     echo '
 
-                        <div class="card bg-light">
+                        <div class="card">
 
                             <div class="card-header">
                                 <div class="row">

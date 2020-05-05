@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-	<section class="content">
+	<section class="container">
 		<div class="card">
 			<div class="card-body">
 				<div class="jumbotron">
