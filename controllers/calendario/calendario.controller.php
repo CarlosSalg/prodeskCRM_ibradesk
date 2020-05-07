@@ -23,8 +23,8 @@ class ControladorCalendario{
 
         if($tipo == 'entrevista'){
 
-            $bgColor = '#3c8dbc';
-            $borderColor = '#3c8dbc';
+            $bgColor = '#f39c12';
+            $borderColor = '#f39c12';
 
         }
 

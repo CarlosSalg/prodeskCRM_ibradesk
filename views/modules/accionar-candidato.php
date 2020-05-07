@@ -6,7 +6,7 @@
 <div class="content-wrapper">
   
     <section class="content-header">
-        <div class="container-fluid">
+        <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="text-capitalize">Accionar <?=$nombreCandidato['can_nombre']?> <?=$nombreCandidato['can_apellidos']?></h1>
@@ -23,8 +23,8 @@
     </section>
 
     <section class="content">
-        <div class="container">
-            <div class="">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
                 <div class="row">
 
                     <div class="col-md-7">
@@ -79,7 +79,7 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-12 f-13">
-                                                Descripcion de la vacante: 
+                                                Descripcion: 
                                                 <br> 
                                                 '.$vacante["vac_descripcion"].'
                                                 <br>
@@ -87,7 +87,7 @@
                                                 '.$linkVacante.'
                                             </div>
                                         </div>
-                                        <hr>
+                                       <hr>
                                         <div class="row">
                                             <div class="col-md-3 text-muted f-13">
                                                 Empresa: '.$vacante["cli_nombre_comercial"].'

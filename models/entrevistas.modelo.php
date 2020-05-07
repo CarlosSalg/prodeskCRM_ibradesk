@@ -41,7 +41,24 @@ class ModeloEntrevistas{
 
 		$stmt = Conexion::Conectar()->prepare("
 			SELECT MAX(ent_id) AS id FROM $tabla
-			");
+        ");
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+    
+    public static function mdlBuscarEntrevista($tabla, $id){
+
+		$stmt = Conexion::Conectar()->prepare("
+            SELECT * FROM $tabla
+            WHERE ent_id = :id
+        ");
+            
+        $stmt -> bindParam(":id",$id, PDO::PARAM_INT);
 
 		$stmt -> execute();
 		return $stmt -> fetch();

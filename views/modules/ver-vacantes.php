@@ -26,32 +26,55 @@ $totalVacantes = count($vacantes);
     <section class="content">
         <div class="row">
             <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Vacantes</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="small-box bg-info">
-                                    <div class="inner">
-                                        <h3><?=$totalVacantes?></h3>
-                                        <p>Vacantes Abiertas</p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
-                                        Crear una nueva <i class="fas fa-plus"></i>
-                                    </a>
-                                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3><?=$totalVacantes?></h3>
+                                <p>Vacantes Abiertas</p>
                             </div>
+                            <div class="icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
+                                <i class="fas fa-plus"></i> Crear una nueva 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3><?=$totalVacantes?></h3>
+                                <p>Vacantes Pendientes</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
+                                <i class="fas fa-eye"></i> Ver Pendientes 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3><?=$totalVacantes?></h3>
+                                <p>Vacantes Cerradas</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
+                                <i class="fas fa-eye"></i> Ver Cerradas 
+                            </a>
                         </div>
                     </div>
                 </div>
+        
             </div>
         </div>
     </section>
+  
     <!-- Vacantes -->
     <section class="content">
         <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
@@ -73,11 +96,26 @@ $totalVacantes = count($vacantes);
                         <div class="card">
 
                             <div class="card-header">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <h4 class="card-title"><a type="button" data-card-widget="collapse" class="text-muted">Vacante: '.$vacante["vac_id"].'</a>  '.$vacante["vac_titulo"].' <span class="'.$clase.'">'.$vacante["vac_estatus"].'</span></h4>
+                               
+                                <h4 class="card-title">
+                                    <a type="button" data-card-widget="collapse" class="text-muted">Vacante: '.$vacante["vac_id"].'</a>  '.$vacante["vac_titulo"].' <span class="'.$clase.'">'.$vacante["vac_estatus"].'</span>
+                                </h4>
+                                <div class="card-tools">
+                                    <!-- button with a dropdown -->
+                                    <div class="btn-group">
+                                        <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-bars"></i>
+                                        </a>
+                                        <div class="dropdown-menu float-right" role="menu" style="">
+                                            <a href="#" class="dropdown-item">Add new event</a>
+                                            <a href="#" class="dropdown-item">Clear events</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item">View calendar</a>
+                                        </div>
                                     </div>
-                                    <div class="col-md-3 text-right text-muted f-13">
+                                </div>
+                            </div>
+                                    
                     ';
 
                                     if($vacante["vac_link_occ"] != ""){
@@ -89,9 +127,6 @@ $totalVacantes = count($vacantes);
                                     }
 
                     echo '
-                                    </div>
-                                </div>
-                            </div>
             
                             <div class="card-body">
                                 <div class="row">
@@ -108,7 +143,7 @@ $totalVacantes = count($vacantes);
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-12 f-13">
-                                        Descripcion de la vacante: 
+                                        Descripcion: 
                                         <br> 
                                         '.$vacante["vac_descripcion"].'
                                         <br>

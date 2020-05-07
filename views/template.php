@@ -93,8 +93,8 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
-  
+<body class="layout-fixed layout-navbar-fixed sidebar-collapse">
+
 	<div class="wrapper">
 
 		<?php
@@ -111,6 +111,7 @@
 					if(
 						$route == 'usuarios' || 
 						$route == 'ver-tarea' || 
+						$route == 'ver-entrevista' || 
 						$route == 'calendario' || 
 						$route == 'ver-vacantes' || 
 						$route == 'clientes' || 

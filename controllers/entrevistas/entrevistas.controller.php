@@ -59,7 +59,7 @@ class ControladorEntrevistas{
             $ultimoIdEntrevista = ModeloEntrevistas::mdlObtenerUltimoId($tabla);
             $id = $ultimoIdEntrevista['id'];
 
-            ControladorCalendario::ctrCrearEvento($_POST['entrevistador'], $datos, 'entrevista', $titulo, $_POST['fechaEntrevista'], $_POST['horaEntrevista'], $_POST['fechaEntrevista'], $_POST['horaEntrevistaFin'], 0, "index.php?route=ver-entrevista&idVacante=$id");
+            ControladorCalendario::ctrCrearEvento($_POST['entrevistador'], $datos, 'entrevista', $titulo, $_POST['fechaEntrevista'], $_POST['horaEntrevista'], $_POST['fechaEntrevista'], $_POST['horaEntrevistaFin'], 0, "index.php?route=ver-entrevista&idEntrevista=$id");
 
             // Notificar al Entrevistador via Mail
             $notificacion = '';
@@ -98,6 +98,15 @@ class ControladorEntrevistas{
             
 
         }
+
+    }
+
+    public static function ctrBuscarEntrevista($id){
+
+        $tabla = 'entrevistas';
+        $respuesta = ModeloEntrevistas::mdlBuscarEntrevista($tabla, $id);
+
+        return $respuesta;
 
     }
 
