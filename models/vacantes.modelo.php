@@ -230,6 +230,105 @@ class ModeloVacantes{
         $stmt =null;
 
     }
+
+    public static function mdlMostrarVacantesConClienteAbiertas(){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+                SELECT * FROM vacantes 
+                JOIN clientes 
+                ON vacantes.vac_cli_id = clientes.cli_id
+                WHERE vac_estatus = 'abierta'
+                ORDER BY vacantes.vac_id DESC
+            
+            ");
+
+		$stmt -> execute();
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlMostrarVacantesConClientePendientes(){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+                SELECT * FROM vacantes 
+                JOIN clientes 
+                ON vacantes.vac_cli_id = clientes.cli_id
+                WHERE vac_estatus = 'pendiente'
+                ORDER BY vacantes.vac_id DESC
+            
+            ");
+
+		$stmt -> execute();
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlMostrarVacantesConClienteCerradas(){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+                SELECT * FROM vacantes 
+                JOIN clientes 
+                ON vacantes.vac_cli_id = clientes.cli_id
+                WHERE vac_estatus = 'cerrada'
+                ORDER BY vacantes.vac_id DESC
+            
+            ");
+
+		$stmt -> execute();
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlMostrarVacantesConClienteTodas(){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+            SELECT * FROM vacantes 
+            JOIN clientes 
+            ON vacantes.vac_cli_id = clientes.cli_id
+            ORDER BY vacantes.vac_id DESC
+        
+        ");
+
+		$stmt -> execute();
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlBuscarVacantesSimilares($buscar){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+            SELECT * FROM vacantes 
+            JOIN clientes 
+            ON vacantes.vac_cli_id = clientes.cli_id
+            WHERE vac_titulo LIKE '%$buscar%'
+            ORDER BY vacantes.vac_id DESC
+        
+        ");
+
+
+
+		$stmt -> execute();
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
 }
-
-

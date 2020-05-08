@@ -136,6 +136,12 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="cartera" class="nav-link">
+								<i class="nav-icon far fa-circle"></i>
+								<p>Cartera</p>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="entrevistas" class="nav-link">
 								<i class="nav-icon far fa-circle"></i>
 								<p>Entevistas</p>

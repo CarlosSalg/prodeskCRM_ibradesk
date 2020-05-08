@@ -26,79 +26,50 @@ $totalVacantes = count($vacantes);
     <section class="content">
         <div class="row">
             <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
-                <div class="row my-3">
-                    <div class="col-md-3 offset-2">
-                        <a href="">
-                            <i class="fas fa-download"></i> Descargar Informe
-                        </a>
-                    </div>
+                <div class="row">
                     <div class="col-md-3">
-                        <div class="form-inline d-block">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3><?=$totalVacantes?></h3>
+                                <p>Vacantes Abiertas</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
+                                <i class="fas fa-plus"></i> Crear una nueva 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 offset-3">
+                        <form class="form-inline d-block">
                             <div class="input-group input-group-sm">
-                                <select class="form-control" id="inputTipoVacante">
+                                <select class="form-control">
                                     <option value="vacantes_abiertas">Vacantes abiertas</option>
                                     <option value="vacantes_pendientes">Vacantes pendientes</option>
                                     <option value="vacantes_cerradas">Vacantes cerradas</option>
                                     <option value="todas_vacantes">Todas las vacantes</option>
                                 </select>
                             </div>
-                        </div>
+                        </form>
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="form-inline d-block">
+                    <div class="col-md-3">
+                        <form class="form-inline d-block">
                             <div class="input-group input-group-sm">
-                                <input class="form-control" id="txtBuscarVacante" type="text" placeholder="Buscar por titulo" aria-label="Search">
+                                <input class="form-control" type="search" placeholder="Buscar por titulo" aria-label="Search">
                                 <div class="input-group-append">
-                                    <span class="btn btn-info" id="btnBuscarVacante">
+                                    <button class="btn btn-info" type="submit">
                                         <i class="fas fa-search"></i>
-                                    </span>
+                                    </button>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
+
+                
                 </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="row">
-                            
-                            <div class="col-md-12">
-
-                        
-                                <div class="small-box bg-info">
-
-                                    <div class="inner">
-                                        <h3><?=$totalVacantes?></h3>
-                                        <p>Vacantes Abiertas</p>
-                                    </div>
-
-                                    <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
-                                        <i class="fas fa-plus"></i> Crear una nueva 
-                                    </a>
-                                </div>
-                            
-                            </div>
-                            <div class="col-md-12">
-
-                                <div class="small-box bg-info">
-                                    <div class="inner">
-                                        <h3><?=$totalVacantes?></h3>
-                                        <p>Vacantes Abiertas</p>
-                                    </div>
-
-                                    <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
-                                        <i class="fas fa-plus"></i> Crear una nueva 
-                                    </a>
-                                </div>
-                            
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-10" id="contenedor-vacantes">
-
-                    </div>
-
-                </div>    
+    
             </div>
         </div>
     </section>
@@ -107,7 +78,109 @@ $totalVacantes = count($vacantes);
     <section class="content">
         <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
 
+            <?php
+                
+                foreach($vacantes as $key => $vacante){
+
+                    $clase = "default";
+
+                    if($vacante['vac_estatus'] == "abierta"){
+                        
+                        $clase = 'badge badge-warning';
+                        
+                    }
+
+                    echo '
+
+                        <div class="card">
+
+                            <div class="card-header">
+                               
+                                <h4 class="card-title">
+                                    <a type="button" data-card-widget="collapse" class="text-muted">Vacante: '.$vacante["vac_id"].'</a>  '.$vacante["vac_titulo"].' <span class="'.$clase.'">'.$vacante["vac_estatus"].'</span>
+                                </h4>
+                                <div class="card-tools">
+                                    <!-- button with a dropdown -->
+                                    <div class="btn-group">
+                                        <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-bars"></i>
+                                        </a>
+                                        <div class="dropdown-menu float-left" role="menu" style="">
+                                            <a href="#" class="dropdown-item btnLinkRegistro" tokenVacante="'.$vacante["vac_token_link"].'" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalLinkRegistro">Link de registro</a>
+                                            <a href="#" class="dropdown-item btnVerPostulados" idVacante="'.$vacante["vac_id"].'" espectativaEco="'.$vacante["vac_sueldo_ofertado"].'" type="button" data-toggle="modal" data-target="#modalPostulantes">Ver postulados</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item btnNuevoFiltro" idVacante="'.$vacante["vac_id"].'" type="button" data-toggle="modal" data-target="#modalNuevoFiltro">Filtrar telefonicamente</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                    ';
+
+                                    if($vacante["vac_link_occ"] != ""){
+
+                                        $linkVacante = '<a href="'.$vacante["vac_link_occ"].'" target="_blank" >Ver en OCC</a>';
+                                    }else{
+
+                                        $linkVacante = '<a class="text-muted">Sin Link</a>';
+                                    }
+
+                    echo '
             
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 text-muted f-13">
+                                        Fecha Creacion: '.$vacante["vac_fecha_creacion"].'
+                                    </div>
+                                    <div class="col-md-4 text-muted f-13">
+                                        Zona Trabajo: '.$vacante["vac_zona_trabajo"].'
+                                    </div>
+                                    <div class="col-md-4 text-muted f-13">
+                                        Sueldo Ofertado: '.$vacante["vac_sueldo_ofertado"].'
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12 f-13">
+                                        Descripcion: 
+                                        <br> 
+                                        '.$vacante["vac_descripcion"].'
+                                        <br>
+                                        <br>
+                                        '.$linkVacante.'
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-3 text-muted f-13">
+                                        Empresa: '.$vacante["cli_nombre_comercial"].'
+                                    </div>
+                                    <div class="col-md-3 text-muted f-13">
+                                        Contacto: '.$vacante["cli_contacto_compras_nombres"].' '.$vacante["cli_contacto_compras_apellidos"].'
+                                    </div>
+                                    <div class="col-md-3 text-muted f-13">
+                                        Correo: '.$vacante["cli_contacto_compras_correo"].'
+                                    </div>
+                                    <div class="col-md-3 text-muted f-13">
+                                        Telefono: '.$vacante["cli_contacto_compras_telefono"].'
+                                    </div>
+                                </div>
+                            </div> 
+            
+                            <div class="card-footer">
+            
+                                
+            
+                            </div>
+            
+                        </div>
+                    
+                    
+                    ';
+
+                }
+                        
+            ?>
 
         </div>
     </section>
@@ -288,3 +361,5 @@ $totalVacantes = count($vacantes);
 	    </div>
 	</div>
 </div>
+
+

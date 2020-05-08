@@ -38,47 +38,32 @@
 
 	<!--Mis tareas abiertas-->
     <section class="content">
+		<div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="info-box bg-info">
+						<span class="info-box-icon"><i class="fa fa-edit"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Total Tareas Pendientes</span>
+							<span class="info-box-number"><?=$totalTareasAbiertas?></span>
 
-        <div class="row">
-            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
-        
-                <div class="card">
-
-                    <div class="card-header">
-                        <h3 class="card-title">Tareas pendientes</h3>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="info-box bg-info mt-2">
-                                    <span class="info-box-icon"><i class="fa fa-edit"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Total Tareas Pendientes</span>
-                                        <span class="info-box-number"><?=$totalTareasAbiertas?></span>
-
-                                        <div class="progress">
-                                            <div class="progress-bar" style="<?=$claseAvance?>"></div>
-                                        </div>
-                                        <span class="progress-description">
-											<?=$avanceViews?>% Tareas completadas
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+							<div class="progress">
+								<div class="progress-bar" style="<?=$claseAvance?>"></div>
+							</div>
+							<span class="progress-description">
+								<?=$avanceViews?>% Tareas completadas
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
         <div class="row">
          
 			<div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
 
 				<div class="row">
-
 					<?php 
 						$tareas = ControladorTareas::ctrMostrarTodasMisTareasAbiertas();
 						$clase = 'default';
@@ -109,13 +94,13 @@
 								}
 
 								echo '
-									<div class="col-md-6">
-										<div class="card collapsed-card">
+									<div class="col-md-4">
+										<div class="card">
 											<div class="card-header">
 												<h3 class="card-title"><a type="button" data-card-widget="collapse" class="text-muted">Tarea #'.$tarea["tar_id"].'</a>  '.$tarea["tar_nombre"].' <span class="'.$clase.'">'.$tarea["tar_estatus"].'</span></h3>
 												<div class="card-tools">
 													<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Extraer / Contraer">
-														<i class="fas fa-plus"></i>
+														<i class="fas fa-minus"></i>
 													</button>
 												</div>
 											</div>
