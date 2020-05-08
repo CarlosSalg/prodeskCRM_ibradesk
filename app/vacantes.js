@@ -112,6 +112,8 @@ $(document).ready(function(){
 
             vacantes.forEach(vacante => {
 
+                let linkVacante = '';
+
                 if(vacante['vac_estatus'] == "abierta"){
                     
                     clase = 'badge badge-success';
@@ -128,6 +130,13 @@ $(document).ready(function(){
                     
                     clase = 'badge badge-secondary';
                     
+                }
+
+                if(vacante['vac_link_occ'] != ''){
+
+                    linkVacante = `
+                        <a href="${vacante['vac_link_occ']}" target="_blank">Ver en portal</a>
+                    `;
                 }
 
                 templateVacantes += `
@@ -172,7 +181,7 @@ $(document).ready(function(){
                                     ${vacante["vac_descripcion"]}
                                     <br>
                                     <br>
-                                    $linkVacante}
+                                    ${linkVacante}
                                 </div>
                             </div>
                             <hr>
