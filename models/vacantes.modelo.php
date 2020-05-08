@@ -331,4 +331,58 @@ class ModeloVacantes{
         $stmt =null;
 
     }
+
+    public static function mdlCantidadEstatusAbiertas($tabla){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+            SELECT COUNT(vac_id)
+            FROM $tabla 
+            WHERE vac_estatus = 'abierta'
+        
+        ");
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlCantidadEstatusPendientes($tabla){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+            SELECT COUNT(vac_id)
+            FROM $tabla 
+            WHERE vac_estatus = 'pendiente'
+        
+        ");
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
+
+    public static function mdlCantidadEstatusCerrados($tabla){
+
+		$stmt = Conexion::Conectar()->prepare("
+                
+            SELECT COUNT(vac_id)
+            FROM $tabla 
+            WHERE vac_estatus = 'cerrada'
+        
+        ");
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+
+    }
 }

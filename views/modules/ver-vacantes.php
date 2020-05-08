@@ -3,6 +3,8 @@
 $vacantes = ControladorVacantes::ctrMostrarVacantesConCliente();   
 $totalVacantes = count($vacantes);
 
+$cantidadPorEstatus = ControladorVacantes::ctrCantidadPorEstatus();
+
 ?>
 
 <div class="content-wrapper">
@@ -61,36 +63,28 @@ $totalVacantes = count($vacantes);
                 <div class="row">
                     <div class="col-md-2">
                         <div class="row">
-                            
                             <div class="col-md-12">
-
-                        
                                 <div class="small-box bg-info">
-
                                     <div class="inner">
-                                        <h3><?=$totalVacantes?></h3>
+                                        <h3><?=$cantidadPorEstatus[0][0]?></h3>
                                         <p>Vacantes Abiertas</p>
                                     </div>
-
                                     <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
                                         <i class="fas fa-plus"></i> Crear una nueva 
                                     </a>
                                 </div>
-                            
                             </div>
                             <div class="col-md-12">
-
-                                <div class="small-box bg-info">
+                                <div class="small-box bg-secondary">
                                     <div class="inner">
-                                        <h3><?=$totalVacantes?></h3>
-                                        <p>Vacantes Abiertas</p>
+                                        Vacantes Abiertas <span class="float-right"><?=$cantidadPorEstatus[0][0]?></span><br>
+                                        Vacantes Pendientes <span class="float-right"><?=$cantidadPorEstatus[1][0]?></span><br>
+                                        Vacantes Cerradas <span class="float-right"><?=$cantidadPorEstatus[2][0]?></span><br>
                                     </div>
-
-                                    <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
-                                        <i class="fas fa-plus"></i> Crear una nueva 
-                                    </a>
+                                    <b class="small-box-footer">
+                                        Total Vacantes <span class=""><?=$totalVacantes?></span><br>
+                                    </b>
                                 </div>
-                            
                             </div>
                         </div>
                     </div>

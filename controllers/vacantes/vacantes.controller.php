@@ -46,7 +46,6 @@ class ControladorVacantes{
 
     public static function ctrMostrarVacantesConCliente(){
 
-        
 		$respuesta = ModeloVacantes::mdlMostrarVacantesConCliente();
         return $respuesta;
         
@@ -123,5 +122,19 @@ class ControladorVacantes{
         }
 
     }
+
+    public static function ctrCantidadPorEstatus(){
+
+        $tabla = 'vacantes';
+        $abiertas = ModeloVacantes::mdlCantidadEstatusAbiertas($tabla);
+        $pendientes = ModeloVacantes::mdlCantidadEstatusPendientes($tabla);
+        $cerradas = ModeloVacantes::mdlCantidadEstatusCerrados($tabla);
+        
+        $respuesta = array($abiertas, $pendientes, $cerradas);
+
+        return $respuesta;
+        
+    }
+
 
 }
