@@ -114,19 +114,19 @@ $(document).ready(function(){
 
                 if(vacante['vac_estatus'] == "abierta"){
                     
-                    clase = 'badge badge-warning';
+                    clase = 'badge badge-success';
                     
                 }
 
                 if(vacante['vac_estatus'] == "pendiente"){
                     
-                    clase = 'badge badge-secondary';
+                    clase = 'badge badge-warning';
                     
                 }
 
                 if(vacante['vac_estatus'] == "cerrada"){
                     
-                    clase = 'badge badge-success';
+                    clase = 'badge badge-secondary';
                     
                 }
 
@@ -143,10 +143,10 @@ $(document).ready(function(){
                                         <i class="fas fa-bars"></i>
                                     </a>
                                     <div class="dropdown-menu float-left" role="menu" style="">
-                                        <button class="dropdown-item" onclick="btnRegistro(${vacante["vac_id"]}, ${vacante["vac_token_link"]})" type="button" data-toggle="modal" data-target="#modalLinkRegistro">Link de registro</button>
-                                        <button class="dropdown-item" onclick="btnPostulados(${vacante["vac_id"]}, ${vacante["vac_sueldo_ofertado"]})" type="button" data-toggle="modal" data-target="#modalPostulantes">Ver postulados</button>
+                                        <button class="dropdown-item" onclick="btnRegistro(${vacante["vac_id"]}, ${vacante["vac_token_link"]})" type="button" data-toggle="modal" data-target="#modalLinkRegistro"><i class="fas fa-link f-12"></i> Registro</button>
+                                        <button class="dropdown-item" onclick="btnPostulados(${vacante["vac_id"]}, ${vacante["vac_sueldo_ofertado"]})" type="button" data-toggle="modal" data-target="#modalPostulantes"><i class="fas fa-users f-12"></i> Postulados</button>
                                         <div class="dropdown-divider"></div>
-                                        <a href="#" class="dropdown-item btnNuevoFiltro" idVacante="${vacante["vac_id"]}" type="button" data-toggle="modal" data-target="#modalNuevoFiltro">Filtrar telefonicamente</a>
+                                        <a href="#" class="dropdown-item btnNuevoFiltro" idVacante="${vacante["vac_id"]}" type="button" data-toggle="modal" data-target="#modalNuevoFiltro"><i class="fas fa-phone f-12"></i> Filtro</a>
                                     </div>
                                 </div>
                             </div>
