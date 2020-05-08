@@ -1,5 +1,107 @@
 $(document).ready(function(){
 
+    // Funcion para crear el Link del registro
+    btnRegistro = function(id, token){
+
+        $('#linkCopiado').hide();
+        let hostURL = location.host;
+        let idVacante = 'http://' + hostURL + '/prodesk/index.php?route=registro-candidatos&vacante='+id+'&token='+token;
+        $('#linkVacante').val(idVacante);
+        $('#btnGoLink').attr('href', idVacante);
+
+    }
+
+    // Funcion para llenar Contenedor Postulados
+    btnPostulados = function(id, espectativaEco){
+
+        const espectativa = parseInt(espectativaEco);
+        
+        // Solicitar Array de Postulados a la Base de Datos
+        $.post('controllers/vacantes/ver-postulados.php',{id}, function(res){
+
+            let candidatos = JSON.parse(res);
+            let template = '';
+            let templateSinRegistro = '<h2 class="lead">No existen postulados en esta Vacante</h2>';
+
+            if(candidatos.length == 0){
+
+                $('#contenedorCandidatos').html(templateSinRegistro);
+
+            }else{
+
+                candidatos.forEach(candidato => {
+
+                    let titulo = '';
+                    let espectativaEconomica = '';
+
+                    if(candidato.can_titulo_grado_estudios == ""){
+                        
+                        titulo = `<b>Titulo:</b> Sin titulo`;
+
+                    }else{
+                        
+                        titulo = `<b>Titulo:</b> ${candidato.can_titulo_grado_estudios}`;
+                    }
+
+                    if(candidato.can_espectativa_economica > espectativa){
+
+                        espectativaEconomica = `<br><b>Espectativa Economica:</b> $${candidato.can_espectativa_economica} <a class="text-danger">Superior a lo ofertado</a>`;
+
+                    }else{
+
+                        espectativaEconomica = `<br><b>Espectativa Economica:</b> $${candidato.can_espectativa_economica}`;
+
+                    }
+
+                    template += `
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card bg-light">
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            <h2 class="lead text-capitalize"><b>${candidato.can_nombre} ${candidato.can_apellidos}</b></h2>
+                                            ${titulo}
+                                            <br><b>Grado Estudios:</b> ${candidato.can_grado_estudios} / ${candidato.can_tipo_grado_estudios}
+                                            ${espectativaEconomica}
+                                            <br><b>Id de registro:</b> ${candidato.can_id}
+                                            <div class="mt-3">
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-list"></i></span>  curriculum: <a href="${candidato.can_cv}" target="_blank" class="">Clic aqui</a></li>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> e-mail: ${candidato.can_email}</li>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>  telefono: + ${candidato.can_telefono}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a href="index.php?route=accionar-candidato&idVacante=${id}&idCandidato=${candidato.can_id}&espectativa=${espectativa}" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-user"></i> Accionar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    `;
+                });
+                $('#contenedorCandidatos').html(template);
+
+            }
+
+        });
+    }
+
+    // Funcion para copiar el Link
+    btnCopiarLink = function(){
+
+        $('#linkVacante').select();
+        document.execCommand("copy");
+        $('#linkCopiado').show();
+    }
+
     // Funcion para llenar contenedor Vacantes
     llenarVacantes = function(vacantes){
 
@@ -41,15 +143,14 @@ $(document).ready(function(){
                                         <i class="fas fa-bars"></i>
                                     </a>
                                     <div class="dropdown-menu float-left" role="menu" style="">
-                                        <a href="#" class="dropdown-item btnLinkRegistro" tokenVacante="${vacante["vac_token_link"]}" idVacante="${vacante["vac_id"]}" type="button" data-toggle="modal" data-target="#modalLinkRegistro">Link de registro</a>
-                                        <a href="#" class="dropdown-item btnVerPostulados" idVacante="${vacante["vac_id"]}" espectativaEco="${vacante["vac_sueldo_ofertado"]}" type="button" data-toggle="modal" data-target="#modalPostulantes">Ver postulados</a>
+                                        <button class="dropdown-item" onclick="btnRegistro(${vacante["vac_id"]}, ${vacante["vac_token_link"]})" type="button" data-toggle="modal" data-target="#modalLinkRegistro">Link de registro</button>
+                                        <button class="dropdown-item" onclick="btnPostulados(${vacante["vac_id"]}, ${vacante["vac_sueldo_ofertado"]})" type="button" data-toggle="modal" data-target="#modalPostulantes">Ver postulados</button>
                                         <div class="dropdown-divider"></div>
                                         <a href="#" class="dropdown-item btnNuevoFiltro" idVacante="${vacante["vac_id"]}" type="button" data-toggle="modal" data-target="#modalNuevoFiltro">Filtrar telefonicamente</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                
 
                         <div class="card-body">
                             <div class="row">

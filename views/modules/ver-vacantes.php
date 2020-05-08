@@ -254,7 +254,7 @@ $totalVacantes = count($vacantes);
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-secondary">Salir</button>
                 <a href="" target="_blank" class="btn btn-secondary" id="btnGoLink">Ir al Link</a>
-                <button type="button" class="btn btn-primary btnCopiar"><i class="fas fa-copy"></i> Copiar Link</button>
+                <button type="button" class="btn btn-primary" onclick="btnCopiarLink()"><i class="fas fa-copy"></i> Copiar Link</button>
             </div>
 	    </div>
 	</div>
