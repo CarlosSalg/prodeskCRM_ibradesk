@@ -12,6 +12,9 @@
                                 <h4 class="card-title">
                                     <a style="color:black;" type="button" data-card-widget="collapse">Coronavirus</a>
                                 </h4>
+                                <a href="#" id="actualizarCotonavirus" class="btn btn-dark btn-sm float-right">
+                                    <i class="fas fa-sync-alt"></i>
+                                </a>
                             </div>
                             <div class="card-body">
                                 <div class="row" id="contenedorHome">
@@ -29,7 +32,7 @@
                                 <h4 class="card-title">
                                     <a style="color:black;" type="button" data-card-widget="collapse">Noticias</a><span id="cargando" class=" badge badge-secondary"> recibiendo noticias...</span>
                                 </h4>
-                                <select id="tipoNoticias" class="float-right bg-gradient-info">
+                                <select id="tipoNoticias" class="float-right bg-gradient-dark">
                                     <option value="general">General</option>
                                     <option value="business">Negocios</option>
                                     <option value="entertainment">Entretenimiento</option>
