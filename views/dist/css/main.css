@@ -68,4 +68,9 @@
 	resize: none;
 }
 
-
+.descripcionVacante[disabled='disabled']{
+	
+	resize: none;
+	border: none;
+	background:white;
+}

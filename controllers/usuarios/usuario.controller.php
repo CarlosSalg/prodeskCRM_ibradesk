@@ -18,6 +18,7 @@ class ControladorUsuarios{
 				$_SESSION['status'] = 1;
 				$_SESSION['id'] = $respuesta['usu_id'];
 				$_SESSION['nombre'] = $respuesta['usu_nombre'];
+				$_SESSION['type'] = $respuesta['usu_roll'];
 
 				if($respuesta['usu_foto'] != ""){
 

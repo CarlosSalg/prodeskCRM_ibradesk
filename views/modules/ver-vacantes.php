@@ -1,40 +1,51 @@
 <?php
 
-$vacantes = ControladorVacantes::ctrMostrarVacantesConCliente();   
-$totalVacantes = count($vacantes);
-
-$cantidadPorEstatus = ControladorVacantes::ctrCantidadPorEstatus();
+    $vacantes = ControladorVacantes::ctrMostrarVacantesConCliente();   
+    $totalVacantes = count($vacantes);
+    $cantidadPorEstatus = ControladorVacantes::ctrCantidadPorEstatus();
 
 ?>
 
 <div class="content-wrapper">
-    <!-- Titutlo -->
-    <section class="content-header">
-        <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Vacantes</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="home">Home</a></li>
-                        <li class="breadcrumb-item active">Vacantes</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Widget -->
     <section class="content">
         <div class="row">
             <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
-                <div class="row my-3">
-                    <div class="col-md-3 offset-2">
+                <!-- Seccion de Widgets con Informacion -->
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <div class="small-box bg-gradient-info">
+                            <div class="inner">
+                                Abiertas <span class="float-right"><?=$cantidadPorEstatus[0][0]?></span><br>
+                                Pendientes <span class="float-right"><?=$cantidadPorEstatus[1][0]?></span><br>
+                                Cerradas <span class="float-right"><?=$cantidadPorEstatus[2][0]?></span><br>
+                                Total <span class="float-right"><?=$totalVacantes?></span><br>
+                            </div>
+                            <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
+                                <i class="fas fa-plus"></i> Crear una nueva 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Seccion de Busqueda y Filtros -->
+                <div class="row">
+                    <div class="col-md-2 my-2">
                         <a href="">
-                            <i class="fas fa-download"></i> Descargar Informe
+                            <i class="fas fa-download"></i> Descargar informe
                         </a>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-8 my-2">
+                        <div class="form-inline d-block">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control" id="txtBuscarVacante" type="text" placeholder="Buscar por titulo en todas las vacantes" aria-label="Search">
+                                <div class="input-group-append">
+                                    <span class="btn btn-info" id="btnBuscarVacante">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 my-2">
                         <div class="form-inline d-block">
                             <div class="input-group input-group-sm">
                                 <select class="form-control" id="inputTipoVacante">
@@ -46,66 +57,23 @@ $cantidadPorEstatus = ControladorVacantes::ctrCantidadPorEstatus();
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-4">
-                        <div class="form-inline d-block">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control" id="txtBuscarVacante" type="text" placeholder="Buscar por titulo" aria-label="Search">
-                                <div class="input-group-append">
-                                    <span class="btn btn-info" id="btnBuscarVacante">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                </div>
-                            </div>
+                </div> 
+                <!-- Contenedor para resultado de las Busquedas-->
+                <div class="row">
+                    <div class="col-md-8 offset-2 f-14 text-right text-info" id="contenedorResultados">
+                        <div class="" id="cantidadResultados">
                         </div>
+                    </div>
+                </div>  
+                <!-- Contenedor para las Vacantes -->
+                <div class="row mt-3">
+                    <div class="col-md-12" id="contenedor-vacantes">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="small-box bg-info">
-                                    <div class="inner">
-                                        <h3><?=$cantidadPorEstatus[0][0]?></h3>
-                                        <p>Vacantes Abiertas</p>
-                                    </div>
-                                    <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
-                                        <i class="fas fa-plus"></i> Crear una nueva 
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="small-box bg-secondary">
-                                    <div class="inner">
-                                        Vacantes Abiertas <span class="float-right"><?=$cantidadPorEstatus[0][0]?></span><br>
-                                        Vacantes Pendientes <span class="float-right"><?=$cantidadPorEstatus[1][0]?></span><br>
-                                        Vacantes Cerradas <span class="float-right"><?=$cantidadPorEstatus[2][0]?></span><br>
-                                    </div>
-                                    <b class="small-box-footer">
-                                        Total Vacantes <span class=""><?=$totalVacantes?></span><br>
-                                    </b>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-10" id="contenedor-vacantes">
-
-                    </div>
-
-                </div>    
             </div>
         </div>
     </section>
   
-    <!-- Vacantes -->
-    <section class="content">
-        <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
-
-            
-
-        </div>
-    </section>
-
 </div>
 
 <!--Modal modalNuevaVacante-->
@@ -273,6 +241,37 @@ $cantidadPorEstatus = ControladorVacantes::ctrCantidadPorEstatus();
 
 
                 </div>
+            </div>
+            
+            <!--Pie de Modal-->
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary btnCopiar">Salir</button>
+            </div>
+	    </div>
+	</div>
+</div>
+
+<!--Modal modalDescripcion-->
+<div class="modal fade" id="modalDescripcion" tabindex="-1" role="document" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+
+            <!--Titulo Modal-->
+            <div class="modal-header">
+                <h5>Descripcion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <!--Cuerpo Modal-->
+            <div class="modal-body f-12">          
+                <span class="f-14 text-muted" id="txtCliente"></span>
+                <h3 id="tituloVacante"></h3>
+                
+                <textarea class="form-control d-block" disabled="disabled" id="txtDescripcion" style="resize: none; border: none; background:#F9F9F9;" rows="12">
+                </textarea>
+
             </div>
             
             <!--Pie de Modal-->

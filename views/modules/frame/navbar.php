@@ -17,6 +17,9 @@
             <a href="calendario" class="nav-link">Calendario</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
+            <a href="ver-vacantes" class="nav-link">Vacantes</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
             <a href="mis-tareas" class="nav-link">Tareas</a>
         </li>
     </ul>

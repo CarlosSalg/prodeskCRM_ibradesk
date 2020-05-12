@@ -102,6 +102,19 @@ $(document).ready(function(){
         $('#linkCopiado').show();
     }
 
+    // Funcion para llenar la descripcion el Link
+    btnModalDescripcion = function(id){
+
+        $.post('controllers/vacantes/ver-descripcion.php',{id}, function(res){
+
+            let descripcion = JSON.parse(res);
+            $('#txtDescripcion').html(descripcion.vac_descripcion);
+            $('#tituloVacante').html(descripcion.vac_titulo);
+            $('#txtCliente').html(descripcion.cli_nombre_comercial);
+        });
+
+    }
+
     // Funcion para llenar contenedor Vacantes
     llenarVacantes = function(vacantes){
 
@@ -111,6 +124,19 @@ $(document).ready(function(){
         if(vacantes.length > 0){
 
             vacantes.forEach(vacante => {
+
+                let descripcion = vacante["vac_descripcion"];
+
+                if(vacante["vac_descripcion"].length > 200){
+
+                    descripcion = vacante["vac_descripcion"].substr(0,300);
+                    descripcion += `
+                        <a href="#" onclick="btnModalDescripcion(${vacante["vac_id"]})" type="button" data-toggle="modal" data-target="#modalDescripcion">
+                            ...ver completo
+                        </a>
+                    `;
+
+                }
 
                 let linkVacante = '';
 
@@ -142,16 +168,16 @@ $(document).ready(function(){
                 templateVacantes += `
 
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header bg-gradient-info">
                             <h4 class="card-title">
-                                <a type="button" data-card-widget="collapse" class="text-muted">Vacante: ${vacante["vac_id"]}</a>  ${vacante["vac_titulo"]} <span class="${clase}">${vacante["vac_estatus"]}</span>
+                                <a style="color:black;" type="button" data-card-widget="collapse">Vacante: ${vacante["vac_id"]}</a>  ${vacante["vac_titulo"]} <span class="${clase}">${vacante["vac_estatus"]}</span>
                             </h4>
                             <div class="card-tools">
                                 <div class="btn-group">
                                     <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-bars"></i>
                                     </a>
-                                    <div class="dropdown-menu float-left" role="menu" style="">
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
                                         <button class="dropdown-item" onclick="btnRegistro(${vacante["vac_id"]}, ${vacante["vac_token_link"]})" type="button" data-toggle="modal" data-target="#modalLinkRegistro"><i class="fas fa-link f-12"></i> Registro</button>
                                         <button class="dropdown-item" onclick="btnPostulados(${vacante["vac_id"]}, ${vacante["vac_sueldo_ofertado"]})" type="button" data-toggle="modal" data-target="#modalPostulantes"><i class="fas fa-users f-12"></i> Postulados</button>
                                         <div class="dropdown-divider"></div>
@@ -170,15 +196,14 @@ $(document).ready(function(){
                                     Zona Trabajo: ${vacante["vac_zona_trabajo"]}
                                 </div>
                                 <div class="col-md-4 text-muted f-13">
-                                    Sueldo Ofertado: ${vacante["vac_sueldo_ofertado"]}
+                                    Sueldo Ofertado: $${vacante["vac_sueldo_ofertado"]}
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-md-12 f-13">
                                     Descripcion: 
-                                    <br> 
-                                    ${vacante["vac_descripcion"]}
+                                    ${descripcion}
                                     <br>
                                     <br>
                                     ${linkVacante}
@@ -205,19 +230,20 @@ $(document).ready(function(){
                 `;
 
                 $('#contenedor-vacantes').html(templateVacantes);
-
+                $('#cantidadResultados').html('(' + vacantes.length + ' resultados)');
             });
         }else{
 
             let sinResultados = `
 
                 <div class="text-center mt-md-5 text-info">
-                    <i class="fas fa-search"></i> No se encontraron vacantes, revise la busqueda o pueda crear una nueva dando <a href="#" type="button" data-toggle="modal" data-target="#modalNuevaVacante">click aqui</a>.
+                    <i class="fas fa-search"></i> No se encontraron vacantes, revise la busqueda o puede crear una nueva dando <a href="#" type="button" data-toggle="modal" data-target="#modalNuevaVacante">click aqui</a>.
                 </div>            
 
             `;
 
             $('#contenedor-vacantes').html(sinResultados);
+            $('#cantidadResultados').html('(0 resultados)');
 
         }
     };
@@ -250,6 +276,8 @@ $(document).ready(function(){
 
         if(dato != ""){
 
+            $('#contenedorResultados').show();    
+
             $.post('controllers/vacantes/buscar-vacantes.php',{dato},function(response){
 
                 let vacantes = JSON.parse(response);
@@ -260,6 +288,7 @@ $(document).ready(function(){
         }else{
 
             InicializarVacantes();
+            $('#contenedorResultados').hide();    
 
 
 
@@ -269,6 +298,7 @@ $(document).ready(function(){
 
     // Ocultar div 
     $('#linkCopiado').hide();    
+    $('#contenedorResultados').hide();    
     // Inicializar vacantes
     InicializarVacantes();
 

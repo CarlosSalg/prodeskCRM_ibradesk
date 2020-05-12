@@ -174,6 +174,7 @@
 	<script src="app/clientes.js"></script>
 	<script src="app/vacantes.js"></script>
 	<script src="app/candidatos.js"></script>
+	<script src="app/home.js"></script>
 
 </body>
 

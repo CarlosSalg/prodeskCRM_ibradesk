@@ -1,3 +1,9 @@
+<?php
+
+    include "controllers/usuarios/admin-validation.php";
+
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
