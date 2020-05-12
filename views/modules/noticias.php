@@ -12,12 +12,15 @@
                                 <h4 class="card-title">
                                     <a style="color:black;" type="button" data-card-widget="collapse">Coronavirus</a>
                                 </h4>
-                                <a href="#" id="actualizarCotonavirus" class="btn btn-dark btn-sm float-right">
+                                <a href="#" class="btn btn-dark btn-sm float-right actualizarCotonavirus">
                                     <i class="fas fa-sync-alt"></i>
                                 </a>
                             </div>
                             <div class="card-body">
                                 <div class="row" id="contenedorHome">
+                                    <a href="#" class="btn btn-dark btn-sm actualizarCotonavirus">
+                                        <i class="fas fa-sync-alt"></i> Actualizar tablero
+                                    </a>
                                 </div>
                             </div>
                         </div>
