@@ -88,9 +88,6 @@
                         <button class="btn-sm btn btn-warning btn-sm btnEditar" idUsuario="'.$usuario["usu_id"].'" type="button" data-toggle="modal" data-target="#modalEditarUsuario">
                           <i class="fa fa-edit"></i>
                         </button>
-                        <button class="btn-sm btn btn-danger btn-sm btnEliminar" idUsuario="'.$usuario["usu_id"].'">
-                          <i class="fa fa-trash-alt"></i>
-                        </button>
                       </div>
                     </td>
                   </tr>

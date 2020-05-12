@@ -109,6 +109,7 @@
 					$route = $_GET['route'];
 
 					if(
+						$route == 'noticias' || 
 						$route == 'usuarios' || 
 						$route == 'ver-tarea' || 
 						$route == 'ver-entrevista' || 
@@ -174,7 +175,7 @@
 	<script src="app/clientes.js"></script>
 	<script src="app/vacantes.js"></script>
 	<script src="app/candidatos.js"></script>
-	<script src="app/home.js"></script>
+	<script src="app/noticias.js"></script>
 
 </body>
 

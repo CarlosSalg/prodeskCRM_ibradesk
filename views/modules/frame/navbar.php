@@ -22,6 +22,9 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="mis-tareas" class="nav-link">Tareas</a>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="noticias" class="nav-link">Noticias</a>
+        </li>
     </ul>
 
     

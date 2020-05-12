@@ -47,6 +47,7 @@
 						<p>Calendario</p>
 					</a>
 				</li>
+				
 
 				<li class="nav-item has-treeview">
 					<a href="#" class="nav-link">
@@ -107,6 +108,12 @@
 							</a>
 						</li>
 					</ul>
+				</li>
+				<li class="nav-item">
+					<a href="noticias" class="nav-link">
+						<i class="nav-icon fas fa-rss"></i>
+						<p>Noticias</p>
+					</a>
 				</li>
 				
 				<?php
