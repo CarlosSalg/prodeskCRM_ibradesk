@@ -62,11 +62,11 @@ class ControladorTareas{
 			
 			if($respuesta != false){
 
-				Alertas::Alerta('success', "Tarea agregada con ID $id", 'nueva-tarea');
+				Alertas::Alerta('success', "Tarea agregada con ID $id", 'mis-tareas');
 
 			}else{
 				
-				Alertas::Alerta('error', 'Error, contactar administrador', 'nueva-tarea');
+				Alertas::Alerta('error', 'Error, contactar administrador', 'mis-tareas');
 
 			}
 

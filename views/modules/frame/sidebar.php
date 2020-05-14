@@ -42,6 +42,12 @@
 			<ul class="nav nav-pills nav-sidebar flex-column f-13" data-widget="treeview" role="menu" data-accordion="false">
 
 				<li class="nav-item">
+					<a href="home" class="nav-link">
+						<i class="nav-icon fas fa-home"></i>
+						<p>Home</p>
+					</a>
+				</li>
+				<li class="nav-item">
 					<a href="calendario" class="nav-link">
 						<i class="nav-icon far fa-calendar"></i>
 						<p>Calendario</p>
@@ -49,7 +55,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a href="calendario" class="nav-link">
+					<a href="mensajes" class="nav-link">
 						<i class="nav-icon far fa-comments"></i>
 						<p>Mensajes</p>
 					</a>
@@ -105,12 +111,6 @@
 							<a href="mis-tareas-creadas" class="nav-link">
 								<i class="nav-icon far fa-circle"></i>
 								<p>Mis Tareas Creadas</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="nueva-tarea" class="nav-link">
-								<i class="nav-icon far fa-circle"></i>
-								<p>Crear Tarea</p>
 							</a>
 						</li>
 					</ul>

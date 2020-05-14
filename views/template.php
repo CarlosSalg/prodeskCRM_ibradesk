@@ -110,6 +110,7 @@
 
 					if(
 						$route == 'noticias' || 
+						$route == 'mensajes' || 
 						$route == 'usuarios' || 
 						$route == 'ver-tarea' || 
 						$route == 'ver-entrevista' || 
@@ -117,7 +118,6 @@
 						$route == 'ver-vacantes' || 
 						$route == 'clientes' || 
 						$route == 'notificaciones' || 
-						$route == 'nueva-tarea' || 
 						$route == 'mis-tareas' || 
 						$route == 'todas-mis-tareas' || 
 						$route == 'mis-tareas-creadas' || 
@@ -176,6 +176,7 @@
 	<script src="app/vacantes.js"></script>
 	<script src="app/candidatos.js"></script>
 	<script src="app/noticias.js"></script>
+	<script src="app/home.js"></script>
 
 </body>
 

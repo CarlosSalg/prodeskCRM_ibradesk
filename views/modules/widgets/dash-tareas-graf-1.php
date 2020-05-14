@@ -1,0 +1,1 @@
+<canvas id="donutChartTareas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 334px;" width="334" height="250" class="chartjs-render-monitor"></canvas>
