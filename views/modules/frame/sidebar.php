@@ -47,8 +47,14 @@
 						<p>Calendario</p>
 					</a>
 				</li>
-				
 
+				<li class="nav-item">
+					<a href="calendario" class="nav-link">
+						<i class="nav-icon far fa-comments"></i>
+						<p>Mensajes</p>
+					</a>
+				</li>
+				
 				<li class="nav-item has-treeview">
 					<a href="#" class="nav-link">
 						<i class="nav-icon far fa-bookmark"></i>

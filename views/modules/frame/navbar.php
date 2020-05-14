@@ -17,6 +17,9 @@
             <a href="calendario" class="nav-link">Calendario</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
+            <a href="calendario" class="nav-link">Mensajes</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
             <a href="ver-vacantes" class="nav-link">Vacantes</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
@@ -121,6 +124,11 @@
             <div class="dropdown-divider"></div>
                 <a href="notificaciones" class="dropdown-item dropdown-footer">Ver todas</a>
             </div>
+        </li>
+        <li class="nav-item">
+            <a href="logout" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </li>
         
     </ul>

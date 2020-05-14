@@ -7,6 +7,23 @@
 ?>
 
 <div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Vacantes</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="home">Home</a></li>
+                        <li class="breadcrumb-item active">Vacantes</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="content">
         <div class="row">
             <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
@@ -17,11 +34,11 @@
                 <!-- Seccion de Busqueda y Filtros -->
                 <div class="row">
                     <div class="col-md-2 my-2">
-                        <a href="">
-                            <i class="fas fa-download"></i> Descargar informe
+                        <a href="#" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
+                            <i class="fas fa-plus"></i> Crear una nueva 
                         </a>
                     </div>
-                    <div class="col-md-8 my-2">
+                    <div class="col-md-6 my-2">
                         <div class="form-inline d-block">
                             <div class="input-group input-group-sm">
                                 <input class="form-control" id="txtBuscarVacante" type="text" placeholder="Buscar por titulo en todas las vacantes" aria-label="Search">
@@ -44,6 +61,11 @@
                                 </select>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-2 my-2">
+                        <a href="">
+                            <i class="fas fa-download"></i> Descargar informe
+                        </a>
                     </div>
                 </div> 
                 <!-- Contenedor para resultado de las Busquedas-->

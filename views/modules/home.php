@@ -24,6 +24,7 @@
 
                 <?php include "views/modules/widgets/dash-vacantes.php"; ?>
                 <?php include "views/modules/widgets/dash-tareas.php"; ?>
+                <?php include "views/modules/widgets/dash-corona.php"; ?>
 
 
 

@@ -1,4 +1,4 @@
-<div class="row mt-4">
+<div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header bg-gradient-info">
@@ -25,11 +25,6 @@
                                 Cerradas:<span class="text-info float-right" id="vacantesCerradasSpan"></span><br>
                                 <hr>
                                 Total Vacantes:<span class="text-info float-right" id="vacantesTotalSpan"></span><br>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" style="color:white;" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
-                                    <i class="fas fa-plus"></i> Crear una nueva 
-                                </a>
                             </div>
                         </div>
                     </div>

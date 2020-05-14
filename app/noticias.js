@@ -81,10 +81,10 @@ $(document).ready(function(){
                     maintainAspectRatio : false,
                     responsive : true,
                     }
-                // Create pie or douhnut chart
+                // Create pie or doughnut chart
                 // You can switch between pie and douhnut using the method below.
                 var donutChart = new Chart(donutChartCanvas, {
-                    type: 'doughnut',
+                    type: 'pie',
                     data: donutData,
                     options: donutOptions      
                 })

@@ -93,7 +93,7 @@
 
 </head>
 
-<body class="layout-fixed layout-navbar-fixed sidebar-collapse">
+<body class="layout-fixed layout-navbar-fixed sidebar-mini sidebar-collapse">
 
 	<div class="wrapper">
 
