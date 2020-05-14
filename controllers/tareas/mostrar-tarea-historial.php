@@ -40,13 +40,13 @@ if(count($responseHistorial)>0){
 
 			<div class="card border-'.$clase.' my-4">
 
-				<div class="card-header">
+				<div class="card-header bg-gradient-info">
 					<div class="row">
 						<div class="col-md-6">
-							<b>Enviada por:</b> <a class="text-muted">'.$value["usu_nombre"].'</a>
+							<b>Enviada por:</b> <span>'.$value["usu_nombre"].'</span>
 						</div>
 						<div class="col-md-6">
-							<b>Fecha/Hora:</b> <a class="text-muted">'.$value["tar_seg_fecha"].'</a>
+							<b>Fecha/Hora:</b> <span>'.$value["tar_seg_fecha"].'</span>
 						</div>
 					</div>
 				</div>

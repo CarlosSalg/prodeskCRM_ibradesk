@@ -99,7 +99,7 @@ $(document).ready(function(){
 
         $("#cargando").css("display", "inline");
         
-        var url = 'http://newsapi.org/v2/top-headlines?' + 'country=mx&' + 'pageSize=80&' + 'category='+categoria+'&' + 'apiKey=f181ec0846b94ba194e41667a9cdb11d';          
+        var url = 'http://newsapi.org/v2/top-headlines?' + 'country=mx&' + 'pageSize=80&' +'category='+categoria+'&' + 'apiKey=f181ec0846b94ba194e41667a9cdb11d';          
         $.get(url, function(responseNoticias){ 
 
             let articulos = responseNoticias.articles;
@@ -125,17 +125,14 @@ $(document).ready(function(){
                 template += `
 
                     <div class="card f-14">
-                        ${imagen}
+                        <a href="${articulo.url}" target="_blank">${imagen}</a>
                         <div class="card-body">
-                            <h5 class="card-title">${articulo.title}</h5>
+                            <h5 class="card-title"><a href="${articulo.url}" target="_blank" style="color:black;">${articulo.title}</a></h5>
                             <p class="card-text">${articulo.description}</p>
                             <p class="card-text">Fuente: ${articulo.source.name}</p>
-                            <a href="${articulo.url}" target="_blank" class="btn btn-info btn-sm float-right">Ver mas</a>
                         </div>
-                        
                     </div>
-                
-                
+        
                 `;
 
             });
@@ -144,7 +141,6 @@ $(document).ready(function(){
             $("#cargando").css("display", "none");
 
         });
-
         
     };   
     

@@ -10,22 +10,10 @@
     <section class="content">
         <div class="row">
             <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+
                 <!-- Seccion de Widgets con Informacion -->
-                <div class="row mt-4">
-                    <div class="col-md-3">
-                        <div class="small-box bg-gradient-info">
-                            <div class="inner">
-                                Abiertas <span class="float-right"><?=$cantidadPorEstatus[0][0]?></span><br>
-                                Pendientes <span class="float-right"><?=$cantidadPorEstatus[1][0]?></span><br>
-                                Cerradas <span class="float-right"><?=$cantidadPorEstatus[2][0]?></span><br>
-                                Total <span class="float-right"><?=$totalVacantes?></span><br>
-                            </div>
-                            <a href="#" class="small-box-footer" type="button" data-toggle="modal" data-target="#modalNuevaVacante">
-                                <i class="fas fa-plus"></i> Crear una nueva 
-                            </a>
-                        </div>
-                    </div>
-                </div>
+				<?php include "views/modules/widgets/dash-vacantes.php"; ?>
+
                 <!-- Seccion de Busqueda y Filtros -->
                 <div class="row">
                     <div class="col-md-2 my-2">

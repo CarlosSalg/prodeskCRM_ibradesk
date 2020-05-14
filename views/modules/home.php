@@ -15,6 +15,26 @@
         </div>
     </section>
 
+    <section class="content">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-xs-12 offset-sm-0">
+
+                <!-- Seccion de Widgets con Informacion -->
+
+
+                <?php include "views/modules/widgets/dash-vacantes.php"; ?>
+                <?php include "views/modules/widgets/dash-tareas.php"; ?>
+
+
+
+            </div>
+        
+        
+        
+        </div>
+    </section>
+
+
     
 
 </div>

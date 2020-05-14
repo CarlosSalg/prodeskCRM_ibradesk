@@ -336,4 +336,87 @@ $(document).ready(function(){
         buscarSimilares(buscar);
     });
 
+    // Llenar dashboard vacantes
+	const actualizarDashboardVacantes = function(){
+
+		// Obtener cantidad de Vacantes en base de datos
+		$.get('controllers/vacantes/mostrar-cantidad-vacantes.php', function(response){
+
+            let dashVacantes = JSON.parse(response);
+
+			$('#vacantesAbiertasSpan').html(dashVacantes.abiertas);
+			$('#vacantesPendientesSpan').html(dashVacantes.pendientes);
+			$('#vacantesCerradasSpan').html(dashVacantes.cerradas);
+			$('#vacantesTotalSpan').html(dashVacantes.total);
+
+			let total = dashVacantes.abiertas + dashVacantes.pendientes;
+
+			// Donut Chart
+			var donutChartCanvasVacantes = $('#donutChartVacantes').get(0)
+			var donutData        = {
+			labels: [
+				dashVacantes.abiertas + ' Abiertas', 
+				dashVacantes.pendientes + ' Pendientes',
+			],
+			datasets: [
+				{
+				data: [dashVacantes.abiertas,dashVacantes.pendientes],
+				backgroundColor : ['#17a2b8', '#6c757d'],
+				}
+			]
+			}
+
+			var donutOptions     = {
+				maintainAspectRatio : false,
+				responsive : true,
+				}
+			// Create pie or douhnut chart
+			// You can switch between pie and douhnut using the method below.
+			var donutChart = new Chart(donutChartCanvasVacantes, {
+				type: 'pie',
+				data: donutData,
+				options: donutOptions      
+			})
+
+			// Donut Chart Total
+			var donutChartCanvasTotalVacantes = $('#donutChartVacantesTotal').get(0).getContext('2d')
+			var donutDataTotal        = {
+			labels: [
+				dashVacantes.cerradas + ' Cerradas', 
+				total + ' Abiertas y/o Pendientes', 
+			],
+			datasets: [
+				{
+				data: [dashVacantes.cerradas, total],
+				backgroundColor : ['#28a745', '#17a2b8'],
+				}
+			]
+			}
+			
+			var donutOptions     = {
+				maintainAspectRatio : false,
+				responsive : true,
+				}
+			// Create pie or douhnut chart
+			// You can switch between pie and douhnut using the method below.
+			var donutChart = new Chart(donutChartCanvasTotalVacantes, {
+				type: 'doughnut',
+				data: donutDataTotal,
+				options: donutOptions      
+			})
+
+		});
+
+
+    }
+    
+    actualizarDashboardVacantes();
+
+	$('.actualizarDashboardVacantes').on('click', function(event){
+		
+		event.preventDefault();
+		actualizarDashboardVacantes();
+
+	})
+
 });

@@ -125,14 +125,15 @@ class ControladorTareas{
 			$estatusActual = $_POST['estatusActual'];
 			$estatusTarea = $_POST['estatusTarea'];
 			$descripcionTarea = $_POST['descripcionTarea'];
+			$avanceTarea = $_POST['avanceTarea'];
 
 			if($estatusActual != $estatusTarea){
 
-				$cambioEstatus = "Cambio de estatus de $estatusActual a $estatusTarea";
+				$cambioEstatus = "Cambio de estatus de $estatusActual a $estatusTarea avance del $avanceTarea%";
 
 			}else{
 
-				$cambioEstatus = "No se cambio el estatus";
+				$cambioEstatus = "No se cambio el estatus avance del $avanceTarea%";
 
 			}
 
@@ -142,14 +143,20 @@ class ControladorTareas{
 				'estatusActual' => $estatusActual,
 				'estatusTarea' => $estatusTarea,
 				'cambioEstatus' => $cambioEstatus,
+				'avanceTarea' => $avanceTarea,
 				'fechaHora' => $fechaHora,
 				'descripcionTarea' => $descripcionTarea);
 
+			// Actualizar Estatus
 			$tablaTareas = 'tareas';
 			$actualizarEstatusTarea = ModeloTareas::mdlActualizarEstatusTarea($tablaTareas, $datos);
 
 			$tablaNotas = 'tareas_seguimiento';
 			$crearNotaSeguimiento = ModeloTareas::mdlCrearNotaSeguimiento($tablaNotas, $datos);
+
+			// Actualizar Avance
+			$actualizarAvance = ModeloTareas::mdlActualizarAvanceTarea($tablaTareas, $datos);
+
 
 			if($actualizarEstatusTarea == true && $crearNotaSeguimiento == true){
 

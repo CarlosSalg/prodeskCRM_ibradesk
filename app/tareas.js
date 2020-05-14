@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 		let id = $(this).attr('idTarea');
 		let estatusTarea = $(this).attr('estatusTarea');
+		let avanceTarea = $(this).attr('avanceTarea');
 		let template = '';
 
 		if(estatusTarea == 'Asignada'){
@@ -55,8 +56,28 @@ $(document).ready(function(){
 			`;
 		}
 
+		let avanceTareaSelect = `<option value="${avanceTarea}">${avanceTarea}</option>`;
+
+		 avanceTareaSelect += `
+
+			<option value="10">10</option>
+			<option value="20">20</option>
+			<option value="30">30</option>
+			<option value="40">40</option>
+			<option value="50">50</option>
+			<option value="60">60</option>
+			<option value="70">70</option>
+			<option value="80">80</option>
+			<option value="90">90</option>
+			<option value="100">100</option>
+
+		`;
+
+
+
 		$('#idTarea').val(id);
 		$('#estatusActual').val(estatusTarea);
+		$('#avanceTarea').html(avanceTareaSelect);
 		$('#estatusTarea').html(template);
 	});
 
@@ -129,5 +150,91 @@ $(document).ready(function(){
 		});
 
 	});
+
+	// Llenar dashboard tareas
+	const actualizarDashboard = function(){
+
+		// Obtener cantidad de Tareas en base de datos
+		let id = $('#idUsuario').val();
+		$.post('controllers/tareas/mostrar-cantidad-tareas.php',{id}, function(responseTareasCantidad){
+
+			let dashTareas = JSON.parse(responseTareasCantidad);
+
+			$('#tareasAsignadasSpan').html(dashTareas.asignadas);
+			$('#tareasCursoSpan').html(dashTareas.curso);
+			$('#tareasPendientesSpan').html(dashTareas.pendientes);
+			$('#tareasCompletadasSpan').html(dashTareas.completada);
+			$('#tareasTotalSpan').html(dashTareas.total);
+			
+			let total = dashTareas.asignadas + dashTareas.curso + dashTareas.pendientes;
+
+			// Donut Chart
+			var donutChartCanvas = $('#donutChartTareas').get(0).getContext('2d')
+			var donutData        = {
+			labels: [
+				dashTareas.asignadas + ' Asignado', 
+				dashTareas.curso + ' En curso',
+				dashTareas.pendientes + ' Pendiente', 
+			],
+			datasets: [
+				{
+				data: [dashTareas.asignadas,dashTareas.curso,dashTareas.pendientes],
+				backgroundColor : ['#f39c12', '#17a2b8', '#6c757d'],
+				}
+			]
+			}
+
+			var donutOptions     = {
+				maintainAspectRatio : false,
+				responsive : true,
+				}
+			// Create pie or douhnut chart
+			// You can switch between pie and douhnut using the method below.
+			var donutChart = new Chart(donutChartCanvas, {
+				type: 'pie',
+				data: donutData,
+				options: donutOptions      
+			})
+
+			// Donut Chart Total
+			var donutChartCanvasTotal = $('#donutChartTareasTotal').get(0).getContext('2d')
+			var donutDataTotal        = {
+			labels: [
+				dashTareas.completada + ' Completadas', 
+				total + ' Abiertas', 
+			],
+			datasets: [
+				{
+				data: [dashTareas.completada, total],
+				backgroundColor : ['#28a745', '#17a2b8'],
+				}
+			]
+			}
+			
+			var donutOptions     = {
+				maintainAspectRatio : false,
+				responsive : true,
+				}
+			// Create pie or douhnut chart
+			// You can switch between pie and douhnut using the method below.
+			var donutChart = new Chart(donutChartCanvasTotal, {
+				type: 'doughnut',
+				data: donutDataTotal,
+				options: donutOptions      
+			})
+
+		});
+
+
+	}
+
+	actualizarDashboard();
+
+	$('.actualizarDashboardTareas').on('click', function(event){
+		
+		event.preventDefault();
+		actualizarDashboard();
+
+	})
 
 })

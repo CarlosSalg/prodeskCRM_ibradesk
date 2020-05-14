@@ -12,9 +12,11 @@
                                 <h4 class="card-title">
                                     <a style="color:black;" type="button" data-card-widget="collapse">Coronavirus</a>
                                 </h4>
-                                <a href="#" class="btn btn-dark btn-sm float-right actualizarCotonavirus">
-                                    <i class="fas fa-sync-alt"></i>
-                                </a>
+                                <div class="card-tools">
+									<a href="#" class="btn btn-tool actualizarCotonavirus">
+                                        <i class="fas fa-sync-alt"></i>
+									</a>
+								</div>
                             </div>
                             <div class="card-body">
                                 <div class="row" id="contenedorHome">
@@ -33,17 +35,21 @@
                         <div class="card" id="contenedorGlobalNoticias">
                             <div class="card-header bg-gradient-info">
                                 <h4 class="card-title">
-                                    <a style="color:black;" type="button" data-card-widget="collapse">Noticias</a><span id="cargando" class=" badge badge-secondary"> recibiendo noticias...</span>
+                                    <a style="color:black;" type="button" data-card-widget="collapse">Noticias</a>
                                 </h4>
-                                <select id="tipoNoticias" class="float-right bg-gradient-dark">
-                                    <option value="general">General</option>
-                                    <option value="business">Negocios</option>
-                                    <option value="entertainment">Entretenimiento</option>
-                                    <option value="health">Salud</option>
-                                    <option value="science">Ciencia</option>
-                                    <option value="sports">Deportes</option>
-                                    <option value="technology">Tecnologia</option>
-                                </select>
+                                <div class="card-tools">
+                                    <span id="cargando" class="btn btn-tool"> recibiendo noticias...</span>
+                                    <select id="tipoNoticias" class="btn btn-tool">
+                                        <option value="general">General</option>
+                                        <option value="business">Negocios</option>
+                                        <option value="entertainment">Entretenimiento</option>
+                                        <option value="health">Salud</option>
+                                        <option value="science">Ciencia</option>
+                                        <option value="sports">Deportes</option>
+                                        <option value="technology">Tecnologia</option>
+                                    </select>
+								</div>
+                                
                             </div>
                             <div class="card-body">
                                 <div class="row">

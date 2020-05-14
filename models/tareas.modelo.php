@@ -221,7 +221,127 @@ class ModeloTareas{
 		$stmt -> close();
         $stmt =null;
 	}
+
+	public static function mdlMostarAsignadas($tabla, $id){
+
+		$idUsuario = '%"';
+		$idUsuario .= $id;
+		$idUsuario .= '"%';
+
+		$stmt = Conexion::Conectar()->prepare("
+
+		SELECT COUNT(tar_id) AS 'asignadas' FROM $tabla 
+		WHERE tar_usuarios LIKE :id AND tar_estatus = 'Asignada'
+			
+		");
+
 	
+
+		$stmt -> bindParam(":id",$idUsuario, PDO::PARAM_STR);
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+	}
+
+	public static function mdlMostarEnCurso($tabla, $id){
+
+		$idUsuario = '%"';
+		$idUsuario .= $id;
+		$idUsuario .= '"%';
+
+		$stmt = Conexion::Conectar()->prepare("
+
+		SELECT COUNT(tar_id) AS 'asignadas' FROM $tabla 
+		WHERE tar_usuarios LIKE :id AND tar_estatus = 'En curso'
+			
+		");
+
+	
+
+		$stmt -> bindParam(":id",$idUsuario, PDO::PARAM_STR);
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+	}
+	
+	public static function mdlMostarPendientes($tabla, $id){
+
+		$idUsuario = '%"';
+		$idUsuario .= $id;
+		$idUsuario .= '"%';
+
+		$stmt = Conexion::Conectar()->prepare("
+
+		SELECT COUNT(tar_id) AS 'asignadas' FROM $tabla 
+		WHERE tar_usuarios LIKE :id AND tar_estatus = 'Pendiente'
+			
+		");
+
+	
+
+		$stmt -> bindParam(":id",$idUsuario, PDO::PARAM_STR);
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+	}
+
+	public static function mdlMostarCompletadas($tabla, $id){
+
+		$idUsuario = '%"';
+		$idUsuario .= $id;
+		$idUsuario .= '"%';
+
+		$stmt = Conexion::Conectar()->prepare("
+
+		SELECT COUNT(tar_id) AS 'asignadas' FROM $tabla 
+		WHERE tar_usuarios LIKE :id AND tar_estatus = 'Completada'
+			
+		");
+
+	
+
+		$stmt -> bindParam(":id",$idUsuario, PDO::PARAM_STR);
+
+		$stmt -> execute();
+		return $stmt -> fetch();
+
+		$stmt -> close();
+        $stmt =null;
+	}
+
+	public static function mdlActualizarAvanceTarea($tablaTareas, $datos){
+
+		$stmt = Conexion::Conectar()->prepare("
+
+			UPDATE $tablaTareas 
+			SET tar_avance = :tar_avance
+			WHERE tar_id = :tar_id");
+
+		$stmt -> bindParam(":tar_avance",$datos['avanceTarea'], PDO::PARAM_STR);
+		$stmt -> bindParam(":tar_id",$datos['idTarea'], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+            
+            return true;
+
+        }else{
+            
+            return false;
+
+        }
+
+        $stmt -> close();
+        $stmt = null;
+	}
 }
 
 

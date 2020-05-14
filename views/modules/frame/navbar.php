@@ -4,7 +4,7 @@
   $cantidadNotificaciones = count($notificaciones);
 
 ?>
-
+<input type="hidden" id="idUsuario" value="<?=$_SESSION['id']?>">
 <nav class="main-header navbar navbar-expand navbar-dark navbar-info">
     <ul class="navbar-nav">
         <li class="nav-item">

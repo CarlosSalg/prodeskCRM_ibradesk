@@ -36,7 +36,7 @@
                                             <input type="checkbox" id="drop-remove">
                                             remove after drop
                                         </label>
-                                        <p id="idUsuario" idNumero="<?=$_SESSION['id']?>"><?=$_SESSION['id']?></p>
+                                        <p id="idUsuarioCalendario" idNumero="<?=$_SESSION['id']?>"><?=$_SESSION['id']?></p>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
     var Calendar = FullCalendar.Calendar;
     var calendarEl = document.getElementById('calendar');
 
-    let id = $('#idUsuario').attr('idNumero');
+    let id = $('#idUsuarioCalendario').attr('idNumero');
 
     $.post('controllers/calendario/ver-calendario.php',{id}, function(response){
 
