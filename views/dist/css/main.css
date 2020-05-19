@@ -74,3 +74,10 @@
 	border: none;
 	background:white;
 }
+
+.usuarioSelect:hover{
+	
+	background:#F1F0F0;
+	cursor: pointer;
+
+}

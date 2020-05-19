@@ -20,6 +20,7 @@
 	require_once "models/notificaciones.modelo.php";
 	require_once "models/calendario.modelo.php";
 	require_once "models/entrevistas.modelo.php";
+	require_once "models/mensajes.modelo.php";
 
 
 	// Realizando Render del TEMPLATE

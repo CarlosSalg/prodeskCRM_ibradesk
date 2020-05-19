@@ -15,9 +15,19 @@ class ControladorUsuarios{
 
 			if($respuesta['usu_usuario'] == $usuario && $respuesta['usu_password'] == $password){
 
+
+				$foto = 'views/img/usuarios/default/anonymous.png';
+
+				if($respuesta['usu_foto'] != ""){
+
+					$foto = $respuesta['usu_foto'];
+
+				}
+
 				$_SESSION['status'] = 1;
 				$_SESSION['id'] = $respuesta['usu_id'];
 				$_SESSION['nombre'] = $respuesta['usu_nombre'];
+				$_SESSION['foto'] = $foto; 
 				$_SESSION['type'] = $respuesta['usu_roll'];
 
 				if($respuesta['usu_foto'] != ""){

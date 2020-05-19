@@ -177,6 +177,7 @@
 	<script src="app/candidatos.js"></script>
 	<script src="app/noticias.js"></script>
 	<script src="app/home.js"></script>
+	<script src="app/mensajes.js"></script>
 
 </body>
 
