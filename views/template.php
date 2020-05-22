@@ -110,6 +110,7 @@
 
 					if(
 						$route == 'noticias' || 
+						$route == 'mis-entevistas' || 
 						$route == 'mensajes' || 
 						$route == 'usuarios' || 
 						$route == 'ver-tarea' || 

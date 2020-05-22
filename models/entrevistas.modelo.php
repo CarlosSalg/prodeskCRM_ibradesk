@@ -66,6 +66,27 @@ class ModeloEntrevistas{
 		$stmt -> close();
         $stmt =null;
 
+    }
+    
+    public static function mdlMostrarEntrevistasProgramadas($tabla, $id){
+
+        $stmt = Conexion::Conectar()->prepare("
+        
+            SELECT e.ent_id, e.ent_fecha, e.ent_hora_inicio, e.ent_hora_fin, e.ent_estatus, v.vac_titulo, c.can_nombre, c.can_apellidos FROM entrevistas e
+            JOIN vacantes v ON e.ent_vac_id = v.vac_id
+            JOIN candidatos c ON e.ent_candidato = c.can_id
+            WHERE e.ent_entrevistador = 1
+
+        ");
+            
+        $stmt -> bindParam(":id",$id, PDO::PARAM_INT);
+
+		$stmt -> execute();
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+        $stmt =null;
+
 	}
 
     

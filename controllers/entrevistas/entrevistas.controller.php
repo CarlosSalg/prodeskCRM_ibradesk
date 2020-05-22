@@ -110,4 +110,14 @@ class ControladorEntrevistas{
 
     }
 
+    public static function ctrMostrarEntrevistasProgramadas($id){
+
+        $tabla = 'entrevistas';
+        $respuesta = ModeloEntrevistas::mdlMostrarEntrevistasProgramadas($tabla, $id);
+
+        return $respuesta;
+
+    }
+
+
 }

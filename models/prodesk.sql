@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-05-2020 a las 02:32:56
+-- Tiempo de generación: 19-05-2020 a las 02:25:11
 -- Versión del servidor: 10.4.10-MariaDB
 -- Versión de PHP: 7.3.12
 
@@ -65,7 +65,11 @@ INSERT INTO `calendario` (`cal_id`, `cal_user_id`, `cal_event_descripcion`, `cal
 (14, 1, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Al 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"202020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"asldkjasd\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Al 70 por ciento', '2020-02-20', '20:20', '202020-02-20', '20:20', 0, 'index.php?route=ver-tarea&idTarea=6', '#f56954', '#f56954'),
 (15, 2, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Al 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"202020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"asldkjasd\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Al 70 por ciento', '2020-02-20', '20:20', '202020-02-20', '20:20', 0, 'index.php?route=ver-tarea&idTarea=6', '#f56954', '#f56954'),
 (16, 1, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tiempo 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"lkasdljk\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Tiempo 70 por ciento', '2020-02-20', '20:20', '2020-02-20', '20:20', 0, 'index.php?route=ver-tarea&idTarea=7', '#f56954', '#f56954'),
-(17, 2, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tiempo 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"lkasdljk\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Tiempo 70 por ciento', '2020-02-20', '20:20', '2020-02-20', '20:20', 0, 'index.php?route=ver-tarea&idTarea=7', '#f56954', '#f56954');
+(17, 2, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tiempo 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"lkasdljk\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Tiempo 70 por ciento', '2020-02-20', '20:20', '2020-02-20', '20:20', 0, 'index.php?route=ver-tarea&idTarea=7', '#f56954', '#f56954'),
+(18, 1, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tarea de prueba\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2019-03-14\",\"horaFin\":\"10:14\",\"descripcionTarea\":\"Ok prueba\",\"archivoAdjunto\":\"views\\/docs\\/tareas\\/1178\\/NuevoDocumento 2020-03-30 22.05.06.pdf\",\"archivoNombre\":\"NuevoDocumento 2020-03-30 22.05.06.pdf\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Tarea de prueba', '2020-05-14', '20:20', '2019-03-14', '10:14', 0, 'index.php?route=ver-tarea&idTarea=8', '#f56954', '#f56954'),
+(19, 2, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tarea de prueba\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2019-03-14\",\"horaFin\":\"10:14\",\"descripcionTarea\":\"Ok prueba\",\"archivoAdjunto\":\"views\\/docs\\/tareas\\/1178\\/NuevoDocumento 2020-03-30 22.05.06.pdf\",\"archivoNombre\":\"NuevoDocumento 2020-03-30 22.05.06.pdf\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Tarea de prueba', '2020-05-14', '20:20', '2019-03-14', '10:14', 0, 'index.php?route=ver-tarea&idTarea=8', '#f56954', '#f56954'),
+(20, 1, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Aprender JavaScript\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"12:30\",\"fechaFin\":\"2020-06-14\",\"horaFin\":\"13:30\",\"descripcionTarea\":\"Okay amigo\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Aprender JavaScript', '2020-05-14', '12:30', '2020-06-14', '13:30', 0, 'index.php?route=ver-tarea&idTarea=9', '#f56954', '#f56954'),
+(21, 2, '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Aprender JavaScript\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"12:30\",\"fechaFin\":\"2020-06-14\",\"horaFin\":\"13:30\",\"descripcionTarea\":\"Okay amigo\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', 'tarea', 'Aprender JavaScript', '2020-05-14', '12:30', '2020-06-14', '13:30', 0, 'index.php?route=ver-tarea&idTarea=9', '#f56954', '#f56954');
 
 -- --------------------------------------------------------
 
@@ -155,6 +159,70 @@ INSERT INTO `entrevistas` (`ent_id`, `ent_vac_id`, `ent_candidato`, `ent_entrevi
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `mensajes`
+--
+
+CREATE TABLE `mensajes` (
+  `men_id` int(11) NOT NULL,
+  `men_usu_emisor` int(11) NOT NULL,
+  `men_usu_receptor` int(11) NOT NULL,
+  `men_texto` mediumtext COLLATE utf8_spanish_ci NOT NULL,
+  `men_fecha` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `men_hora` varchar(20) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`men_id`, `men_usu_emisor`, `men_usu_receptor`, `men_texto`, `men_fecha`, `men_hora`) VALUES
+(31, 3, 1, 'Hola', '2020/4/14', '18:53'),
+(32, 1, 3, 'Hola Rodrigo', '2020/4/14', '18:55'),
+(33, 3, 1, 'Que onda', '2020/4/14', '18:56'),
+(34, 1, 3, 'Como estas', '2020/4/14', '18:58'),
+(35, 3, 1, 'Bien y tu que tal?', '2020/4/14', '18:58'),
+(36, 2, 1, 'Hola Juan', '2020/4/14', '19:2'),
+(37, 1, 2, 'Hola que tal amigo', '2020/4/14', '19:2'),
+(38, 1, 2, 'Juan Carlos, es necesario que me mandes las evidencias la narracion del jueves', '2020/4/14', '19:5'),
+(39, 1, 2, 'que onda', '2020/4/14', '19:5'),
+(40, 1, 2, 'Porque no sale', '2020/4/14', '19:5'),
+(41, 1, 2, 'porque no sale', '2020/4/14', '19:6'),
+(42, 1, 2, 'po', '2020/4/14', '19:6'),
+(43, 1, 2, 'asd', '2020/4/14', '19:6'),
+(44, 1, 2, 'as', '2020/4/14', '19:6'),
+(45, 1, 2, 'que onda', '2020/4/14', '19:6'),
+(46, 1, 2, 'con lo de l', '2020/4/14', '19:6'),
+(47, 1, 3, 'Bien hermano todo bien muchas gracias', '2020/4/14', '19:8'),
+(48, 3, 2, 'Juan ', '2020/4/14', '19:8'),
+(49, 3, 2, 'hermano', '2020/4/14', '19:8'),
+(50, 1, 2, 'Que onda amigo', '2020/4/14', '19:12'),
+(51, 1, 2, 'Que rollo', '2020/4/14', '19:12'),
+(52, 1, 2, 'Si sabes o no como esta el asunto', '2020/4/14', '19:12'),
+(53, 1, 3, 'Mi amigo', '2020/4/14', '19:14'),
+(54, 1, 6, 'Diculpa amigo tengo un problema con la conexion', '2020/4/14', '19:33'),
+(55, 6, 1, 'Hola que tal Claro, como te ayudo?', '2020/4/14', '19:34'),
+(56, 1, 3, 'hola', '2020/4/14', '19:35'),
+(57, 1, 11, 'hola', '2020/4/15', '9:29'),
+(58, 1, 6, 'Pues conectate', '2020/4/15', '9:30'),
+(59, 1, 6, 'Hola', '2020/4/15', '9:34'),
+(60, 1, 6, 'hey amigo', '2020/4/15', '9:34'),
+(61, 1, 8, 'hey hola', '2020/4/15', '9:34'),
+(62, 1, 9, 'Hola', '2020/4/15', '9:34'),
+(63, 1, 11, 'amigo', '2020/4/15', '9:46'),
+(64, 1, 3, 'coroborr', '2020/4/15', '9:46'),
+(65, 1, 4, 'que tal administrador', '2020/4/15', '9:46'),
+(66, 1, 10, 'que tal', '2020/4/15', '9:52'),
+(67, 1, 10, 'Amigo', '2020/4/15', '9:52'),
+(68, 1, 9, 'buenas tardes', '2020/4/15', '9:52'),
+(69, 1, 5, 'Hey Amigo?', '2020/4/15', '9:52'),
+(70, 1, 8, 'que pedo wey', '2020/4/15', '9:53'),
+(71, 1, 7, 'Hola, podemos hablar?', '2020/4/15', '10:4'),
+(72, 1, 6, 'amigo que onda si te puedes conectar o no?', '2020/4/15', '10:9'),
+(73, 1, 7, 'Hola', '2020/4/15', '15:42');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `notificaciones`
 --
 
@@ -190,7 +258,11 @@ INSERT INTO `notificaciones` (`not_id`, `not_usu_id`, `not_usu_id_creador`, `not
 (14, 1, 1, 'tarea', 'Tarea Asignada 6', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Al 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"202020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"asldkjasd\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-13 17:23:29', 0),
 (15, 2, 1, 'tarea', 'Tarea Asignada 6', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Al 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"202020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"asldkjasd\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-13 17:23:29', 1),
 (16, 1, 1, 'tarea', 'Tarea Asignada 7', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tiempo 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"lkasdljk\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-13 17:23:51', 0),
-(17, 2, 1, 'tarea', 'Tarea Asignada 7', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tiempo 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"lkasdljk\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-13 17:23:51', 1);
+(17, 2, 1, 'tarea', 'Tarea Asignada 7', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tiempo 70 por ciento\",\"fechaInicio\":\"2020-02-20\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2020-02-20\",\"horaFin\":\"20:20\",\"descripcionTarea\":\"lkasdljk\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-13 17:23:51', 1),
+(18, 1, 1, 'tarea', 'Tarea Asignada 8', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tarea de prueba\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2019-03-14\",\"horaFin\":\"10:14\",\"descripcionTarea\":\"Ok prueba\",\"archivoAdjunto\":\"views\\/docs\\/tareas\\/1178\\/NuevoDocumento 2020-03-30 22.05.06.pdf\",\"archivoNombre\":\"NuevoDocumento 2020-03-30 22.05.06.pdf\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-14 13:18:14', 1),
+(19, 2, 1, 'tarea', 'Tarea Asignada 8', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Tarea de prueba\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"20:20\",\"fechaFin\":\"2019-03-14\",\"horaFin\":\"10:14\",\"descripcionTarea\":\"Ok prueba\",\"archivoAdjunto\":\"views\\/docs\\/tareas\\/1178\\/NuevoDocumento 2020-03-30 22.05.06.pdf\",\"archivoNombre\":\"NuevoDocumento 2020-03-30 22.05.06.pdf\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-14 13:18:14', 1),
+(20, 1, 1, 'tarea', 'Tarea Asignada 9', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Aprender JavaScript\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"12:30\",\"fechaFin\":\"2020-06-14\",\"horaFin\":\"13:30\",\"descripcionTarea\":\"Okay amigo\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-14 13:19:24', 1),
+(21, 2, 1, 'tarea', 'Tarea Asignada 9', '{\"usuarios\":\"[\\\"1\\\",\\\"2\\\"]\",\"nombreTarea\":\"Aprender JavaScript\",\"fechaInicio\":\"2020-05-14\",\"horaInicio\":\"12:30\",\"fechaFin\":\"2020-06-14\",\"horaFin\":\"13:30\",\"descripcionTarea\":\"Okay amigo\",\"archivoAdjunto\":\"\",\"archivoNombre\":\"\",\"creadoPor\":\"1\",\"estatusTarea\":\"Asignada\"}', '2020-05-14 13:19:24', 1);
 
 -- --------------------------------------------------------
 
@@ -226,7 +298,9 @@ INSERT INTO `tareas` (`tar_id`, `tar_usuarios`, `tar_nombre`, `tar_fecha_inicio`
 (4, '[\"1\"]', 'Aprender JavaScript', '2020-05-21', '02:30', '2020-06-21', '14:50', 'Enviar documentacion fiscal faltante', 'views/docs/tareas/60/Propuesta ACF.docx', 'Propuesta ACF.docx', 'En curso', 1, '2020-05-13 18:30:59', 70),
 (5, '[\"1\",\"2\"]', 'Prueba', '1990-10-10', '12:12', '2021-12-19', '23:39', 'Ok', '', '', 'Pendiente', 1, '2020-05-13 19:44:22', 90),
 (6, '[\"1\",\"2\"]', 'Tarea de prueba', '2020-05-13', '10:20', '2020-05-13', '18:30', 'Tarea de prueba', '', '', 'Asignada', 2, '2020-05-13 22:00:21', 100),
-(7, '[\"1\",\"2\"]', 'Tiempo 70 por ciento', '2020-02-20', '20:20', '2020-02-20', '20:20', 'lkasdljk', '', '', 'Asignada', 1, '2020-05-13 22:23:51', 35);
+(7, '[\"1\",\"2\"]', 'Tiempo 70 por ciento', '2020-02-20', '20:20', '2020-02-20', '20:20', 'lkasdljk', '', '', 'Asignada', 1, '2020-05-13 22:23:51', 35),
+(8, '[\"1\",\"2\"]', 'Tarea de prueba', '2020-05-14', '20:20', '2019-03-14', '10:14', 'Ok prueba', 'views/docs/tareas/1178/NuevoDocumento 2020-03-30 22.05.06.pdf', 'NuevoDocumento 2020-03-30 22.05.06.pdf', 'Asignada', 1, '2020-05-14 18:18:14', 0),
+(9, '[\"1\",\"2\"]', 'Aprender JavaScript', '2020-05-14', '12:30', '2020-06-14', '13:30', 'Okay amigo', '', '', 'Asignada', 1, '2020-05-14 18:19:24', 0);
 
 -- --------------------------------------------------------
 
@@ -286,7 +360,16 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`usu_id`, `usu_nombre`, `usu_usuario`, `usu_roll`, `usu_ultimo_login`, `usu_estatus`, `usu_foto`, `usu_password`) VALUES
 (1, 'Carlos Perez Salgado', 'jcperezs2016@gmail.com', 'Administrador', '2020-03-24 20:34:25', 1, 'views/img/usuarios/carlos@ibradesk.com/user8-128x128.jpg', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
-(2, 'Juan Carlos Perez', 'jcperez@ibrasys.com.mx', 'Estandar', '2020-05-12 16:02:29', 1, '', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG');
+(2, 'Juan Carlos Perez', 'jcperez@ibrasys.com.mx', 'Estandar', '2020-05-12 16:02:29', 1, '', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(3, 'Rodrigo Juarez Gonzalez', 'rgonzalez@ibradesk.com', 'Estandar', '2020-05-14 19:59:49', 1, 'views/img/usuarios/rgonzalez@ibradesk.com/OLVERA SANCHEZ LUIS ALBERTO.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(4, 'Administrador', 'administrador@administrador', 'Administrador', '2020-05-15 00:15:35', 1, 'views/img/usuarios/administrador@administrador/OLIVARES CRUZ SERGIO ALBERTO.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(5, 'Manuel Gonzalez Calleja', 'mgonzalez@admin', 'Administrador', '2020-05-15 00:16:00', 1, 'views/img/usuarios/mgonzalez@admin/RODRIGUEZ RAMOS LUIS.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(6, 'Desarrollos Rapidos', 'desarrollos@admin.com', 'Administrador', '2020-05-15 00:16:25', 1, 'views/img/usuarios/desarrollos@admin.com/VICENCIO TRUJILLO GERARDO.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(7, 'Panela Rios Gonzalez', 'prios@admin.com', 'Administrador', '2020-05-15 00:17:32', 1, 'views/img/usuarios/prios@admin.com/MORALES URENDA SUSANA OLIVIA.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(8, 'Carlos Nuñez Perez', 'carlos@admin.com', 'Administrador', '2020-05-15 00:17:59', 1, 'views/img/usuarios/carlos@admin.com/SANDOVAL MEDINA ERICK ROBERTO.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(9, 'Ricardo Gonzalez Martinez', 'ricardo@admin.com', 'Administrador', '2020-05-15 00:21:04', 1, 'views/img/usuarios/ricardo@admin.com/ARCINIEGA LOPEZ JESUS DARIO.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(10, 'Yuliana Sanchez Perez', 'yuliana@admin.com', 'Administrador', '2020-05-15 00:21:36', 1, 'views/img/usuarios/yuliana@admin.com/TEJERO ZETINA JOSE DEL CARMEN.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG'),
+(11, 'Jorge Perez Nuñez', 'jorge@admin.com', 'Estandar', '2020-05-15 00:22:01', 1, 'views/img/usuarios/jorge@admin.com/ARRIAGA PEREZ JOSUE NATHAN.png', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG');
 
 -- --------------------------------------------------------
 
@@ -354,6 +437,12 @@ ALTER TABLE `entrevistas`
   ADD PRIMARY KEY (`ent_id`);
 
 --
+-- Indices de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD PRIMARY KEY (`men_id`);
+
+--
 -- Indices de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
@@ -391,7 +480,7 @@ ALTER TABLE `vacantes`
 -- AUTO_INCREMENT de la tabla `calendario`
 --
 ALTER TABLE `calendario`
-  MODIFY `cal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `cal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `candidatos`
@@ -412,16 +501,22 @@ ALTER TABLE `entrevistas`
   MODIFY `ent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  MODIFY `men_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
 -- AUTO_INCREMENT de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  MODIFY `not_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `not_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `tar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `tar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tareas_seguimiento`
@@ -433,7 +528,7 @@ ALTER TABLE `tareas_seguimiento`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `usu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `vacantes`

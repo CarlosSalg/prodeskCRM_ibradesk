@@ -142,4 +142,38 @@ class Funciones{
 
     }
 
+    /**
+    * Convierte Hora y Fecha a formato para notificaciones, deben entrar 2 parametros, fecha y hora
+    * 
+    * @return string si la fecha es correcta
+    * @param string $fecha formato 2020-04-29 string $hora formato 11:48
+    */
+    public static function TimempoEntrevista($fecha){
+
+        date_default_timezone_set('America/Mexico_City');
+        $fecha1= new DateTime($fecha);
+        $fechaDiferencia = date("Y-m-d");
+        $fecha2= new DateTime($fechaDiferencia);
+        $diff = $fecha2->diff($fecha1);
+        $diferenciaDias = $diff->days;
+        $cadena = '';
+
+        if($diferenciaDias == 0){
+
+            $cadena = "hoy";
+
+        }else if($diferenciaDias == 1){
+
+            $cadena = "mañana";
+
+        }else{
+
+            $cadena = "en $diferenciaDias dias";
+
+        }
+
+        return $cadena;
+
+    }
+
 }
